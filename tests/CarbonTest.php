@@ -11,6 +11,5 @@ class CarbonTest extends PHPUnit_Framework_TestCase
         $zman->addWeeks(2);
 
         $this->assertEquals(2, $zman->dayOfWeek);
-        $this->assertEquals(15, $zman->day);
     }
 }
