@@ -1,5 +1,7 @@
 <?php
 
+use Zmanim\Exceptions\InvalidDateException;
+
 class helpers extends PHPUnit_Framework_TestCase
 {
     /** @test */
@@ -10,6 +12,13 @@ class helpers extends PHPUnit_Framework_TestCase
         $this->assertEquals(3, $secular->month);
         $this->assertEquals(12, $secular->day);
         $this->assertEquals(2017, $secular->year);
+    }
+
+    /** @test */
+    public function it_throws_an_exception_when_trying_to_convert_a_jewish_adar_rishon_in_a_non_leap_year()
+    {
+        $this->expectException(InvalidDateException::class);
+        $secular = toSecular(6, 14, 5777);
     }
 
     /** @test */

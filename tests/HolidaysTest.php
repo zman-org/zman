@@ -1,6 +1,7 @@
 <?php
 
 use Zmanim\Zman;
+use Zmanim\Exceptions\InvalidDateException;
 
 class HolidaysTest extends PHPUnit_Framework_TestCase
 {
@@ -120,6 +121,13 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(19, Zman::dayOfPurimKattan('5779')->day);
         $this->assertEquals(2, Zman::dayOfPurimKattan('5779')->month);
         $this->assertEquals(2019, Zman::dayOfPurimKattan('5779')->year);
+    }
+
+    /** @test */
+    public function throws_an_exception_if_purim_kattan_doesnt_exist()
+    {
+        $this->expectException(InvalidDateException::class);
+        $pk = Zman::dayOfPurimKattan('5777');
     }
 
     /** @test */
