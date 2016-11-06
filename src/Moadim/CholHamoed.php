@@ -29,7 +29,7 @@ trait CholHamoed
 
     /**
      * Chol Hamoed Sukkos is from the 17th to the 21th of
-     * Tishrei and includes the 16th in E"Y/
+     * Tishrei and includes the 16th in E"Y.
      *
      * @return bool
      */

@@ -7,7 +7,7 @@ use Carbon\Carbon;
 trait Holidays
 {
     /**
-     * Gets the first day of Pesach for a given Jewish year
+     * Gets the first day of Pesach for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -18,7 +18,7 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Pesach Sheni for a given Jewish year
+     * Gets the day of Pesach Sheni for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -29,7 +29,7 @@ trait Holidays
     }
 
     /**
-     * Gets the first day of Shavuos for a given Jewish year
+     * Gets the first day of Shavuos for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -40,7 +40,7 @@ trait Holidays
     }
 
     /**
-     * Gets the first day of Rosh Hashana for a given Jewish year
+     * Gets the first day of Rosh Hashana for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -51,7 +51,7 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Yom Kippur for a given Jewish year
+     * Gets the day of Yom Kippur for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -62,7 +62,7 @@ trait Holidays
     }
 
     /**
-     * Gets the first day of Sukkos for a given Jewish year
+     * Gets the first day of Sukkos for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -73,7 +73,7 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Shmini Atzeres for a given Jewish year
+     * Gets the day of Shmini Atzeres for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -84,7 +84,7 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Shmini Atzeres for a given Jewish year
+     * Gets the day of Shmini Atzeres for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -95,7 +95,7 @@ trait Holidays
     }
 
     /**
-     * Gets the first day of Chanuka for a given Jewish year
+     * Gets the first day of Chanuka for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -106,7 +106,7 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Tu Bishvat for a given Jewish year
+     * Gets the day of Tu Bishvat for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -117,7 +117,7 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Purim for a given Jewish year
+     * Gets the day of Purim for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -128,7 +128,7 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Shushan Purim for a given Jewish year
+     * Gets the day of Shushan Purim for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon
@@ -139,7 +139,7 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Purim Kattan for a given Jewish year
+     * Gets the day of Purim Kattan for a given Jewish year.
      *
      * @param  string|int $year
      * @return Carbon\Carbon

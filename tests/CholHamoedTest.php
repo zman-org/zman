@@ -35,7 +35,7 @@ class CholHamoedTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(Zman::parse('April 13, 2017')->isCholHamoed());
         $this->assertTrue(Zman::parse('October 19, 2016')->isCholHamoed());
-        
+
         $this->assertFalse(Zman::parse('October 24, 2016')->isCholHamoed());
     }
 }
