@@ -21,13 +21,14 @@ class Zman extends Carbon
     use DaysOfTheWeek;
 
     protected $date;
+    protected $carbon;
 
     public function __construct($time = null, $tz = null)
     {
         parent::__construct($time, $tz);
 
-        $carbon = Carbon::parse($time);
-        $this->date = explode('/', jdtojewish(gregoriantojd($carbon->month, $carbon->day, $carbon->year)));
+        $this->carbon = Carbon::parse($time);
+        $this->date = explode('/', jdtojewish(gregoriantojd($this->carbon->month, $this->carbon->day, $this->carbon->year)));
     }
 
     public function hasLeining()
@@ -38,8 +39,8 @@ class Zman extends Carbon
             || $this->isRoshChodesh()
             || $this->isFastDay()
             || $this->isYuntif()
-            || $this->isCholHamoed();
-            // || $this->isChanuka()
+            || $this->isCholHamoed()
+            || $this->isChanuka();
             // || $this->isPurim();
     }
 

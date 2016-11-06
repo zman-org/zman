@@ -76,8 +76,47 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
         $this->assertFalse(Zman::parse('October 24, 2016')->isSimchasTorah());
     }
 
+    /** @test */
+    public function it_knows_when_chanuka_is()
+    {
+        // When Kislev has 29 days
+        $this->assertTrue(Zman::parse('December 25, 2016')->isChanuka());
+        $this->assertTrue(Zman::parse('December 26, 2016')->isChanuka());
+        $this->assertTrue(Zman::parse('December 27, 2016')->isChanuka());
+        $this->assertTrue(Zman::parse('December 28, 2016')->isChanuka());
+        $this->assertTrue(Zman::parse('December 29, 2016')->isChanuka());
+        $this->assertTrue(Zman::parse('December 30, 2016')->isChanuka());
+        $this->assertTrue(Zman::parse('December 31, 2016')->isChanuka());
+        $this->assertTrue(Zman::parse('January 1, 2017')->isChanuka());
+
+        $this->assertFalse(Zman::parse('December 24, 2016')->isChanuka());
+        $this->assertFalse(Zman::parse('January 2, 2017')->isChanuka());
+
+        // // When Kislev has 30 days
+        $this->assertTrue(Zman::parse('December 13, 2017')->isChanuka());
+        $this->assertTrue(Zman::parse('December 14, 2017')->isChanuka());
+        $this->assertTrue(Zman::parse('December 15, 2017')->isChanuka());
+        $this->assertTrue(Zman::parse('December 16, 2017')->isChanuka());
+        $this->assertTrue(Zman::parse('December 17, 2017')->isChanuka());
+        $this->assertTrue(Zman::parse('December 18, 2017')->isChanuka());
+        $this->assertTrue(Zman::parse('December 19, 2017')->isChanuka());
+        $this->assertTrue(Zman::parse('December 20, 2017')->isChanuka());
+
+        $this->assertFalse(Zman::parse('December 12, 2017')->isChanuka());
+        $this->assertFalse(Zman::parse('December 21, 2017')->isChanuka());
+    }
+
+    /** @test */
+    public function it_knows_the_first_day_of_chanuka()
+    {
+        $chanuka = Zman::firstDayOfChanuka('5777');
+        
+        $this->assertEquals(12, $chanuka->month);
+        $this->assertEquals(25, $chanuka->day);
+        $this->assertEquals(2016, $chanuka->year);
+    }
+
     // purim
-    // chanuka
     // tu bishvat
 
     /** @test */

@@ -2,6 +2,8 @@
 
 namespace Zmanim\Moadim;
 
+use Carbon\Carbon;
+
 trait Holidays
 {
     /**
@@ -19,7 +21,8 @@ trait Holidays
             || $this->isRoshHashana()
             || $this->isYomKippur()
             || $this->isShminiAtzeres()
-            || $this->isSimchasTorah($galus);
+            || $this->isSimchasTorah($galus)
+            || $this->isChanuka();
     }
 
     /**
@@ -92,5 +95,32 @@ trait Holidays
     {
         return $this->month === 1
             && ($galus ? $this->day === 23 : $this->day === 22);
+    }
+
+    /**
+     * Chanuka is 8 days from the 25th of Kislev. Sometimes
+     * Kislev has 29 days, but sometimes it has 30 days.
+     *
+     * @return bool
+     */
+    public function isChanuka()
+    {
+        $firstDay = static::firstDayOfChanuka($this->year);
+        $lastDay = $firstDay->addDays(7);
+
+        $firstDay = static::firstDayOfChanuka($this->year);
+
+        return $this->carbon->gte($firstDay) && $this->carbon->lte($lastDay);
+    }
+
+    /**
+     * Gets the first day of Chanuka for a given Jewish year
+     *
+     * @param  string|int $year
+     * @return Zmanim\Zman
+     */
+    public static function firstDayOfChanuka($year)
+    {
+        return Carbon::parse(jdtogregorian(jewishtojd(3, 25, $year)));
     }
 }
