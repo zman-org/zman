@@ -58,8 +58,12 @@ class LeiningTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function there_is_leining_on_chanuka()
     {
-        $this->assertTrue(Zman::parse('December 24, 2016')->hasLeining());
+        $this->assertTrue(Zman::parse('December 27, 2016')->hasLeining());
     }
 
-    // public function there_is_leining_on_purim()
+    /** @test */
+    public function there_is_leining_on_purim()
+    {
+        $this->assertTrue(Zman::parse('March 12, 2017')->hasLeining());
+    }
 }

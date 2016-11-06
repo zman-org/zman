@@ -13,6 +13,9 @@
         "nesbot/carbon": "^1.21"
     },
     "autoload": {
+        "files": [
+            "src/Helpers/helpers.php"
+        ],
         "psr-4": {
             "Zmanim\\": "src/" 
         }

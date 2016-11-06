@@ -28,7 +28,7 @@ class Zman extends Carbon
         parent::__construct($time, $tz);
 
         $this->carbon = Carbon::parse($time);
-        $this->date = explode('/', jdtojewish(gregoriantojd($this->carbon->month, $this->carbon->day, $this->carbon->year)));
+        $this->date = explode('/', toJewish($this->carbon->month, $this->carbon->day, $this->carbon->year));
     }
 
     public function hasLeining()
@@ -40,8 +40,8 @@ class Zman extends Carbon
             || $this->isFastDay()
             || $this->isYuntif()
             || $this->isCholHamoed()
-            || $this->isChanuka();
-            // || $this->isPurim();
+            || $this->isChanuka()
+            || $this->isPurim();
     }
 
     public function __get($name)
