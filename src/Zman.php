@@ -6,13 +6,17 @@ use Carbon\Carbon;
 use Zmanim\Moadim\Yuntif;
 use Zmanim\Moadim\Shabbos;
 use Zmanim\Moadim\FastDays;
+use Zmanim\Moadim\Holidays;
+use Zmanim\Moadim\CholHamoed;
 use Zmanim\Moadim\RoshChodesh;
 use Zmanim\Helpers\DaysOfTheWeek;
 
 class Zman extends Carbon
 {
     use Yuntif;
+    use Holidays;
     use FastDays;
+    use CholHamoed;
     use RoshChodesh;
     use DaysOfTheWeek;
 
@@ -33,8 +37,8 @@ class Zman extends Carbon
             || $this->isShabbos()
             || $this->isRoshChodesh()
             || $this->isFastDay()
-            || $this->isYuntif();
-            // || $this->isCholHamoed()
+            || $this->isYuntif()
+            || $this->isCholHamoed();
             // || $this->isChanuka()
             // || $this->isPurim();
     }
