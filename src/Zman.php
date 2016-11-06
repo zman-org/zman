@@ -6,12 +6,13 @@ use Carbon\Carbon;
 use Zmanim\Moadim\Shabbos;
 use Zmanim\Moadim\FastDays;
 use Zmanim\Moadim\RoshChodesh;
+use Zmanim\Helpers\DaysOfTheWeek;
 
 class Zman extends Carbon
 {
-    use Shabbos;
     use FastDays;
     use RoshChodesh;
+    use DaysOfTheWeek;
 
     protected $date;
 
@@ -25,9 +26,9 @@ class Zman extends Carbon
 
     public function hasLeining()
     {
-        return $this->dayOfWeek === 1
-            || $this->dayOfWeek === 4
-            || $this->dayOfWeek === 6
+        return $this->isMonday()
+            || $this->isThursday()
+            || $this->isShabbos()
             || $this->isRoshChodesh()
             || $this->isFastDay();
             // || $this->isYuntif()

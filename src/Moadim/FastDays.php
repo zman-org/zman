@@ -94,15 +94,4 @@ trait FastDays
         return ($this->day === 9 && $this->month === 12 && !$this->isShabbos())
         || ($this->day === 10 && $this->month === 12 && $this->isSunday());
     }
-
-    /**
-     * Check if the date is a Sunday, to assist
-     * in determining fasts that are nidcheh.
-     *
-     * @return bool
-     */
-    public function isSunday()
-    {
-        return $this->dayOfWeek === 0;
-    }
 }
