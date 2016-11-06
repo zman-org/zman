@@ -3,6 +3,7 @@
 namespace Zmanim;
 
 use Carbon\Carbon;
+use Zmanim\Moadim\Yuntif;
 use Zmanim\Moadim\Shabbos;
 use Zmanim\Moadim\FastDays;
 use Zmanim\Moadim\RoshChodesh;
@@ -10,6 +11,7 @@ use Zmanim\Helpers\DaysOfTheWeek;
 
 class Zman extends Carbon
 {
+    use Yuntif;
     use FastDays;
     use RoshChodesh;
     use DaysOfTheWeek;
@@ -30,8 +32,8 @@ class Zman extends Carbon
             || $this->isThursday()
             || $this->isShabbos()
             || $this->isRoshChodesh()
-            || $this->isFastDay();
-            // || $this->isYuntif()
+            || $this->isFastDay()
+            || $this->isYuntif();
             // || $this->isCholHamoed()
             // || $this->isChanuka()
             // || $this->isPurim();
