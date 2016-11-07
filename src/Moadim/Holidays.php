@@ -154,24 +154,6 @@ trait Holidays
     }
 
     /**
-     * Checks if the date is any one of the holidays.
-     *
-     * @param  bool $galus
-     * @return bool
-     */
-    public function isHoliday($galus = true)
-    {
-        return $this->isPesach($galus)
-            || $this->isShavuos($galus)
-            || $this->isSukkos()
-            || $this->isRoshHashana()
-            || $this->isYomKippur()
-            || $this->isShminiAtzeres()
-            || $this->isSimchasTorah($galus)
-            || $this->isChanuka();
-    }
-
-    /**
      * Pesach is from the 15th to the 22nd of Nisan in
      * Galus, and from the 15th to the 21st in E"Y.
      *
@@ -223,7 +205,7 @@ trait Holidays
      */
     public function isRoshHashana()
     {
-        return $this->month === 1 && $this->day === 1 || $this->day === 2;
+        return $this->month === 1 && ($this->day === 1 || $this->day === 2);
     }
 
     /**

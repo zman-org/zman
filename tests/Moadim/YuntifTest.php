@@ -73,4 +73,10 @@ class YuntifTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(Zman::parse('October 25, 2016')->isYuntif());
         $this->assertFalse(Zman::parse('October 25, 2016')->isYuntif(false));
     }
+
+    /** @test */
+    public function chanuka_is_not_a_yuntif()
+    {
+        $this->assertFalse(Zman::parse('December 17, 2017')->isYuntif());
+    }
 }

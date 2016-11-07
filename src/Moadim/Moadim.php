@@ -9,4 +9,5 @@ trait Moadim
     use Holidays;
     use CholHamoed;
     use RoshChodesh;
+    use AseresYimeiTeshuva;
 }

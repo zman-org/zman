@@ -169,7 +169,7 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(Zman::parse('October 3, 2016')->isRoshHashana());
         $this->assertTrue(Zman::parse('October 4, 2016')->isRoshHashana());
 
-        $this->assertFalse(Zman::parse('October 5, 2016')->isRoshHashana());
+        $this->assertFalse(Zman::parse('December 20, 2017')->isRoshHashana());
     }
 
     /** @test */
@@ -263,19 +263,5 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(Zman::parse('February 19, 2019')->isPurimKattan());
         $this->assertFalse(Zman::parse('March 21, 2019')->isPurimKattan());
-    }
-
-    /** @test */
-    public function it_knows_if_a_day_is_any_holiday()
-    {
-        $this->assertTrue(Zman::parse('April 11, 2017')->isHoliday());
-        $this->assertTrue(Zman::parse('May 31, 2017')->isHoliday());
-        $this->assertTrue(Zman::parse('October 17, 2016')->isHoliday());
-        $this->assertTrue(Zman::parse('October 3, 2016')->isHoliday());
-        $this->assertTrue(Zman::parse('October 12, 2016')->isHoliday());
-        $this->assertTrue(Zman::parse('October 24, 2016')->isHoliday());
-        $this->assertTrue(Zman::parse('October 25, 2016')->isHoliday());
-
-        $this->assertFalse(Zman::parse('October 26, 2016')->isHoliday());
     }
 }

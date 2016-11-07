@@ -48,7 +48,7 @@ class HallelTest extends PHPUnit_Framework_TestCase
         // Galus
         $this->assertTrue(Zman::parse('October 25, 2016')->isSimchasTorah());
         $this->assertTrue(Zman::parse('October 25, 2016')->hasHallel());
-        
+
         // E"Y
         $this->assertFalse(Zman::parse('October 25, 2016')->isSimchasTorah(false));
         $this->assertFalse(Zman::parse('October 25, 2016')->hasHallel(false));

@@ -23,15 +23,6 @@ class LeiningTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function there_is_no_leining_on_regular_weekdays()
-    {
-        $this->assertFalse(Zman::parse('November 6, 2016')->hasLeining());
-        $this->assertFalse(Zman::parse('November 8, 2016')->hasLeining());
-        $this->assertFalse(Zman::parse('November 9, 2016')->hasLeining());
-        $this->assertFalse(Zman::parse('November 11, 2016')->hasLeining());
-    }
-
-    /** @test */
     public function there_is_leining_on_rosh_chodesh()
     {
         $this->assertTrue(Zman::parse('November 1, 2016')->hasLeining());
@@ -65,5 +56,14 @@ class LeiningTest extends PHPUnit_Framework_TestCase
     public function there_is_leining_on_purim()
     {
         $this->assertTrue(Zman::parse('March 12, 2017')->hasLeining());
+    }
+
+    /** @test */
+    public function there_is_no_leining_on_regular_weekdays()
+    {
+        $this->assertFalse(Zman::parse('November 6, 2016')->hasLeining());
+        $this->assertFalse(Zman::parse('November 8, 2016')->hasLeining());
+        $this->assertFalse(Zman::parse('November 9, 2016')->hasLeining());
+        $this->assertFalse(Zman::parse('November 11, 2016')->hasLeining());
     }
 }
