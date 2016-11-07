@@ -16,15 +16,15 @@ trait Getters
     {
         switch (true) {
             case $name === 'day':
-                return (int) $this->date[1];
+                return (int) $this->jdate['day'];
             case $name === 'month':
-                return (int) $this->date[0];
+                return (int) $this->jdate['month'];
             case $name === 'year':
-                return (int) $this->date[2];
+                return (int) $this->jdate['year'];
             case $name === 'monthName':
-                return $this->getEnglishMonthName($this->date[0], $this->date[2]);
+                return $this->getEnglishMonthName($this->jdate['month'], $this->jdate['year']);
             default:
-                return parent::__get($name);
+                return $this->carbon->__get($name);
         }
     }
 

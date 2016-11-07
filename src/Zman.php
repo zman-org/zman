@@ -5,6 +5,7 @@ namespace Zmanim;
 use Carbon\Carbon;
 use Zmanim\Moadim\Moadim;
 use Zmanim\Getters\Getters;
+use Zmanim\Setters\Setters;
 use Zmanim\Tefilos\Tefilos;
 use Zmanim\Helpers\DaysOfTheWeek;
 
@@ -12,10 +13,11 @@ class Zman extends Carbon
 {
     use Moadim;
     use Getters;
+    use Setters;
     use Tefilos;
     use DaysOfTheWeek;
 
-    protected $date;
+    protected $jdate;
     protected $carbon;
 
     /**
@@ -31,6 +33,7 @@ class Zman extends Carbon
         parent::__construct($time, $tz);
 
         $this->carbon = Carbon::parse($time);
-        $this->date = explode('/', toJewish($this->carbon->month, $this->carbon->day, $this->carbon->year));
+        list($this->jdate['month'], $this->jdate['day'], $this->jdate['year'])
+            = explode('/', toJewish($this->carbon->month, $this->carbon->day, $this->carbon->year));
     }
 }
