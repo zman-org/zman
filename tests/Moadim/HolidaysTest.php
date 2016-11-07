@@ -76,7 +76,7 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_knows_the_first_day_of_chanuka()
+    public function gets_the_first_day_of_chanuka()
     {
         $chanuka = Zman::firstDayOfChanuka('5777');
 
@@ -164,20 +164,6 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function checks_if_it_is_sukkos()
-    {
-        $this->assertTrue(Zman::parse('October 17, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 18, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 19, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 20, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 21, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 22, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 23, 2016')->isSukkos());
-
-        $this->assertFalse(Zman::parse('October 24, 2016')->isSukkos());
-    }
-
-    /** @test */
     public function checks_if_it_is_rosh_hashana()
     {
         $this->assertTrue(Zman::parse('October 3, 2016')->isRoshHashana());
@@ -191,6 +177,20 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(Zman::parse('October 12, 2016')->isYomKippur());
         $this->assertFalse(Zman::parse('October 6, 2016')->isYomKippur());
+    }
+
+    /** @test */
+    public function checks_if_it_is_sukkos()
+    {
+        $this->assertTrue(Zman::parse('October 17, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 18, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 19, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 20, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 21, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 22, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 23, 2016')->isSukkos());
+
+        $this->assertFalse(Zman::parse('October 24, 2016')->isSukkos());
     }
 
     /** @test */

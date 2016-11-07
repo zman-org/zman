@@ -22,8 +22,23 @@ trait Tefilos
             || $this->isPurim();
     }
 
+    /**
+     * Checks if the day has Hallel.
+     *
+     * @return bool
+     */
+    public function hasHallel($galus = true)
+    {
+        return $this->isPesach($galus)
+            || $this->isShavuos($galus)
+            || $this->isSukkos()
+            || $this->isShminiAtzeres()
+            || $this->isSimchasTorah($galus)
+            || $this->isChanuka()
+            || $this->isRoshChodesh();
+    }
+
     // public function hasTachanun()
     // public function hasSlichos()
-    // public function hasHallel()
     // public function hasMussaf()
 }
