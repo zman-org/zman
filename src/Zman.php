@@ -3,58 +3,34 @@
 namespace Zmanim;
 
 use Carbon\Carbon;
-use Zmanim\Moadim\Yuntif;
-use Zmanim\Moadim\Shabbos;
-use Zmanim\Moadim\FastDays;
-use Zmanim\Moadim\Holidays;
-use Zmanim\Moadim\CholHamoed;
-use Zmanim\Moadim\RoshChodesh;
+use Zmanim\Moadim\Moadim;
+use Zmanim\Getters\Getters;
+use Zmanim\Tefilos\Tefilos;
 use Zmanim\Helpers\DaysOfTheWeek;
 
 class Zman extends Carbon
 {
-    use Yuntif;
-    use Holidays;
-    use FastDays;
-    use CholHamoed;
-    use RoshChodesh;
+    use Moadim;
+    use Getters;
+    use Tefilos;
     use DaysOfTheWeek;
 
     protected $date;
     protected $carbon;
 
+    /**
+     * Zman inherits from Carbon which in turn
+     * inherits from \DateTime. This allows
+     * us access to tons of nifty stuff.
+     *
+     * @param string $time
+     * @param string $tz
+     */
     public function __construct($time = null, $tz = null)
     {
         parent::__construct($time, $tz);
 
         $this->carbon = Carbon::parse($time);
         $this->date = explode('/', toJewish($this->carbon->month, $this->carbon->day, $this->carbon->year));
-    }
-
-    public function hasLeining()
-    {
-        return $this->isMonday()
-            || $this->isThursday()
-            || $this->isShabbos()
-            || $this->isRoshChodesh()
-            || $this->isFastDay()
-            || $this->isYuntif()
-            || $this->isCholHamoed()
-            || $this->isChanuka()
-            || $this->isPurim();
-    }
-
-    public function __get($name)
-    {
-        switch (true) {
-            case $name === 'day':
-                return (int) $this->date[1];
-            case $name === 'month':
-                return (int) $this->date[0];
-            case $name === 'year':
-                return (int) $this->date[2];
-            default:
-                return parent::__get($name);
-        }
     }
 }

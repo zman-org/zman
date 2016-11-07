@@ -5,7 +5,7 @@ namespace Zmanim\Moadim;
 trait CholHamoed
 {
     /**
-     * Checks if the date is Chol Hamoed.
+     * Checks if the date is Chol HaMoed.
      *
      * @return bool
      */
@@ -15,8 +15,9 @@ trait CholHamoed
     }
 
     /**
-     * Chol Hamoed Pesach is from the 17th to the 20th of
-     * Nisan in galus, and includes the 16th in E"Y.
+     * Chol Hamoed Pesach lasts from the 17th of
+     * Nissan to the 20th of Nissan in Galus,
+     * and also includes the 16th in E"Y.
      *
      * @return bool
      */
@@ -28,8 +29,9 @@ trait CholHamoed
     }
 
     /**
-     * Chol Hamoed Sukkos is from the 17th to the 21th of
-     * Tishrei and includes the 16th in E"Y.
+     * Chol Hamoed Sukkos lasts from the 17th of
+     * Tishrei to the 21st of Tishrei in Galus,
+     * and also includes the 16th in E"Y.
      *
      * @return bool
      */

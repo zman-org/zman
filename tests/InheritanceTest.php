@@ -2,7 +2,7 @@
 
 use Zmanim\Zman;
 
-class CarbonTest extends PHPUnit_Framework_TestCase
+class InheritanceTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
     public function it_inherits_methods_from_Carbon()

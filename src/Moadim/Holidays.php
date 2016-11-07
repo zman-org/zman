@@ -154,8 +154,7 @@ trait Holidays
     }
 
     /**
-     * Checks if the date is any one of the
-     * holidays.
+     * Checks if the date is any one of the holidays.
      *
      * @param  bool $galus
      * @return bool
@@ -174,7 +173,7 @@ trait Holidays
 
     /**
      * Pesach is from the 15th to the 22nd of Nisan in
-     * Galus and from the 15th to the 21st in E"Y.
+     * Galus, and from the 15th to the 21st in E"Y.
      *
      * @param  bool $galus
      * @return bool
@@ -196,8 +195,8 @@ trait Holidays
     }
 
     /**
-     * Shavuos is on the 6th and 7th of Sivan in Galus
-     * and just the 6th in E"Y.
+     * Shavuos is on the 6th and 7th of Sivan in
+     * Galus, while it's just the 6th in E"Y.
      *
      * @param  bool $galus
      * @return bool
@@ -240,7 +239,7 @@ trait Holidays
     /**
      * Simchas Torah is the 23rd day of Tishrei in
      * Galus, and the 22nd in E"Y. Ashrei Ha'am
-     * SheHaShem Eloikov!
+     * SheHaShem Eloikov!!!!!!!!!!!!!!!!!!!!
      *
      * @return bool
      */
@@ -250,8 +249,7 @@ trait Holidays
     }
 
     /**
-     * Chanuka is 8 days from the 25th of Kislev. Sometimes
-     * Kislev has 29 days, but sometimes it has 30 days.
+     * Chanuka is 8 days from the 25th of Kislev.
      *
      * @return bool
      */
@@ -273,7 +271,7 @@ trait Holidays
 
     /**
      * Purim is the 14th of Adar, or the 14th of
-     * Adar Sheini if it is a leap year.
+     * Adar Sheini when the year is meuberes.
      *
      * @return bool
      */
