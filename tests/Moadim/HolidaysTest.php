@@ -259,6 +259,18 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
+    public function checks_if_it_is_shushan_purim()
+    {
+        // Regular Year
+        $this->assertTrue(Zman::parse('March 13, 2017')->isShushanPurim());
+        $this->assertFalse(Zman::parse('March 11, 2017')->isShushanPurim());
+
+        // Leap Year
+        $this->assertTrue(Zman::parse('March 22, 2019')->isShushanPurim());
+        $this->assertFalse(Zman::parse('February 19, 2019')->isShushanPurim());
+    }
+
+    /** @test */
     public function checks_if_it_is_purim_kattan()
     {
         $this->assertTrue(Zman::parse('February 19, 2019')->isPurimKattan());

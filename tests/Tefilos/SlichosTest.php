@@ -7,7 +7,7 @@ class SlichosTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_gets_the_first_day_of_slichos_for_sfaradim()
     {
-        $firstDay = Zman::firstDayOfSfardiSlichos('5776', true);
+        $firstDay = Zman::firstDayOfSfardiSlichos('5776');
 
         $this->assertEquals(9, $firstDay->month);
         $this->assertEquals(4, $firstDay->day);
@@ -17,15 +17,16 @@ class SlichosTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_gets_the_first_day_of_slichos_for_ashkenazim()
     {
+        var_dump(Zman::firstDayOfAshkenaziSlichos('5776')->toFormattedDateString());
         // Normal Year
-        $firstDay = Zman::firstDayOfSlichos('5777');
+        $firstDay = Zman::firstDayOfAshkenaziSlichos('5777');
 
         $this->assertEquals(9, $firstDay->month);
         $this->assertEquals(17, $firstDay->day);
         $this->assertEquals(2017, $firstDay->year);
 
         // Extended Year
-        $firstDay = Zman::firstDayOfSlichos('5776');
+        $firstDay = Zman::firstDayOfAshkenaziSlichos('5776');
 
         $this->assertEquals(9, $firstDay->month);
         $this->assertEquals(25, $firstDay->day);

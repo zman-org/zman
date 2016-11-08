@@ -263,6 +263,17 @@ trait Holidays
     }
 
     /**
+     * Shushan Purim is usually 15th of Adar, but it
+     * gets pushed to the 16th if it was Shabbos.
+     *
+     * @return bool
+     */
+    public function isShushanPurim()
+    {
+        return $this->carbon->eq(static::dayOfShushanPurim($this->year));
+    }
+
+    /**
      * Purim Kattan is the 14th of Adar Rishon.
      *
      * @return bool
