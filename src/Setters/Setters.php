@@ -70,8 +70,8 @@ trait Setters
     public function setJewishDate($month, $day, $year)
     {
         $this->jdate['month'] = (int) $month;
-        $this->jdate['day']   = (int) $day;
-        $this->jdate['year']  = (int) $year;
+        $this->jdate['day'] = (int) $day;
+        $this->jdate['year'] = (int) $year;
 
         return $this;
     }

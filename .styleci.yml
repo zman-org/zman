@@ -1,6 +1,7 @@
 preset: recommended
 
 disabled:
-  - phpdoc_separation
   - ordered_imports
+  - phpdoc_separation
+  - phpdoc_align
 

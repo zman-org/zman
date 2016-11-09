@@ -11,10 +11,10 @@ trait Slichos
      */
     public function hasSlichos($sfardi = false)
     {
-        return ! ($this->isShabbos() && !$this->isYomKippur())
+        return !($this->isShabbos() && !$this->isYomKippur())
             && ($this->isAseresYimeiTeshuva()
             || $this->isElulSlichos($sfardi)
-            || ($this->isFastDay() && ! $this->isTishaBav()));
+            || ($this->isFastDay() && !$this->isTishaBav()));
     }
 
     /**
@@ -36,7 +36,7 @@ trait Slichos
      */
     public static function firstDayOfSlichos($year, $sfardi = false)
     {
-        return ! $sfardi ? static::firstDayOfAshkenaziSlichos($year) : static::firstDayOfSfardiSlichos($year);
+        return !$sfardi ? static::firstDayOfAshkenaziSlichos($year) : static::firstDayOfSfardiSlichos($year);
     }
 
     /**

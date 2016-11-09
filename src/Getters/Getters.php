@@ -40,7 +40,7 @@ trait Getters
         return [
             'Tishrei', 'Cheshvan', 'Kislev', 'Teves', 'Shvat',
             'Adar 1', isLeapYear($year) ? 'Adar 2' : 'Adar',
-            'Nissan', 'Iyar', 'Sivan', 'Tamuz', 'Av', 'Elul'
+            'Nissan', 'Iyar', 'Sivan', 'Tamuz', 'Av', 'Elul',
         ][$month - 1];
     }
 }

@@ -36,7 +36,7 @@ class Setters extends PHPUnit_Framework_TestCase
         $this->assertEquals(2, $zman->jewishMonth);
 
         $zman->jewishMonth = 10;
-        
+
         $this->assertEquals(10, $zman->jewishMonth);
     }
 
@@ -60,7 +60,7 @@ class Setters extends PHPUnit_Framework_TestCase
         $this->assertEquals(5777, $zman->jewishYear);
 
         $zman->jewishYear = 5000;
-        
+
         $this->assertEquals(5000, $zman->jewishYear);
     }
 
