@@ -1,0 +1,6 @@
+preset: recommended
+
+disabled:
+  - phpdoc_separation
+  - ordered_imports
+
