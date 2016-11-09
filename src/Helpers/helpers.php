@@ -1,6 +1,6 @@
 <?php
 
-use Carbon\Carbon;
+use Zmanim\Zman;
 use Zmanim\Exceptions\InvalidDateException;
 
 /**
@@ -9,7 +9,7 @@ use Zmanim\Exceptions\InvalidDateException;
  * @param  string|int $month
  * @param  string|int $day
  * @param  string|int $year
- * @return Carbon\Carbon
+ * @return Zmanim\Zman
  */
 function toSecular($month, $day, $year)
 {
@@ -17,7 +17,7 @@ function toSecular($month, $day, $year)
         throw new InvalidDateException("{$year} is not a leap year. Use '7' for Adar instead.");
     }
 
-    return Carbon::parse(jdtogregorian(jewishtojd($month, $day, $year)));
+    return Zman::parse(jdtogregorian(jewishtojd($month, $day, $year)));
 }
 
 /**

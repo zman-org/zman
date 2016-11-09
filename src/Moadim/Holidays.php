@@ -2,15 +2,13 @@
 
 namespace Zmanim\Moadim;
 
-use Carbon\Carbon;
-
 trait Holidays
 {
     /**
      * Gets the first day of Pesach for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function firstDayOfPesach($year)
     {
@@ -21,7 +19,7 @@ trait Holidays
      * Gets the day of Pesach Sheni for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function dayOfPesachSheni($year)
     {
@@ -32,7 +30,7 @@ trait Holidays
      * Gets the first day of Shavuos for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function firstDayOfShavuos($year)
     {
@@ -43,7 +41,7 @@ trait Holidays
      * Gets the first day of Rosh Hashana for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function firstDayOfRoshHashana($year)
     {
@@ -54,7 +52,7 @@ trait Holidays
      * Gets the day of Yom Kippur for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function dayOfYomKippur($year)
     {
@@ -65,7 +63,7 @@ trait Holidays
      * Gets the first day of Sukkos for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function firstDayOfSukkos($year)
     {
@@ -76,7 +74,7 @@ trait Holidays
      * Gets the day of Shmini Atzeres for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function dayOfShminiAtzeres($year)
     {
@@ -87,7 +85,7 @@ trait Holidays
      * Gets the day of Shmini Atzeres for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function dayOfSimchasTorah($year, $galus = true)
     {
@@ -98,7 +96,7 @@ trait Holidays
      * Gets the first day of Chanuka for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function firstDayOfChanuka($year)
     {
@@ -109,7 +107,7 @@ trait Holidays
      * Gets the day of Tu Bishvat for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function dayOfTuBishvat($year)
     {
@@ -120,7 +118,7 @@ trait Holidays
      * Gets the day of Purim for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function dayOfPurim($year)
     {
@@ -131,7 +129,7 @@ trait Holidays
      * Gets the day of Shushan Purim for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function dayOfShushanPurim($year)
     {
@@ -142,7 +140,7 @@ trait Holidays
      * Gets the day of Purim Kattan for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Carbon\Carbon
+     * @return Zmanim\Zman
      */
     public static function dayOfPurimKattan($year)
     {
@@ -162,8 +160,8 @@ trait Holidays
      */
     public function isPesach($galus = true)
     {
-        return $this->carbon->gte(static::firstDayOfPesach($this->jewishYear))
-            && $this->carbon->lte(static::firstDayOfPesach($this->jewishYear)->addDays($galus ? 7 : 6));
+        return $this->gte(static::firstDayOfPesach($this->jewishYear))
+            && $this->lte(static::firstDayOfPesach($this->jewishYear)->addDays($galus ? 7 : 6));
     }
 
     /**
@@ -173,7 +171,7 @@ trait Holidays
      */
     public function isPesachSheni()
     {
-        return $this->carbon->eq(static::dayOfPesachSheni($this->jewishYear));
+        return $this->eq(static::dayOfPesachSheni($this->jewishYear));
     }
 
     /**
@@ -237,8 +235,8 @@ trait Holidays
      */
     public function isChanuka()
     {
-        return $this->carbon->gte(static::firstDayOfChanuka($this->jewishYear))
-            && $this->carbon->lte(static::firstDayOfChanuka($this->jewishYear)->addDays(7));
+        return $this->gte(static::firstDayOfChanuka($this->jewishYear))
+            && $this->lte(static::firstDayOfChanuka($this->jewishYear)->addDays(7));
     }
 
     /**
@@ -248,7 +246,7 @@ trait Holidays
      */
     public function isTuBishvat()
     {
-        return $this->carbon->eq(static::dayOfTuBishvat($this->jewishYear));
+        return $this->eq(static::dayOfTuBishvat($this->jewishYear));
     }
 
     /**
@@ -259,7 +257,7 @@ trait Holidays
      */
     public function isPurim()
     {
-        return $this->carbon->eq(static::dayOfPurim($this->jewishYear));
+        return $this->eq(static::dayOfPurim($this->jewishYear));
     }
 
     /**
@@ -270,7 +268,7 @@ trait Holidays
      */
     public function isShushanPurim()
     {
-        return $this->carbon->eq(static::dayOfShushanPurim($this->jewishYear));
+        return $this->eq(static::dayOfShushanPurim($this->jewishYear));
     }
 
     /**
@@ -280,6 +278,6 @@ trait Holidays
      */
     public function isPurimKattan()
     {
-        return $this->carbon->eq(static::dayOfPurimKattan($this->jewishYear));
+        return $this->eq(static::dayOfPurimKattan($this->jewishYear));
     }
 }

@@ -22,7 +22,7 @@ trait Setters
             case $name === 'jewishYear':
                 return $this->setJewishDate($this->jewishMonth, $this->jewishDay, $value);
             default:
-                return $this->carbon->__set($name, $value);
+                return parent::__set($name, $value);
         }
     }
 
@@ -84,8 +84,8 @@ trait Setters
      */
     public function modify($modify)
     {
-        $this->carbon->modify($modify);
-        $this->jdate = explode('/', toJewish($this->carbon->month, $this->carbon->day, $this->carbon->year));
+        parent::modify($modify);
+        $this->jdate = explode('/', toJewish($this->month, $this->day, $this->year));
 
         return $this;
     }

@@ -24,7 +24,7 @@ trait Getters
             case $name === 'jewishMonthName':
                 return $this->jewishMonthNameEnglish($this->jdate['month'], $this->jdate['year']);
             default:
-                return $this->carbon->__get($name);
+                return parent::__get($name);
         }
     }
 

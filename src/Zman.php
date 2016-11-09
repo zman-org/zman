@@ -18,7 +18,6 @@ class Zman extends Carbon
     use DaysOfTheWeek;
 
     protected $jdate;
-    protected $carbon;
 
     /**
      * Zman inherits from Carbon which in turn
@@ -32,8 +31,8 @@ class Zman extends Carbon
     {
         parent::__construct($time, $tz);
 
-        $this->carbon = Carbon::parse($time);
+        $carbon = Carbon::parse($time);
         list($this->jdate['month'], $this->jdate['day'], $this->jdate['year'])
-            = explode('/', toJewish($this->carbon->month, $this->carbon->day, $this->carbon->year));
+            = explode('/', toJewish($carbon->month, $carbon->day, $carbon->year));
     }
 }
