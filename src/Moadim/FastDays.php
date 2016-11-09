@@ -28,7 +28,7 @@ trait FastDays
      */
     public function isYomKippur()
     {
-        return $this->day === 10 && $this->month === 1;
+        return $this->jewishDay === 10 && $this->jewishMonth === 1;
     }
 
     /**
@@ -40,8 +40,8 @@ trait FastDays
      */
     public function isTzomGedaliah()
     {
-        return ($this->day === 3 && $this->month === 1 && !$this->isShabbos())
-            || ($this->isSunday() && $this->day === 4 && $this->month === 1);
+        return ($this->jewishDay === 3 && $this->jewishMonth === 1 && !$this->isShabbos())
+            || ($this->isSunday() && $this->jewishDay === 4 && $this->jewishMonth === 1);
     }
 
     /**
@@ -53,7 +53,7 @@ trait FastDays
      */
     public function isAsaraBiteives()
     {
-        return $this->day === 10 && $this->month === 4;
+        return $this->jewishDay === 10 && $this->jewishMonth === 4;
     }
 
     /**
@@ -65,8 +65,8 @@ trait FastDays
      */
     public function isTaanisEsther()
     {
-        return ($this->day === 13 && $this->month === 7 && !$this->isShabbos())
-            || ($this->day === 11 && $this->month === 7 && $this->dayOfWeek === 4);
+        return ($this->jewishDay === 13 && $this->jewishMonth === 7 && !$this->isShabbos())
+            || ($this->jewishDay === 11 && $this->jewishMonth === 7 && $this->dayOfWeek === 4);
     }
 
     /**
@@ -78,8 +78,8 @@ trait FastDays
      */
     public function isShivaAsarBitamuz()
     {
-        return ($this->day === 17 && $this->month === 11 && !$this->isShabbos())
-        || ($this->day === 18 && $this->month === 11 && $this->isSunday());
+        return ($this->jewishDay === 17 && $this->jewishMonth === 11 && !$this->isShabbos())
+        || ($this->jewishDay === 18 && $this->jewishMonth === 11 && $this->isSunday());
     }
 
     /**
@@ -91,7 +91,7 @@ trait FastDays
      */
     public function isTishaBav()
     {
-        return ($this->day === 9 && $this->month === 12 && !$this->isShabbos())
-        || ($this->day === 10 && $this->month === 12 && $this->isSunday());
+        return ($this->jewishDay === 9 && $this->jewishMonth === 12 && !$this->isShabbos())
+        || ($this->jewishDay === 10 && $this->jewishMonth === 12 && $this->isSunday());
     }
 }

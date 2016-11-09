@@ -21,7 +21,7 @@ function toSecular($month, $day, $year)
 }
 
 /**
- * Convert a secular date to a jewish date.
+ * Convert a secular date to a Jewish date.
  *
  * @param  string|int $month
  * @param  string|int $day
@@ -34,7 +34,7 @@ function toJewish($month, $day, $year)
 }
 
 /**
- * Checks if a jewish year is meubar.
+ * Checks if a Jewish year is meubar.
  *
  * @param  string|int $year
  * @return bool

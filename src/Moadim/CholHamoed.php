@@ -23,9 +23,9 @@ trait CholHamoed
      */
     public function isCholHamoedPesach($galus = true)
     {
-        return $this->month === 8
-            && $this->day <= 20
-            && ($galus ? $this->day >= 17 : $this->day >= 16);
+        return $this->jewishMonth === 8
+            && $this->jewishDay <= 20
+            && ($galus ? $this->jewishDay >= 17 : $this->jewishDay >= 16);
     }
 
     /**
@@ -37,8 +37,8 @@ trait CholHamoed
      */
     public function isCholHamoedSukkos($galus = true)
     {
-        return $this->month === 1
-            && $this->day <= 21
-            && ($galus ? $this->day >= 17 : $this->day >= 16);
+        return $this->jewishMonth === 1
+            && $this->jewishDay <= 21
+            && ($galus ? $this->jewishDay >= 17 : $this->jewishDay >= 16);
     }
 }

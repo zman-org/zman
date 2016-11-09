@@ -25,7 +25,7 @@ trait Slichos
      */
     public function isElulSlichos($sfardi = false)
     {
-        return $this->month === 13 && $this->gte(static::firstDayOfSlichos($this->year, $sfardi));
+        return $this->jewishMonth === 13 && $this->gte(static::firstDayOfSlichos($this->jewishYear, $sfardi));
     }
 
     /**

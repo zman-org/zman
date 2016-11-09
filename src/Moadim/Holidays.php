@@ -162,8 +162,8 @@ trait Holidays
      */
     public function isPesach($galus = true)
     {
-        return $this->carbon->gte(static::firstDayOfPesach($this->year))
-            && $this->carbon->lte(static::firstDayOfPesach($this->year)->addDays($galus ? 7 : 6));
+        return $this->carbon->gte(static::firstDayOfPesach($this->jewishYear))
+            && $this->carbon->lte(static::firstDayOfPesach($this->jewishYear)->addDays($galus ? 7 : 6));
     }
 
     /**
@@ -173,7 +173,7 @@ trait Holidays
      */
     public function isPesachSheni()
     {
-        return $this->carbon->eq(static::dayOfPesachSheni($this->year));
+        return $this->carbon->eq(static::dayOfPesachSheni($this->jewishYear));
     }
 
     /**
@@ -185,7 +185,7 @@ trait Holidays
      */
     public function isShavuos($galus = true)
     {
-        return $this->month === 10 && ($this->day === 6 || ($galus && $this->day === 7));
+        return $this->jewishMonth === 10 && ($this->jewishDay === 6 || ($galus && $this->jewishDay === 7));
     }
 
     /**
@@ -195,7 +195,7 @@ trait Holidays
      */
     public function isSukkos()
     {
-        return $this->month === 1 && $this->day >= 15 && $this->day <= 21;
+        return $this->jewishMonth === 1 && $this->jewishDay >= 15 && $this->jewishDay <= 21;
     }
 
     /**
@@ -205,7 +205,7 @@ trait Holidays
      */
     public function isRoshHashana()
     {
-        return $this->month === 1 && ($this->day === 1 || $this->day === 2);
+        return $this->jewishMonth === 1 && ($this->jewishDay === 1 || $this->jewishDay === 2);
     }
 
     /**
@@ -215,7 +215,7 @@ trait Holidays
      */
     public function isShminiAtzeres()
     {
-        return $this->month === 1 && $this->day === 22;
+        return $this->jewishMonth === 1 && $this->jewishDay === 22;
     }
 
     /**
@@ -227,7 +227,7 @@ trait Holidays
      */
     public function isSimchasTorah($galus = true)
     {
-        return $this->month === 1 && ($galus ? $this->day === 23 : $this->day === 22);
+        return $this->jewishMonth === 1 && ($galus ? $this->jewishDay === 23 : $this->jewishDay === 22);
     }
 
     /**
@@ -237,8 +237,8 @@ trait Holidays
      */
     public function isChanuka()
     {
-        return $this->carbon->gte(static::firstDayOfChanuka($this->year))
-            && $this->carbon->lte(static::firstDayOfChanuka($this->year)->addDays(7));
+        return $this->carbon->gte(static::firstDayOfChanuka($this->jewishYear))
+            && $this->carbon->lte(static::firstDayOfChanuka($this->jewishYear)->addDays(7));
     }
 
     /**
@@ -248,7 +248,7 @@ trait Holidays
      */
     public function isTuBishvat()
     {
-        return $this->carbon->eq(static::dayOfTuBishvat($this->year));
+        return $this->carbon->eq(static::dayOfTuBishvat($this->jewishYear));
     }
 
     /**
@@ -259,7 +259,7 @@ trait Holidays
      */
     public function isPurim()
     {
-        return $this->carbon->eq(static::dayOfPurim($this->year));
+        return $this->carbon->eq(static::dayOfPurim($this->jewishYear));
     }
 
     /**
@@ -270,7 +270,7 @@ trait Holidays
      */
     public function isShushanPurim()
     {
-        return $this->carbon->eq(static::dayOfShushanPurim($this->year));
+        return $this->carbon->eq(static::dayOfShushanPurim($this->jewishYear));
     }
 
     /**
@@ -280,6 +280,6 @@ trait Holidays
      */
     public function isPurimKattan()
     {
-        return $this->carbon->eq(static::dayOfPurimKattan($this->year));
+        return $this->carbon->eq(static::dayOfPurimKattan($this->jewishYear));
     }
 }

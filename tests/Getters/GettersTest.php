@@ -9,7 +9,8 @@ class GettersTest extends PHPUnit_Framework_TestCase
     {
         $zman = Zman::parse('February 27, 2017');
 
-        $this->assertEquals(1, $zman->day);
+        $this->assertEquals(27, $zman->day);
+        $this->assertEquals(1, $zman->jewishDay);
     }
 
     /** @test */
@@ -17,7 +18,8 @@ class GettersTest extends PHPUnit_Framework_TestCase
     {
         $zman = Zman::parse('February 27, 2017');
 
-        $this->assertEquals(7, $zman->month);
+        $this->assertEquals(2, $zman->month);
+        $this->assertEquals(7, $zman->jewishMonth);
     }
 
     /** @test */
@@ -25,25 +27,26 @@ class GettersTest extends PHPUnit_Framework_TestCase
     {
         $zman = Zman::parse('February 27, 2017');
 
-        $this->assertEquals(5777, $zman->year);
+        $this->assertEquals(2017, $zman->year);
+        $this->assertEquals(5777, $zman->jewishYear);
     }
 
     /** @test */
     public function it_gets_the_month_name_in_english()
     {
-        $this->assertEquals('Nissan', Zman::parse('April 2, 2017')->monthName);
+        $this->assertEquals('Nissan', Zman::parse('April 2, 2017')->jewishMonthName);
     }
 
     /** @test */
     public function it_gets_adar_as_the_month_if_it_is_not_a_leap_year()
     {
-        $this->assertEquals('Adar', Zman::parse('February 27, 2017')->monthName);
+        $this->assertEquals('Adar', Zman::parse('February 27, 2017')->jewishMonthName);
     }
 
     /** @test */
     public function it_gets_adar_1_and_adar_2_as_the_months_if_it_is_a_leap_year()
     {
-        $this->assertEquals('Adar 1', Zman::parse('February 27, 2019')->monthName);
-        $this->assertEquals('Adar 2', Zman::parse('March 27, 2019')->monthName);
+        $this->assertEquals('Adar 1', Zman::parse('February 27, 2019')->jewishMonthName);
+        $this->assertEquals('Adar 2', Zman::parse('March 27, 2019')->jewishMonthName);
     }
 }

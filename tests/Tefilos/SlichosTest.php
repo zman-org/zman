@@ -17,7 +17,6 @@ class SlichosTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_gets_the_first_day_of_slichos_for_ashkenazim()
     {
-        var_dump(Zman::firstDayOfAshkenaziSlichos('5776')->toFormattedDateString());
         // Normal Year
         $firstDay = Zman::firstDayOfAshkenaziSlichos('5777');
 

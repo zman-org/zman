@@ -12,6 +12,6 @@ trait AseresYimeiTeshuva
      */
     public function isAseresYimeiTeshuva()
     {
-        return $this->month === 1 && $this->day >= 1 && $this->day <= 10;
+        return $this->jewishMonth === 1 && $this->jewishDay >= 1 && $this->jewishDay <= 10;
     }
 }

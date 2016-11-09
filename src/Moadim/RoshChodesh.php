@@ -13,6 +13,6 @@ trait RoshChodesh
      */
     public function isRoshChodesh()
     {
-        return $this->day === 30 || $this->day === 1;
+        return $this->jewishDay === 30 || $this->jewishDay === 1;
     }
 }

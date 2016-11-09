@@ -15,14 +15,14 @@ trait Getters
     public function __get($name)
     {
         switch (true) {
-            case $name === 'day':
+            case $name === 'jewishDay':
                 return (int) $this->jdate['day'];
-            case $name === 'month':
+            case $name === 'jewishMonth':
                 return (int) $this->jdate['month'];
-            case $name === 'year':
+            case $name === 'jewishYear':
                 return (int) $this->jdate['year'];
-            case $name === 'monthName':
-                return $this->getEnglishMonthName($this->jdate['month'], $this->jdate['year']);
+            case $name === 'jewishMonthName':
+                return $this->jewishMonthNameEnglish($this->jdate['month'], $this->jdate['year']);
             default:
                 return $this->carbon->__get($name);
         }
@@ -35,7 +35,7 @@ trait Getters
      * @param  string|int $year
      * @return string
      */
-    public function getEnglishMonthName($month, $year)
+    public function jewishMonthNameEnglish($month, $year)
     {
         return [
             'Tishrei', 'Cheshvan', 'Kislev', 'Teves', 'Shvat',
