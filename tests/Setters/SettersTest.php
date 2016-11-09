@@ -75,4 +75,15 @@ class Setters extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(5000, $zman->jewishYear);
     }
+
+    /** @test */
+    public function it_still_inherits_setters_from_Carbon()
+    {
+        $zman = new Zman('November 7, 2016');
+        $this->assertEquals(2016, $zman->year);
+
+        $zman->year(5000);
+
+        $this->assertEquals(5000, $zman->year);
+    }
 }
