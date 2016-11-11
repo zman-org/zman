@@ -37,4 +37,17 @@ class Zman extends Carbon
         list($this->jdate['month'], $this->jdate['day'], $this->jdate['year'])
             = explode('/', toJewish($carbon->month, $carbon->day, $carbon->year));
     }
+
+    /**
+     * Create a new instance from a Jewish date.
+     *
+     * @param  string|int $year
+     * @param  string|int $month
+     * @param  string|int $day
+     * @return Zmanim\Zman
+     */
+    public static function createFromJewishDate($year, $month, $day)
+    {
+        return toSecular($month, $day, $year);
+    }
 }
