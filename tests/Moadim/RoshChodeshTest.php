@@ -5,7 +5,7 @@ use Zmanim\Zman;
 class RoshChodeshTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
-    public function it_knows_when_it_is_rosh_chodesh()
+    public function checks_if_it_is_rosh_chodesh()
     {
         $this->assertTrue(Zman::parse('November 1, 2016')->isRoshChodesh());
         $this->assertTrue(Zman::parse('November 2, 2016')->isRoshChodesh());

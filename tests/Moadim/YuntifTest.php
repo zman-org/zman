@@ -5,7 +5,7 @@ use Zmanim\Zman;
 class YuntifTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
-    public function it_knows_when_the_yuntif_of_pesach_is()
+    public function checks_if_it_is_the_yuntif_of_pesach()
     {
         $this->assertTrue(Zman::parse('April 11, 2017')->isPesachYuntif());
         $this->assertTrue(Zman::parse('April 12, 2017')->isPesachYuntif());
@@ -34,7 +34,7 @@ class YuntifTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_knows_when_the_yuntif_of_sukkos_is()
+    public function checks_if_it_is_the_yuntif_of_sukkos()
     {
         $this->assertTrue(Zman::parse('October 17, 2016')->isSukkosYuntif());
         $this->assertTrue(Zman::parse('October 18, 2016')->isSukkosYuntif());

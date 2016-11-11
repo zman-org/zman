@@ -5,7 +5,7 @@ use Zmanim\Zman;
 class AseresYimeiTeshuvaTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
-    public function it_knows_the_aseres_yimei_teshuva()
+    public function checks_if_it_is_the_aseres_yimei_teshuva()
     {
         $this->assertTrue(Zman::parse('September 21, 2017')->isAseresYimeiTeshuva());
         $this->assertTrue(Zman::parse('September 22, 2017')->isAseresYimeiTeshuva());

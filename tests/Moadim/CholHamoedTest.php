@@ -5,7 +5,16 @@ use Zmanim\Zman;
 class CholHamoedTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
-    public function it_knows_chol_hamoed_pesach()
+    public function checks_if_it_is_chol_hamoed()
+    {
+        $this->assertTrue(Zman::parse('April 13, 2017')->isCholHamoed());
+        $this->assertTrue(Zman::parse('October 19, 2016')->isCholHamoed());
+
+        $this->assertFalse(Zman::parse('October 24, 2016')->isCholHamoed());
+    }
+
+    /** @test */
+    public function checks_if_it_is_chol_hamoed_pesach()
     {
         $this->assertTrue(Zman::parse('April 12, 2017')->isCholHamoedPesach(false)); // For E"Y
         $this->assertTrue(Zman::parse('April 13, 2017')->isCholHamoedPesach());
@@ -18,7 +27,7 @@ class CholHamoedTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_knows_chol_hamoed_sukkos()
+    public function checks_if_it_is_chol_hamoed_sukkos()
     {
         $this->assertTrue(Zman::parse('October 18, 2016')->isCholHamoedSukkos(false)); // For E"Y
         $this->assertTrue(Zman::parse('October 19, 2016')->isCholHamoedSukkos());
@@ -28,14 +37,5 @@ class CholHamoedTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(Zman::parse('October 23, 2016')->isCholHamoedSukkos());
 
         $this->assertFalse(Zman::parse('October 24, 2016')->isCholHamoedSukkos());
-    }
-
-    /** @test */
-    public function it_knows_chol_hamoed()
-    {
-        $this->assertTrue(Zman::parse('April 13, 2017')->isCholHamoed());
-        $this->assertTrue(Zman::parse('October 19, 2016')->isCholHamoed());
-
-        $this->assertFalse(Zman::parse('October 24, 2016')->isCholHamoed());
     }
 }

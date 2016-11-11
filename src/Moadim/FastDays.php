@@ -21,77 +21,143 @@ trait FastDays
     }
 
     /**
-     * Yom Kippur is on the 10th of Tishrei no matter
-     * what, it is even docheh Shabbos.
+     * Yom Kippur is always the 10th of Tishrei.
+     *
+     * @param  string|int $year
+     * @return Zmanim\Zman
+     */
+    public static function dayOfYomKippur($year)
+    {
+        return toSecular(1, 10, $year);
+    }
+
+    /**
+     * Checks if the day is Yom Kippur.
      *
      * @return bool
      */
     public function isYomKippur()
     {
-        return $this->jewishDay === 10 && $this->jewishMonth === 1;
+        return $this->eq(static::dayOfYomKippur($this->jewishYear));
     }
 
     /**
      * Tzom Gedaliah falls on the 3rd of Tishrei, unless
-     * it falls on Shabbos in which case it is moved
-     * to the following day.
+     * it occurs on Shabbos in which case it is moved
+     * to the following day, the 4th of the month.
+     *
+     * @param  string|int $year
+     * @return Zmanim\Zman
+     */
+    public static function dayOfTzomGedaliah($year)
+    {
+        $tzom = toSecular(1, 3, $year);
+
+        return !$tzom->isShabbos() ? $tzom : $tzom->addDay();
+    }
+
+    /**
+     * Checks if the day is Tzom Gedaliah.
      *
      * @return bool
      */
     public function isTzomGedaliah()
     {
-        return ($this->jewishDay === 3 && $this->jewishMonth === 1 && !$this->isShabbos())
-            || ($this->isSunday() && $this->jewishDay === 4 && $this->jewishMonth === 1);
+        return $this->eq(static::dayOfTzomGedaliah($this->jewishYear));
     }
 
     /**
-     * Asara Biteives always falls on the 10th of teivies. In
-     * the current calendar system it is impossible for it to
-     * fall out on Shabbos, but theoritically is even dochech.
+     * Asara Biteives always falls on the 10th of Teives.
+     *
+     * @param  string|int $year
+     * @return Zmanim\Zman
+     */
+    public static function dayOfAsaraBiteives($year)
+    {
+        return toSecular(4, 10, $year);
+    }
+
+    /**
+     * Checks if the day is Asara Biteives.
      *
      * @return bool
      */
     public function isAsaraBiteives()
     {
-        return $this->jewishDay === 10 && $this->jewishMonth === 4;
+        return $this->eq(static::dayOfAsaraBiteives($this->jewishYear));
     }
 
     /**
      * Taanis Esther falls on the 13th of Adar, unless Purim falls
      * on a Sunday, in which case the taanis is moved up to the
-     * preceding Thursday.
+     * preceding Thursday because it is not dochech Shabbos.
+     *
+     * @param  string|int $year
+     * @return Zmanim\Zman
+     */
+    public static function dayOfTaanisEsther($year)
+    {
+        $tzom = toSecular(7, 13, $year);
+
+        return !$tzom->isShabbos() ? $tzom : $tzom->subDays(2);
+    }
+
+    /**
+     * Checks if the day is Taanis Esther.
      *
      * @return bool
      */
     public function isTaanisEsther()
     {
-        return ($this->jewishDay === 13 && $this->jewishMonth === 7 && !$this->isShabbos())
-            || ($this->jewishDay === 11 && $this->jewishMonth === 7 && $this->dayOfWeek === 4);
+        return $this->eq(static::dayOfTaanisEsther($this->jewishYear));
     }
 
     /**
-     * Shiva Asar Bitamuz falls on the 17th of tamuz, unless
-     * that day is Shabbos in which case it is nidcheh to
-     * the next day (Sunday).
+     * Shiva Asar Bitamuz is usually the 17th of Tamuz,
+     * unless it's Shabbos, then it will be nidcheh.
+     *
+     * @param  string|int $year
+     * @return Zmanim\Zman
+     */
+    public static function dayOfShivaAsarBitamuz($year)
+    {
+        $tzom = toSecular(11, 17, $year);
+
+        return !$tzom->isShabbos() ? $tzom : $tzom->addDay();
+    }
+
+    /**
+     * Checks if the day is Shiva Asar Bitamuz.
      *
      * @return bool
      */
     public function isShivaAsarBitamuz()
     {
-        return ($this->jewishDay === 17 && $this->jewishMonth === 11 && !$this->isShabbos())
-        || ($this->jewishDay === 18 && $this->jewishMonth === 11 && $this->isSunday());
+        return $this->eq(static::dayOfShivaAsarBitamuz($this->jewishYear));
+    }
+
+     /**
+     * Tisha Bav falls on the 9th of Av, unless that
+     * day is Shabbos in which case it is nidcheh
+     * to the 10th of the month, the next day.
+     *
+     * @param  string|int $year
+     * @return Zmanim\Zman
+     */
+    public static function dayOfTishaBav($year)
+    {
+        $tzom = toSecular(12, 9, $year);
+
+        return !$tzom->isShabbos() ? $tzom : $tzom->addDay();
     }
 
     /**
-     * Tisha Bav falls on the 9th of Av, unless that
-     * day is Shabbos in which case it is nidcheh
-     * to the next day (Sunday).
+     * Checks if the day is Tisha Bav.
      *
      * @return bool
      */
     public function isTishaBav()
     {
-        return ($this->jewishDay === 9 && $this->jewishMonth === 12 && !$this->isShabbos())
-        || ($this->jewishDay === 10 && $this->jewishMonth === 12 && $this->isSunday());
+        return $this->eq(static::dayOfTishaBav($this->jewishYear));
     }
 }

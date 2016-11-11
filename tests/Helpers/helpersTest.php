@@ -2,7 +2,7 @@
 
 use Zmanim\Exceptions\InvalidDateException;
 
-class helpers extends PHPUnit_Framework_TestCase
+class helpersTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
     public function it_converts_a_jewish_date_to_a_secular_date()
@@ -36,5 +36,17 @@ class helpers extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(isLeapYear(5779));
         $this->assertFalse(isLeapYear(5777));
+    }
+
+    /** @test */
+    public function it_converts_a_number_to_hebrew()
+    {
+        $this->assertEquals("א׳", toHebrewNumber(1));
+    }
+
+    /** @test */
+    public function it_converts_a_jewish_year_to_hebrew()
+    {
+        $this->assertEquals("תשע״ז", toHebrewYear(5777));
     }
 }

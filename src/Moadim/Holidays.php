@@ -49,17 +49,6 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Yom Kippur for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return Zmanim\Zman
-     */
-    public static function dayOfYomKippur($year)
-    {
-        return toSecular(1, 10, $year);
-    }
-
-    /**
      * Gets the first day of Sukkos for a given Jewish year.
      *
      * @param  string|int $year

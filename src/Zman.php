@@ -4,6 +4,7 @@ namespace Zmanim;
 
 use Carbon\Carbon;
 use Zmanim\Moadim\Moadim;
+use Zmanim\Formats\Formats;
 use Zmanim\Getters\Getters;
 use Zmanim\Setters\Setters;
 use Zmanim\Tefilos\Tefilos;
@@ -12,6 +13,7 @@ use Zmanim\Helpers\DaysOfTheWeek;
 class Zman extends Carbon
 {
     use Moadim;
+    use Formats;
     use Getters;
     use Setters;
     use Tefilos;

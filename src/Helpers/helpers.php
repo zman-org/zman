@@ -1,6 +1,7 @@
 <?php
 
 use Zmanim\Zman;
+use Zmanim\Helpers\Hebcal;
 use Zmanim\Exceptions\InvalidDateException;
 
 /**
@@ -42,4 +43,26 @@ function toJewish($month, $day, $year)
 function isLeapYear($year)
 {
     return (1 + ($year * 7)) % 19 < 7 ? true : false;
+}
+
+/**
+ * Convert a number to Hebrew.
+ *
+ * @param  string|int $number
+ * @return string
+ */
+function toHebrewNumber($number)
+{
+    return Hebcal::numberToHebrew($number);
+}
+
+/**
+ * Convert a numerical Jewish year to Hebrew.
+ *
+ * @param  string|int $year
+ * @return string
+ */
+function toHebrewYear($year)
+{
+    return Hebcal::numberToHebrew($year % 1000);
 }
