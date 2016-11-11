@@ -19,7 +19,7 @@ class GettersTest extends PHPUnit_Framework_TestCase
         $zman = Zman::parse('February 27, 2017');
 
         $this->assertEquals(27, $zman->day);
-        $this->assertEquals("א׳", $zman->jewishDayHebrew);
+        $this->assertEquals('א׳', $zman->jewishDayHebrew);
     }
 
     /** @test */

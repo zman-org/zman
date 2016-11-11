@@ -224,9 +224,6 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(19, Zman::dayOfPurimKattan('5779')->day);
         $this->assertEquals(2, Zman::dayOfPurimKattan('5779')->month);
         $this->assertEquals(2019, Zman::dayOfPurimKattan('5779')->year);
-
-        $this->expectException(InvalidDateException::class);
-        Zman::dayOfPurimKattan('5777');
     }
 
     /** @test */

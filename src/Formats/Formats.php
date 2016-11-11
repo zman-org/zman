@@ -2,8 +2,6 @@
 
 namespace Zmanim\Formats;
 
-use Zmanim\Helpers\Hebcal;
-
 trait Formats
 {
     /**

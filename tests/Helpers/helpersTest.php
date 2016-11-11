@@ -41,12 +41,12 @@ class helpersTest extends PHPUnit_Framework_TestCase
     /** @test */
     public function it_converts_a_number_to_hebrew()
     {
-        $this->assertEquals("א׳", toHebrewNumber(1));
+        $this->assertEquals('א׳', toHebrewNumber(1));
     }
 
     /** @test */
     public function it_converts_a_jewish_year_to_hebrew()
     {
-        $this->assertEquals("תשע״ז", toHebrewYear(5777));
+        $this->assertEquals('תשע״ז', toHebrewYear(5777));
     }
 }

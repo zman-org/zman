@@ -136,7 +136,7 @@ trait FastDays
         return $this->eq(static::dayOfShivaAsarBitamuz($this->jewishYear));
     }
 
-     /**
+    /**
      * Tisha Bav falls on the 9th of Av, unless that
      * day is Shabbos in which case it is nidcheh
      * to the 10th of the month, the next day.

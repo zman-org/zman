@@ -133,11 +133,7 @@ trait Holidays
      */
     public static function dayOfPurimKattan($year)
     {
-        try {
-            return toSecular(6, 14, $year);
-        } catch (InvalidDateException $e) {
-            throw new InvalidDateException("{$year} does not have a Purim Kattan because it is not a leap year.");
-        }
+        return toSecular(6, 14, $year);
     }
 
     /**

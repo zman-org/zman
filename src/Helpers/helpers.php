@@ -15,7 +15,7 @@ use Zmanim\Exceptions\InvalidDateException;
 function toSecular($month, $day, $year)
 {
     if ($month === 6 && !isLeapYear($year)) {
-        throw new InvalidDateException("{$year} is not a leap year. Use '7' for Adar instead.");
+        throw new InvalidDateException("{$year} is not a leap year.");
     }
 
     return Zman::parse(jdtogregorian(jewishtojd($month, $day, $year)));
