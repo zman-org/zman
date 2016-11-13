@@ -54,6 +54,7 @@ class Hebcal
             $result[] = $i;
             $number -= $i;
         }
+
         return $result;
     }
 
@@ -78,6 +79,7 @@ class Hebcal
                 $result .= static::ALEPH_BEIS[$arr[$i]];
             }
         }
+
         return $result;
     }
 }
