@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Tefilos;
+namespace Zman\Tefilos;
 
 trait Mussaf
 {

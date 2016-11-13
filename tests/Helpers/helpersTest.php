@@ -1,6 +1,6 @@
 <?php
 
-use Zmanim\Exceptions\InvalidDateException;
+use Zman\Exceptions\InvalidDateException;
 
 class helpersTest extends PHPUnit_Framework_TestCase
 {

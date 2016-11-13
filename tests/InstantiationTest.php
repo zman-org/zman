@@ -1,6 +1,6 @@
 <?php
 
-use Zmanim\Zman;
+use Zman\Zman;
 
 class InstantiationTest extends PHPUnit_Framework_TestCase
 {

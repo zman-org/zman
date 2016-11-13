@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Moadim;
+namespace Zman\Moadim;
 
 trait Holidays
 {
@@ -8,7 +8,7 @@ trait Holidays
      * Gets the first day of Pesach for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function firstDayOfPesach($year)
     {
@@ -19,7 +19,7 @@ trait Holidays
      * Gets the day of Pesach Sheni for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfPesachSheni($year)
     {
@@ -30,7 +30,7 @@ trait Holidays
      * Gets the first day of Shavuos for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function firstDayOfShavuos($year)
     {
@@ -41,7 +41,7 @@ trait Holidays
      * Gets the first day of Rosh Hashana for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function firstDayOfRoshHashana($year)
     {
@@ -52,7 +52,7 @@ trait Holidays
      * Gets the first day of Sukkos for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function firstDayOfSukkos($year)
     {
@@ -63,7 +63,7 @@ trait Holidays
      * Gets the day of Shmini Atzeres for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfShminiAtzeres($year)
     {
@@ -74,7 +74,7 @@ trait Holidays
      * Gets the day of Shmini Atzeres for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfSimchasTorah($year, $galus = true)
     {
@@ -85,7 +85,7 @@ trait Holidays
      * Gets the first day of Chanuka for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function firstDayOfChanuka($year)
     {
@@ -96,7 +96,7 @@ trait Holidays
      * Gets the day of Tu Bishvat for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfTuBishvat($year)
     {
@@ -107,7 +107,7 @@ trait Holidays
      * Gets the day of Purim for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfPurim($year)
     {
@@ -118,7 +118,7 @@ trait Holidays
      * Gets the day of Shushan Purim for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfShushanPurim($year)
     {
@@ -129,7 +129,7 @@ trait Holidays
      * Gets the day of Purim Kattan for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfPurimKattan($year)
     {

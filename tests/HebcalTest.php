@@ -1,6 +1,6 @@
 <?php
 
-use Zmanim\Helpers\Hebcal;
+use Zman\Helpers\Hebcal;
 
 class HebcalTest extends PHPUnit_Framework_TestCase
 {

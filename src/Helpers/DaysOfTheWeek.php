@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Helpers;
+namespace Zman\Helpers;
 
 trait DaysOfTheWeek
 {

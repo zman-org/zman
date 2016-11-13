@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Formats;
+namespace Zman\Formats;
 
 trait Formats
 {

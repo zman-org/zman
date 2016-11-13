@@ -1,14 +1,14 @@
 <?php
 
-namespace Zmanim;
+namespace Zman;
 
 use Carbon\Carbon;
-use Zmanim\Moadim\Moadim;
-use Zmanim\Formats\Formats;
-use Zmanim\Getters\Getters;
-use Zmanim\Setters\Setters;
-use Zmanim\Tefilos\Tefilos;
-use Zmanim\Helpers\DaysOfTheWeek;
+use Zman\Moadim\Moadim;
+use Zman\Formats\Formats;
+use Zman\Getters\Getters;
+use Zman\Setters\Setters;
+use Zman\Tefilos\Tefilos;
+use Zman\Helpers\DaysOfTheWeek;
 
 class Zman extends Carbon
 {
@@ -44,7 +44,7 @@ class Zman extends Carbon
      * @param  string|int $year
      * @param  string|int $month
      * @param  string|int $day
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function createFromJewishDate($year, $month, $day)
     {

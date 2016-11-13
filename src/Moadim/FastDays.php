@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Moadim;
+namespace Zman\Moadim;
 
 trait FastDays
 {
@@ -24,7 +24,7 @@ trait FastDays
      * Yom Kippur is always the 10th of Tishrei.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfYomKippur($year)
     {
@@ -47,7 +47,7 @@ trait FastDays
      * to the following day, the 4th of the month.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfTzomGedaliah($year)
     {
@@ -70,7 +70,7 @@ trait FastDays
      * Asara Biteives always falls on the 10th of Teives.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfAsaraBiteives($year)
     {
@@ -93,7 +93,7 @@ trait FastDays
      * preceding Thursday because it is not dochech Shabbos.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfTaanisEsther($year)
     {
@@ -117,7 +117,7 @@ trait FastDays
      * unless it's Shabbos, then it will be nidcheh.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfShivaAsarBitamuz($year)
     {
@@ -142,7 +142,7 @@ trait FastDays
      * to the 10th of the month, the next day.
      *
      * @param  string|int $year
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function dayOfTishaBav($year)
     {

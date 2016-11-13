@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Setters;
+namespace Zman\Setters;
 
 trait Setters
 {

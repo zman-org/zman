@@ -1,8 +1,8 @@
 <?php
 
-use Zmanim\Zman;
-use Zmanim\Helpers\Hebcal;
-use Zmanim\Exceptions\InvalidDateException;
+use Zman\Zman;
+use Zman\Helpers\Hebcal;
+use Zman\Exceptions\InvalidDateException;
 
 /**
  * Convert a Jewish date to a secular date.
@@ -10,7 +10,7 @@ use Zmanim\Exceptions\InvalidDateException;
  * @param  string|int $month
  * @param  string|int $day
  * @param  string|int $year
- * @return Zmanim\Zman
+ * @return Zman\Zman
  */
 function toSecular($month, $day, $year)
 {

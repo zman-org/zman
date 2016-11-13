@@ -1,7 +1,7 @@
 <?php
 
-use Zmanim\Zman;
-use Zmanim\Exceptions\InvalidDateException;
+use Zman\Zman;
+use Zman\Exceptions\InvalidDateException;
 
 class HolidaysTest extends PHPUnit_Framework_TestCase
 {

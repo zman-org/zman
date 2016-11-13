@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Tefilos;
+namespace Zman\Tefilos;
 
 trait Slichos
 {
@@ -32,7 +32,7 @@ trait Slichos
      * Gets the first day of Slichos before the Yomim Noraim.
      *
      * @param  bool   $sfardi
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function firstDayOfSlichos($year, $sfardi = false)
     {
@@ -43,7 +43,7 @@ trait Slichos
      * Gets the first day of Slichos for Sfaradim.
      *
      * @param  bool   $sfardi
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function firstDayOfSfardiSlichos($year)
     {
@@ -54,7 +54,7 @@ trait Slichos
      * Gets the first day of Slichos for Ashkenazim.
      *
      * @param  bool   $sfardi
-     * @return Zmanim\Zman
+     * @return Zman\Zman
      */
     public static function firstDayOfAshkenaziSlichos($year)
     {

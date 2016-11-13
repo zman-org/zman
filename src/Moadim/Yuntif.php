@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Moadim;
+namespace Zman\Moadim;
 
 trait Yuntif
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Exceptions;
+namespace Zman\Exceptions;
 
 class InvalidDateException extends \Exception
 {

@@ -1,8 +1,13 @@
 {
-    "name": "zmanim/zman",
-    "description": "Jewish Carbon.",
+    "name": "zman/zman",
+    "description": "A Jewish date converter and helper.",
     "license": "MIT",
-    "keywords": [],
+    "keywords": [
+        "Jewish",
+        "date",
+        "conversion",
+        "converter"
+    ],
     "authors": [
         {
             "name": "Ari Miller",
@@ -17,7 +22,7 @@
             "src/Helpers/helpers.php"
         ],
         "psr-4": {
-            "Zmanim\\": "src/" 
+            "Zman\\": "src/" 
         }
     },
     "require-dev": {

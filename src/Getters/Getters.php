@@ -1,6 +1,6 @@
 <?php
 
-namespace Zmanim\Getters;
+namespace Zman\Getters;
 
 trait Getters
 {
