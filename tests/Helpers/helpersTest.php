@@ -43,10 +43,4 @@ class helpersTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('א׳', toHebrewNumber(1));
     }
-
-    /** @test */
-    public function it_converts_a_jewish_year_to_hebrew()
-    {
-        $this->assertEquals('תשע״ז', toHebrewYear(5777));
-    }
 }
