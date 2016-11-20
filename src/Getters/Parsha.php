@@ -71,7 +71,9 @@ trait Parsha
         $su = static::firstDayOfSukkos($this->jewishYear + $j);
         $count = 0;
 
-        while (($day = $rh->addDay())->lt($su)) {
+        $day = $rh;
+        while ($day->lt($su)) {
+            $day->addDay();
             $count += $day->isShabbos() && !$day->isYomKippur() ? 1 : 0;
         }
 

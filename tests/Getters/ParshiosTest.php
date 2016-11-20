@@ -176,11 +176,4 @@ class ParshiosTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('Haazinu', Zman::parse('9/21/17')->parsha);
     }
-
-
-    /** @test */
-    public function gets_the_parshas_hashavua_in_English()
-    {
-        // $this->assertEquals('Vayera', Zman::parse('11/14/16')->parsha  );
-    }
 }

@@ -4,7 +4,7 @@ use Zman\Zman;
 use Zman\Helpers\Hebcal;
 use Zman\Exceptions\InvalidDateException;
 
-require_once('parshios.php');
+require_once 'parshios.php';
 
 /**
  * Convert a Jewish date to a secular date.

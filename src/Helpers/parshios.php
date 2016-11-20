@@ -54,5 +54,5 @@ define('PARSHIOS', [
     'Nitzavim',
     'Vayelech',
     'Haazinu',
-    'Vezos Haberacha'
+    'Vezos Haberacha',
 ]);
