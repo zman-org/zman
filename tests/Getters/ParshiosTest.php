@@ -77,7 +77,7 @@ class ParshiosTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function during_a_year_the_last_day_of_pesach_is_shabbos_we_skip_another_week()
+    public function during_a_year_the_last_day_of_pesach_is_shabbos_we_skip_another_week_in_galus()
     {
         $this->assertEquals('Ki Sisa', Zman::parse('2/21/19')->parsha);
         $this->assertEquals('Vayakheil', Zman::parse('2/28/19')->parsha);
@@ -106,7 +106,7 @@ class ParshiosTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function when_shavuos_starts_on_a_friday_chukas_and_balak_are_together()
+    public function when_shavuos_starts_on_a_friday_chukas_and_balak_are_together_in_galus()
     {
         $this->assertEquals('Bamidbar', Zman::parse('5/20/23')->parsha);
         $this->assertEquals('Naso', Zman::parse('6/3/23')->parsha);
@@ -114,6 +114,15 @@ class ParshiosTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Korach', Zman::parse('6/24/23')->parsha);
         $this->assertEquals('Chukas - Balak', Zman::parse('7/1/23')->parsha);
         $this->assertEquals('Pinchas', Zman::parse('7/8/23')->parsha);
+    }
+
+    /** @test */
+    public function even_when_shavuos_starts_on_a_friday_chukas_and_balak_are_separate_in_israel()
+    {
+        $this->assertEquals('Korach', Zman::parse('6/17/23')->parshaInIsrael);
+        $this->assertEquals('Chukas', Zman::parse('6/24/23')->parshaInIsrael);
+        $this->assertEquals('Balak', Zman::parse('7/1/23')->parshaInIsrael);
+        $this->assertEquals('Pinchas', Zman::parse('7/8/23')->parshaInIsrael);
     }
 
     /** @test */
@@ -139,6 +148,13 @@ class ParshiosTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Matos', Zman::parse('7/21/11')->parsha);
         $this->assertEquals('Masei', Zman::parse('7/28/11')->parsha);
         $this->assertEquals('Dvarim', Zman::parse('8/4/11')->parsha);
+    }
+
+    /** @test */
+    public function matos_and_masei_are_separate_in_a_leap_year_in_israel_if_the_last_day_of_pesach_was_sabbos()
+    {
+        $this->assertEquals('Matos', Zman::parse('7/28/16')->parshaInIsrael);
+        $this->assertEquals('Masei', Zman::parse('8/4/16')->parshaInIsrael);
     }
 
     /** @test */
