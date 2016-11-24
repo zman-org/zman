@@ -5,17 +5,48 @@ namespace Zman\Getters;
 trait Parsha
 {
     /**
+     * Get the parsha in this format.
+     *
+     * @var string
+     */
+    protected $format;
+
+    /**
+     * Get the parshas hashavua in English.
+     *
+     * @param  bool   $galus
+     * @return string
+     */
+    public function parshasHashavuaEnglish($galus = true)
+    {
+        $this->format = 'english';
+
+        return $this->parshasHashavua($galus);
+    }
+
+    /**
+     * Look up the parsha by its index.
+     *
+     * @param  int  $index
+     * @return string
+     */
+    private function parshios($index)
+    {
+        return PARSHIOS[$index][$this->format];
+    }
+
+    /**
      * Get the current week's Parsha.
      *
      * @return string
      */
-    public function parshasHashavua($galus = true)
+    private function parshasHashavua($galus = true)
     {
         // Breishis is the first Shabbos after Simchas Torah
         $simchasTorah = static::dayOfSimchasTorah($this->jewishYear, $galus);
         $shabbosBereishis = static::dayOfSimchasTorah($this->jewishYear, $galus)->addDays(6 - $simchasTorah->dayOfWeek);
         if ($this->between($simchasTorah, $shabbosBereishis)) {
-            return PARSHIOS[0];
+            return $this->parshios(0);
         }
 
         // Until Adar everything goes in order
@@ -36,7 +67,7 @@ trait Parsha
             $offset += $shabbos > 29 ? 1 : 0;
 
             if ($shabbos === 21 || $shabbos === 26 || $shabbos === 27 || $shabbos === 29) {
-                return PARSHIOS[$shabbos + $offset].' - '.PARSHIOS[$shabbos + $offset + 1];
+                return $this->parshios($shabbos + $offset).' - '.$this->parshios($shabbos + $offset + 1);
             }
         }
 
@@ -46,7 +77,7 @@ trait Parsha
             $offset += $shabbos > 36 ? 1 : 0;
 
             if ($shabbos === 36) {
-                return PARSHIOS[$shabbos + $offset].' - '.PARSHIOS[$shabbos + $offset + 1];
+                return $this->parshios($shabbos + $offset).' - '.$this->parshios($shabbos + $offset + 1);
             }
         }
 
@@ -56,8 +87,8 @@ trait Parsha
         $together = (!$galus && $this->isJewishLeapYear() && $p->isShabbos()) ? false : $together;
 
         if ($together) {
-            if (PARSHIOS[$shabbos + $offset] === 'Matos') {
-                return PARSHIOS[$shabbos + $offset].' - '.PARSHIOS[$shabbos + $offset + 1];
+            if ($this->parshios($shabbos + $offset) === 'Matos') {
+                return $this->parshios($shabbos + $offset).' - '.$this->parshios($shabbos + $offset + 1);
             }
             $offset += $shabbos + $offset > 40 ? 1 : 0;
         }
@@ -77,18 +108,18 @@ trait Parsha
             $count += $day->isShabbos() && !$day->isYomKippur() ? 1 : 0;
         }
 
-        if ($count < 2 && PARSHIOS[$shabbos + $offset] === 'Nitzavim') {
-            return PARSHIOS[$shabbos + $offset].' - '.PARSHIOS[$shabbos + $offset + 1];
+        if ($count < 2 && $this->parshios($shabbos + $offset) === 'Nitzavim') {
+            return $this->parshios($shabbos + $offset).' - '.$this->parshios($shabbos + $offset + 1);
         }
 
         if ($isBetweenRHAndSukkos) {
             if ($count < 2) {
-                return PARSHIOS[52];
+                return $this->parshios(52);
             }
 
-            return $this->lt(static::dayOfYomKippur($this->jewishYear + 1)) ? PARSHIOS[51] : PARSHIOS[52];
+            return $this->lt(static::dayOfYomKippur($this->jewishYear + 1)) ? $this->parshios(51) : $this->parshios(52);
         }
 
-        return PARSHIOS[$shabbos + $offset];
+        return $this->parshios($shabbos + $offset);
     }
 }

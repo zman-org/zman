@@ -33,9 +33,9 @@ trait Getters
             case $name === 'jewishYearHebrew':
                 return $this->jewishYearHebrew($this->jewishYear);
             case $name === 'parsha':
-                return $this->parshasHashavua();
+                return $this->parshasHashavuaEnglish();
             case $name === 'parshaInIsrael':
-                return $this->parshasHashavua(false);
+                return $this->parshasHashavuaEnglish(false);
             default:
                 return parent::__get($name);
         }
