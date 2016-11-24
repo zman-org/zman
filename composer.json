@@ -15,6 +15,7 @@
         }
     ],
     "require": {
+        "php": ">=7.0",
         "nesbot/carbon": "^1.21"
     },
     "autoload": {

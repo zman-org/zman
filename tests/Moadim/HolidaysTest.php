@@ -80,6 +80,28 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
+    public function gets_the_first_day_of_sukkos()
+    {
+        $this->assertEquals(17, Zman::firstDayOfSukkos('5777')->day);
+        $this->assertEquals(10, Zman::firstDayOfSukkos('5777')->month);
+        $this->assertEquals(2016, Zman::firstDayOfSukkos('5777')->year);
+    }
+
+    /** @test */
+    public function checks_if_it_is_sukkos()
+    {
+        $this->assertTrue(Zman::parse('October 17, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 18, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 19, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 20, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 21, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 22, 2016')->isSukkos());
+        $this->assertTrue(Zman::parse('October 23, 2016')->isSukkos());
+
+        $this->assertFalse(Zman::parse('October 24, 2016')->isSukkos());
+    }
+
+    /** @test */
     public function gets_the_day_of_shmini_atzeres()
     {
         $this->assertEquals(24, Zman::dayOfShminiAtzeres('5777')->day);
@@ -238,27 +260,5 @@ class HolidaysTest extends PHPUnit_Framework_TestCase
     {
         $this->expectException(InvalidDateException::class);
         $pk = Zman::dayOfPurimKattan('5777');
-    }
-
-    /** @test */
-    public function gets_the_first_day_of_sukkos()
-    {
-        $this->assertEquals(17, Zman::firstDayOfSukkos('5777')->day);
-        $this->assertEquals(10, Zman::firstDayOfSukkos('5777')->month);
-        $this->assertEquals(2016, Zman::firstDayOfSukkos('5777')->year);
-    }
-
-    /** @test */
-    public function checks_if_it_is_sukkos()
-    {
-        $this->assertTrue(Zman::parse('October 17, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 18, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 19, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 20, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 21, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 22, 2016')->isSukkos());
-        $this->assertTrue(Zman::parse('October 23, 2016')->isSukkos());
-
-        $this->assertFalse(Zman::parse('October 24, 2016')->isSukkos());
     }
 }

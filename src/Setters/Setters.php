@@ -85,7 +85,8 @@ trait Setters
     public function modify($modify)
     {
         parent::modify($modify);
-        $this->jdate = explode('/', toJewish($this->month, $this->day, $this->year));
+        list($this->jdate['month'], $this->jdate['day'], $this->jdate['year'])
+            = explode('/', toJewish($this->month, $this->day, $this->year));
 
         return $this;
     }
