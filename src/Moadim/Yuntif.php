@@ -14,7 +14,7 @@ trait Yuntif
     {
         return $this->isPesachYuntif($galus)
             || $this->isShavuos($galus)
-            || ($this->isSukkos() && !$this->isCholHamoedSukkos($galus))
+            || $this->isSukkosYuntif($galus)
             || $this->isRoshHashana()
             || $this->isYomKippur()
             || $this->isShminiAtzeres()
