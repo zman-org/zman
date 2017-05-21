@@ -22,7 +22,6 @@ class HebcalTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('כ׳', Hebcal::numberToHebrew(20));
         $this->assertEquals('כ״א', Hebcal::numberToHebrew(21));
 
-
         $this->assertEquals('שט״ו', Hebcal::numberToHebrew(315));
     }
 }
