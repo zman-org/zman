@@ -146,7 +146,7 @@ trait Holidays
     public function isPesach($galus = true)
     {
         return $this->gte(static::firstDayOfPesach($this->jewishYear))
-            && $this->lte(static::firstDayOfPesach($this->jewishYear)->addDays($galus ? 7 : 6));
+            && $this->lte(static::firstDayOfPesach($this->jewishYear)->addDays($galus ? 7 : 6)->endOfDay());
     }
 
     /**
@@ -156,7 +156,7 @@ trait Holidays
      */
     public function isPesachSheni()
     {
-        return $this->eq(static::dayOfPesachSheni($this->jewishYear));
+        return $this->isSameDay(static::dayOfPesachSheni($this->jewishYear));
     }
 
     /**
@@ -221,7 +221,7 @@ trait Holidays
     public function isChanuka()
     {
         return $this->gte(static::firstDayOfChanuka($this->jewishYear))
-            && $this->lte(static::firstDayOfChanuka($this->jewishYear)->addDays(7));
+            && $this->lte(static::firstDayOfChanuka($this->jewishYear)->addDays(7)->endOfDay());
     }
 
     /**
@@ -231,7 +231,7 @@ trait Holidays
      */
     public function isTuBishvat()
     {
-        return $this->eq(static::dayOfTuBishvat($this->jewishYear));
+        return $this->isSameDay(static::dayOfTuBishvat($this->jewishYear));
     }
 
     /**
@@ -242,7 +242,7 @@ trait Holidays
      */
     public function isPurim()
     {
-        return $this->eq(static::dayOfPurim($this->jewishYear));
+        return $this->isSameDay(static::dayOfPurim($this->jewishYear));
     }
 
     /**
@@ -253,7 +253,7 @@ trait Holidays
      */
     public function isShushanPurim()
     {
-        return $this->eq(static::dayOfShushanPurim($this->jewishYear));
+        return $this->isSameDay(static::dayOfShushanPurim($this->jewishYear));
     }
 
     /**
@@ -263,6 +263,6 @@ trait Holidays
      */
     public function isPurimKattan()
     {
-        return $this->eq(static::dayOfPurimKattan($this->jewishYear));
+        return $this->isSameDay(static::dayOfPurimKattan($this->jewishYear));
     }
 }
