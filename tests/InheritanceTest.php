@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class InheritanceTest extends PHPUnit_Framework_TestCase
+class InheritanceTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function it_inherits_some_getters_from_Carbon()

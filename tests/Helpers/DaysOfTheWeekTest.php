@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class DaysOfTheWeekTest extends PHPUnit_Framework_TestCase
+class DaysOfTheWeekTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function sunday()

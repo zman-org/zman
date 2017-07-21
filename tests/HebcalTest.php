@@ -2,7 +2,7 @@
 
 use Zman\Helpers\Hebcal;
 
-class HebcalTest extends PHPUnit_Framework_TestCase
+class HebcalTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function converts_numbers_to_hebrew()

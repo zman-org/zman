@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class Setters extends PHPUnit_Framework_TestCase
+class Setters extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function it_sets_jewish_days_via_magic_setters()

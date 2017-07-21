@@ -2,7 +2,7 @@
 
 use Zman\Exceptions\InvalidDateException;
 
-class helpersTest extends PHPUnit_Framework_TestCase
+class helpersTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function it_converts_a_jewish_date_to_a_secular_date()

@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class LeapYearTest extends PHPUnit_Framework_TestCase
+class LeapYearTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function checks_if_the_date_is_part_of_a_leap_year()

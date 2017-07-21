@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class YuntifTest extends PHPUnit_Framework_TestCase
+class YuntifTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function checks_if_it_is_the_yuntif_of_pesach()

@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class InstantiationTest extends PHPUnit_Framework_TestCase
+class InstantiationTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function it_can_be_newed_up()

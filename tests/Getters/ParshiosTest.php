@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class ParshiosTest extends PHPUnit_Framework_TestCase
+class ParshiosTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function the_first_week_after_simchas_torah_is_breishis()

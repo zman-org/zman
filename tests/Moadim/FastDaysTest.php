@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class MoadimTest extends PHPUnit_Framework_TestCase
+class MoadimTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function checks_if_it_is_a_fast_day()

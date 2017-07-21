@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class AseresYimeiTeshuvaTest extends PHPUnit_Framework_TestCase
+class AseresYimeiTeshuvaTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function checks_if_it_is_the_aseres_yimei_teshuva()

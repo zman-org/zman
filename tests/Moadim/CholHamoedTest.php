@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class CholHamoedTest extends PHPUnit_Framework_TestCase
+class CholHamoedTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function checks_if_it_is_chol_hamoed()
