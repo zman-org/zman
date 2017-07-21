@@ -38,7 +38,7 @@ trait FastDays
      */
     public function isYomKippur()
     {
-        return $this->eq(static::dayOfYomKippur($this->jewishYear));
+        return $this->isSameDay(static::dayOfYomKippur($this->jewishYear));
     }
 
     /**
@@ -63,7 +63,7 @@ trait FastDays
      */
     public function isTzomGedaliah()
     {
-        return $this->eq(static::dayOfTzomGedaliah($this->jewishYear));
+        return $this->isSameDay(static::dayOfTzomGedaliah($this->jewishYear));
     }
 
     /**
@@ -84,7 +84,7 @@ trait FastDays
      */
     public function isAsaraBiteives()
     {
-        return $this->eq(static::dayOfAsaraBiteives($this->jewishYear));
+        return $this->isSameDay(static::dayOfAsaraBiteives($this->jewishYear));
     }
 
     /**
@@ -109,7 +109,7 @@ trait FastDays
      */
     public function isTaanisEsther()
     {
-        return $this->eq(static::dayOfTaanisEsther($this->jewishYear));
+        return $this->isSameDay(static::dayOfTaanisEsther($this->jewishYear));
     }
 
     /**
@@ -133,7 +133,7 @@ trait FastDays
      */
     public function isShivaAsarBitamuz()
     {
-        return $this->eq(static::dayOfShivaAsarBitamuz($this->jewishYear));
+        return $this->isSameDay(static::dayOfShivaAsarBitamuz($this->jewishYear));
     }
 
     /**
@@ -158,6 +158,6 @@ trait FastDays
      */
     public function isTishaBav()
     {
-        return $this->eq(static::dayOfTishaBav($this->jewishYear));
+        return $this->isSameDay(static::dayOfTishaBav($this->jewishYear));
     }
 }
