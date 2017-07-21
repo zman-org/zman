@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class HallelTest extends PHPUnit_Framework_TestCase
+class HallelTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function there_is_hallel_on_pesach()

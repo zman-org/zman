@@ -3,7 +3,7 @@
 use Zman\Zman;
 use Zman\Exceptions\InvalidDateException;
 
-class HolidaysTest extends PHPUnit_Framework_TestCase
+class HolidaysTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function gets_the_first_day_of_pesach()

@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class SlichosTest extends PHPUnit_Framework_TestCase
+class SlichosTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function it_gets_the_first_day_of_slichos_for_sfaradim()

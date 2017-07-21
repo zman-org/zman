@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class RoshChodeshTest extends PHPUnit_Framework_TestCase
+class RoshChodeshTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function checks_if_it_is_rosh_chodesh()

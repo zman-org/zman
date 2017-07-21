@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class MussafTest extends PHPUnit_Framework_TestCase
+class MussafTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function there_is_mussaf_on_rosh_chodesh()

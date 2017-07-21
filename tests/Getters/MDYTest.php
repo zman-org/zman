@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class MDYTest extends PHPUnit_Framework_TestCase
+class MDYTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function it_gets_the_day_of_the_month()

@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class LeiningTest extends PHPUnit_Framework_TestCase
+class LeiningTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function there_is_leining_at_shacharis_on_all_mondays()

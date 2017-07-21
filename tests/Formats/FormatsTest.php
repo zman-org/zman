@@ -2,7 +2,7 @@
 
 use Zman\Zman;
 
-class FormatsTest extends PHPUnit_Framework_TestCase
+class FormatsTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function it_prints_the_jewish_date_as_a_string()
