@@ -25,6 +25,19 @@ trait Parsha
     }
 
     /**
+     * Get the parshas hashavua in Hebrew.
+     *
+     * @param  bool   $galus
+     * @return string
+     */
+    public function parshasHashavuaHebrew($galus = true)
+    {
+        $this->format = 'hebrew';
+
+        return $this->parshasHashavua($galus);
+    }
+
+    /**
      * Look up the parsha by its index.
      *
      * @param  int  $index
