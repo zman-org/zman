@@ -43,9 +43,9 @@ trait Parsha
      * @param  int  $index
      * @return string
      */
-    private function parshios($index)
+    private function parshios($index, $format = null)
     {
-        return PARSHIOS[$index][$this->format];
+        return PARSHIOS[$index][$format ?? $this->format];
     }
 
     /**
@@ -100,7 +100,7 @@ trait Parsha
         $together = (!$galus && $this->isJewishLeapYear() && $p->isShabbos()) ? false : $together;
 
         if ($together) {
-            if ($this->parshios($shabbos + $offset) === 'Matos') {
+            if ($this->parshios($shabbos + $offset, 'english') === 'Matos') {
                 return $this->parshios($shabbos + $offset).' - '.$this->parshios($shabbos + $offset + 1);
             }
             $offset += $shabbos + $offset > 40 ? 1 : 0;
@@ -121,7 +121,7 @@ trait Parsha
             $count += $day->isShabbos() && !$day->isYomKippur() ? 1 : 0;
         }
 
-        if ($count < 2 && $this->parshios($shabbos + $offset) === 'Nitzavim') {
+        if ($count < 2 && $this->parshios($shabbos + $offset, 'english') === 'Nitzavim') {
             return $this->parshios($shabbos + $offset).' - '.$this->parshios($shabbos + $offset + 1);
         }
 
