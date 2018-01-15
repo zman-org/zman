@@ -11,15 +11,9 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Breishis', Zman::parse('10/27/16')->parsha);
         $this->assertEquals('Breishis', Zman::parse('10/28/16')->parsha);
         $this->assertEquals('Breishis', Zman::parse('10/29/16')->parsha);
+        $this->assertEquals('בראשית', Zman::parse('10/26/16')->parshaHebrew);
 
         $this->assertNotEquals('Breishis', Zman::parse('10/30/16')->parsha);
-        
-        $this->assertEquals('בראשית', Zman::parse('10/26/16')->parshaHebrew);
-        $this->assertEquals('בראשית', Zman::parse('10/27/16')->parshaHebrew);
-        $this->assertEquals('בראשית', Zman::parse('10/28/16')->parshaHebrew);
-        $this->assertEquals('בראשית', Zman::parse('10/29/16')->parshaHebrew);
-
-        $this->assertNotEquals('בראשית', Zman::parse('10/30/16')->parshaHebrew);
     }
 
     /** @test */
@@ -32,14 +26,8 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Noach', Zman::parse('11/3/16')->parsha);
         $this->assertEquals('Noach', Zman::parse('11/4/16')->parsha);
         $this->assertEquals('Noach', Zman::parse('11/5/16')->parsha);
-        
+
         $this->assertEquals('נח', Zman::parse('10/30/16')->parshaHebrew);
-        $this->assertEquals('נח', Zman::parse('10/31/16')->parshaHebrew);
-        $this->assertEquals('נח', Zman::parse('11/1/16')->parshaHebrew);
-        $this->assertEquals('נח', Zman::parse('11/2/16')->parshaHebrew);
-        $this->assertEquals('נח', Zman::parse('11/3/16')->parshaHebrew);
-        $this->assertEquals('נח', Zman::parse('11/4/16')->parshaHebrew);
-        $this->assertEquals('נח', Zman::parse('11/5/16')->parshaHebrew);
     }
 
     /** @test */
@@ -53,15 +41,6 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals('Shmos', Zman::parse('1/17/17')->parsha);
         $this->assertEquals('Mishpatim', Zman::parse('2/22/17')->parsha);
-        
-        $this->assertEquals('נח', Zman::parse('10/30/16')->parshaHebrew);
-        $this->assertEquals('נח', Zman::parse('11/2/16')->parshaHebrew);
-
-        $this->assertEquals('לך לך', Zman::parse('11/7/16')->parshaHebrew);
-        $this->assertEquals('לך לך', Zman::parse('11/9/16')->parshaHebrew);
-
-        $this->assertEquals('שמות', Zman::parse('1/17/17')->parshaHebrew);
-        $this->assertEquals('משפטים', Zman::parse('2/22/17')->parshaHebrew);
     }
 
     /** @test */
@@ -78,7 +57,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Behar - Bechukosai', Zman::parse('5/18/17')->parsha);
         $this->assertEquals('Bamidbar', Zman::parse('5/25/17')->parsha);
         $this->assertEquals('Naso', Zman::parse('6/1/17')->parsha);
-        
+
         $this->assertEquals('כי תשא', Zman::parse('3/16/17')->parshaHebrew);
         $this->assertEquals('ויקהל - פקודי', Zman::parse('3/23/17')->parshaHebrew);
         $this->assertEquals('ויקרא', Zman::parse('3/30/17')->parshaHebrew);
@@ -110,7 +89,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Bechukosai', Zman::parse('5/30/24')->parsha);
         $this->assertEquals('Bamidbar', Zman::parse('6/6/24')->parsha);
         $this->assertEquals('Naso', Zman::parse('6/13/24')->parsha);
-        
+
         $this->assertEquals('כי תשא', Zman::parse('2/29/24')->parshaHebrew);
         $this->assertEquals('ויקהל', Zman::parse('3/7/24')->parshaHebrew);
         $this->assertEquals('פקודי', Zman::parse('3/14/24')->parshaHebrew);
@@ -146,22 +125,6 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Bechukosai', Zman::parse('5/30/19')->parsha);
         $this->assertEquals('Bamidbar', Zman::parse('6/6/19')->parsha);
         $this->assertEquals('Naso', Zman::parse('6/13/19')->parsha);
-        
-        $this->assertEquals('כי תשא', Zman::parse('2/21/19')->parshaHebrew);
-        $this->assertEquals('ויקהל', Zman::parse('2/28/19')->parshaHebrew);
-        $this->assertEquals('פקודי', Zman::parse('3/7/19')->parshaHebrew);
-        $this->assertEquals('ויקרא', Zman::parse('3/14/19')->parshaHebrew);
-        $this->assertEquals('צו', Zman::parse('3/21/19')->parshaHebrew);
-        $this->assertEquals('שמיני', Zman::parse('3/28/19')->parshaHebrew);
-        $this->assertEquals('תזריע', Zman::parse('4/4/19')->parshaHebrew);
-        $this->assertEquals('מצרע', Zman::parse('4/11/19')->parshaHebrew);
-        $this->assertEquals('אחרי מות', Zman::parse('5/2/19')->parshaHebrew);
-        $this->assertEquals('קדושים', Zman::parse('5/9/19')->parshaHebrew);
-        $this->assertEquals('אמר', Zman::parse('5/16/19')->parshaHebrew);
-        $this->assertEquals('בהר', Zman::parse('5/23/19')->parshaHebrew);
-        $this->assertEquals('בחקתי', Zman::parse('5/30/19')->parshaHebrew);
-        $this->assertEquals('במדבר', Zman::parse('6/6/19')->parshaHebrew);
-        $this->assertEquals('נשא', Zman::parse('6/13/19')->parshaHebrew);
     }
 
     /** @test */
@@ -171,7 +134,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Chukas', Zman::parse('7/1/17')->parsha);
         $this->assertEquals('Balak', Zman::parse('7/8/17')->parsha);
         $this->assertEquals('Pinchas', Zman::parse('7/15/17')->parsha);
-        
+
         $this->assertEquals('קרח', Zman::parse('6/24/17')->parshaHebrew);
         $this->assertEquals('חקת', Zman::parse('7/1/17')->parshaHebrew);
         $this->assertEquals('בלק', Zman::parse('7/8/17')->parshaHebrew);
@@ -187,7 +150,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Korach', Zman::parse('6/24/23')->parsha);
         $this->assertEquals('Chukas - Balak', Zman::parse('7/1/23')->parsha);
         $this->assertEquals('Pinchas', Zman::parse('7/8/23')->parsha);
-        
+
         $this->assertEquals('במדבר', Zman::parse('5/20/23')->parshaHebrew);
         $this->assertEquals('נשא', Zman::parse('6/3/23')->parshaHebrew);
 
@@ -203,7 +166,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Chukas', Zman::parse('6/24/23')->parshaInIsrael);
         $this->assertEquals('Balak', Zman::parse('7/1/23')->parshaInIsrael);
         $this->assertEquals('Pinchas', Zman::parse('7/8/23')->parshaInIsrael);
-        
+
         $this->assertEquals('קרח', Zman::parse('6/17/23')->parshaInIsraelHebrew);
         $this->assertEquals('חקת', Zman::parse('6/24/23')->parshaInIsraelHebrew);
         $this->assertEquals('בלק', Zman::parse('7/1/23')->parshaInIsraelHebrew);
@@ -216,7 +179,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Pinchas', Zman::parse('7/13/17')->parsha);
         $this->assertEquals('Matos - Masei', Zman::parse('7/20/17')->parsha);
         $this->assertEquals('Dvarim', Zman::parse('7/27/17')->parsha);
-        
+
         $this->assertEquals('פנחס', Zman::parse('7/13/17')->parshaHebrew);
         $this->assertEquals('מטות - מסעי', Zman::parse('7/20/17')->parshaHebrew);
         $this->assertEquals('דברים', Zman::parse('7/27/17')->parshaHebrew);
@@ -228,7 +191,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Pinchas', Zman::parse('7/25/24')->parsha);
         $this->assertEquals('Matos - Masei', Zman::parse('8/1/24')->parsha);
         $this->assertEquals('Dvarim', Zman::parse('8/8/24')->parsha);
-        
+
         $this->assertEquals('פנחס', Zman::parse('7/25/24')->parshaHebrew);
         $this->assertEquals('מטות - מסעי', Zman::parse('8/1/24')->parshaHebrew);
         $this->assertEquals('דברים', Zman::parse('8/8/24')->parshaHebrew);
@@ -241,7 +204,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Matos', Zman::parse('7/21/11')->parsha);
         $this->assertEquals('Masei', Zman::parse('7/28/11')->parsha);
         $this->assertEquals('Dvarim', Zman::parse('8/4/11')->parsha);
-        
+
         $this->assertEquals('פנחס', Zman::parse('7/14/11')->parshaHebrew);
         $this->assertEquals('מטות', Zman::parse('7/21/11')->parshaHebrew);
         $this->assertEquals('מסעי', Zman::parse('7/28/11')->parshaHebrew);
@@ -253,7 +216,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals('Matos', Zman::parse('7/28/16')->parshaInIsrael);
         $this->assertEquals('Masei', Zman::parse('8/4/16')->parshaInIsrael);
-        
+
         $this->assertEquals('מטות', Zman::parse('7/28/16')->parshaInIsraelHebrew);
         $this->assertEquals('מסעי', Zman::parse('8/4/16')->parshaInIsraelHebrew);
     }
@@ -263,7 +226,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals('Nitzavim - Vayelech', Zman::parse('9/14/17')->parsha);
         $this->assertEquals('Nitzavim - Vayelech', Zman::parse('9/14/17')->parsha);
-        
+
         $this->assertEquals('נצבים - וילך', Zman::parse('9/14/17')->parshaHebrew);
     }
 
@@ -272,7 +235,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertEquals('Nitzavim', Zman::parse('9/29/16')->parsha);
         $this->assertEquals('Vayelech', Zman::parse('10/6/16')->parsha);
-        
+
         $this->assertEquals('נצבים', Zman::parse('9/29/16')->parshaHebrew);
         $this->assertEquals('וילך', Zman::parse('10/6/16')->parshaHebrew);
     }
@@ -281,7 +244,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
     public function haazinu_is_after_rosh_hashana_of_the_next_year()
     {
         $this->assertEquals('Haazinu', Zman::parse('9/21/17')->parsha);
-        
+
         $this->assertEquals('האזינו', Zman::parse('9/21/17')->parshaHebrew);
     }
 }
