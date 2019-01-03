@@ -39,7 +39,17 @@ trait Moadim
         "Aseres Yimei Teshuva" => "עשרת ימי תשובה",
     ];
     
-    public function getHoliday($language = 'English') {
+    public function holidayEnglish()
+    {
+        return $this->holiday("English");
+    }
+    
+    public function holidayHebrew()
+    {
+        return $this->holiday("Hebrew");
+    }
+    
+    private function holiday($language = 'English') {
         foreach (self::$holidays as $english => $hebrew) {
             try {
                 if ($this->{"is" . str_replace(' ','',$english)}()) {
