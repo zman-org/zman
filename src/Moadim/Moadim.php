@@ -42,7 +42,7 @@ trait Moadim
     public function getHoliday($language = 'English') {
         foreach (self::$holidays as $english => $hebrew) {
             try {
-                if ($this->{"is" . studly_case($english)}()) {
+                if ($this->{"is" . str_replace(' ','',$english)}()) {
                     switch ($language) {
                         case 'English':
                             return $english;
