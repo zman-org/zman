@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Zman\Zman;
 
 class InstantiationTest extends \PHPUnit\Framework\TestCase

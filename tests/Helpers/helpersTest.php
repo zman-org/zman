@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Helpers;
+
 use Zman\Exceptions\InvalidDateException;
 
 class helpersTest extends \PHPUnit\Framework\TestCase

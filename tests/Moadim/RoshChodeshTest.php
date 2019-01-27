@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Moadim;
+
 use Zman\Zman;
 
 class RoshChodeshTest extends \PHPUnit\Framework\TestCase

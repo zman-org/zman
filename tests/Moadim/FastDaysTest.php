@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Moadim;
+
 use Zman\Zman;
 
 class MoadimTest extends \PHPUnit\Framework\TestCase

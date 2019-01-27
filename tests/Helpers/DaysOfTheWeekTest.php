@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Helpers;
+
 use Zman\Zman;
 
 class DaysOfTheWeekTest extends \PHPUnit\Framework\TestCase

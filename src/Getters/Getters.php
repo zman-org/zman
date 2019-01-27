@@ -40,10 +40,10 @@ trait Getters
                 return $this->parshasHashavuaEnglish(false);
             case 'parshaInIsraelHebrew':
                 return $this->parshasHashavuaHebrew(false);
-            case 'holiday':
-                return $this->holidayEnglish();
-            case 'holidayHebrew':
-                return $this->holidayHebrew();
+            case 'holidays':
+                return $this->holidaysEnglish();
+            case 'holidaysHebrew':
+                return $this->holidaysHebrew();
             default:
                 return parent::__get($name);
         }

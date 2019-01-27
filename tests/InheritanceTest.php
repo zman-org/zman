@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Zman\Zman;
 
 class InheritanceTest extends \PHPUnit\Framework\TestCase

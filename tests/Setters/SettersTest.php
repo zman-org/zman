@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Setters;
+
 use Zman\Zman;
 
 class Setters extends \PHPUnit\Framework\TestCase

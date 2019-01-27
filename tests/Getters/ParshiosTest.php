@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Getters;
+
 use Zman\Zman;
 
 class ParshiosTest extends \PHPUnit\Framework\TestCase
