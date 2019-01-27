@@ -15,4 +15,15 @@ trait RoshChodesh
     {
         return $this->jewishDay === 30 || $this->jewishDay === 1;
     }
+
+    /**
+     * Checks if the date is a Rosh Chodesh
+     * and Chanukah.
+     *
+     * @return bool
+     */
+    public function isRoshChodeshChanuka()
+    {
+        return $this->isRoshChodesh() && $this->isChanuka();
+    }
 }
