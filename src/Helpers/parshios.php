@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Here we define the list of parshios, with all the supported formats.
+ */
 define('PARSHIOS', [
     0 => [
         'english' => 'Breishis',

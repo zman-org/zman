@@ -4,6 +4,7 @@ use Zman\Zman;
 use Zman\Helpers\Hebcal;
 use Zman\Exceptions\InvalidDateException;
 
+require_once 'holidays.php';
 require_once 'parshios.php';
 
 /**

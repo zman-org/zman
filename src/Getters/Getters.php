@@ -6,6 +6,7 @@ trait Getters
 {
     use MDY;
     use Parsha;
+    use Holidays;
 
     /**
      * Attach properties to the Zman object so
