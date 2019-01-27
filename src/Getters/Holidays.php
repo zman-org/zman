@@ -48,16 +48,4 @@ trait Holidays
 
         return $holidays;
     }
-
-    /**
-     * Look up the formatted holiday name.
-     *
-     * @param  string  $english
-     * @param  string  $format
-     * @return string
-     */
-    private function holiday($english, $format)
-    {
-        return HOLIDAYS[$english][$format];
-    }
 }
