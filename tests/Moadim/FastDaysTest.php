@@ -1,8 +1,10 @@
 <?php
 
+namespace Test\Moadim;
+
 use Zman\Zman;
 
-class MoadimTest extends \PHPUnit\Framework\TestCase
+class FastDaysTest extends \PHPUnit\Framework\TestCase
 {
     /** @test */
     public function checks_if_it_is_a_fast_day()

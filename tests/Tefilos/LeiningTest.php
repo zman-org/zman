@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Tefilos;
+
 use Zman\Zman;
 
 class LeiningTest extends \PHPUnit\Framework\TestCase

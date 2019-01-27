@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Moadim;
+
 use Zman\Zman;
 
 class CholHamoedTest extends \PHPUnit\Framework\TestCase

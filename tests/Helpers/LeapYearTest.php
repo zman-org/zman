@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Helpers;
+
 use Zman\Zman;
 
 class LeapYearTest extends \PHPUnit\Framework\TestCase

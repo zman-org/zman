@@ -6,6 +6,7 @@ trait Getters
 {
     use MDY;
     use Parsha;
+    use Holidays;
 
     /**
      * Attach properties to the Zman object so
@@ -17,29 +18,33 @@ trait Getters
      */
     public function __get($name)
     {
-        switch (true) {
-            case $name === 'jewishMonth':
+        switch ($name) {
+            case 'jewishMonth':
                 return (int) $this->jdate['month'];
-            case $name === 'jewishDay':
+            case 'jewishDay':
                 return (int) $this->jdate['day'];
-            case $name === 'jewishYear':
+            case 'jewishYear':
                 return (int) $this->jdate['year'];
-            case $name === 'jewishMonthName':
+            case 'jewishMonthName':
                 return $this->jewishMonthNameEnglish($this->jewishMonth, $this->jewishYear);
-            case $name === 'jewishMonthNameHebrew':
+            case 'jewishMonthNameHebrew':
                 return $this->jewishMonthNameHebrew($this->jewishMonth, $this->jewishYear);
-            case $name === 'jewishDayHebrew':
+            case 'jewishDayHebrew':
                 return $this->jewishDayHebrew($this->jewishDay);
-            case $name === 'jewishYearHebrew':
+            case 'jewishYearHebrew':
                 return $this->jewishYearHebrew($this->jewishYear);
-            case $name === 'parsha':
+            case 'parsha':
                 return $this->parshasHashavuaEnglish();
-            case $name === 'parshaHebrew':
+            case 'parshaHebrew':
                 return $this->parshasHashavuaHebrew();
-            case $name === 'parshaInIsrael':
+            case 'parshaInIsrael':
                 return $this->parshasHashavuaEnglish(false);
-            case $name === 'parshaInIsraelHebrew':
+            case 'parshaInIsraelHebrew':
                 return $this->parshasHashavuaHebrew(false);
+            case 'holidays':
+                return $this->holidaysEnglish();
+            case 'holidaysHebrew':
+                return $this->holidaysHebrew();
             default:
                 return parent::__get($name);
         }

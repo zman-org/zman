@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\Formats;
+
 use Zman\Zman;
 
 class FormatsTest extends \PHPUnit\Framework\TestCase

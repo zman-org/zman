@@ -1,5 +1,7 @@
 <?php
 
+namespace Test;
+
 use Zman\Helpers\Hebcal;
 
 class HebcalTest extends \PHPUnit\Framework\TestCase
