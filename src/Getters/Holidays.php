@@ -13,7 +13,7 @@ trait Holidays
     {
         return $this->holidays('english');
     }
-    
+
     /**
      * Get the day's holidays in Hebrew.
      *
@@ -30,11 +30,12 @@ trait Holidays
      * @param  string  $format
      * @return array
      */
-    private function holidays($format) {
+    private function holidays($format)
+    {
         $holidays = [];
 
         foreach (HOLIDAYS as $holiday => $formats) {
-            $getter = "is" . str_replace(' ', '', $holiday);
+            $getter = 'is'.str_replace(' ', '', $holiday);
 
             if (!$this->isJewishLeapYear() && $getter === 'isPurimKattan') {
                 continue;

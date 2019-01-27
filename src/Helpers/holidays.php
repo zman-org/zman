@@ -7,82 +7,82 @@
 define('HOLIDAYS', [
     'Rosh Chodesh' => [
         'english' => 'Rosh Chodesh',
-        'hebrew' => 'ראש חודש',
+        'hebrew'  => 'ראש חודש',
     ],
     'Rosh Hashana' => [
         'english' => 'Rosh Hashana',
-        'hebrew' => 'ראש השנה',
+        'hebrew'  => 'ראש השנה',
     ],
     'Yom Kippur' => [
         'english' => 'Yom Kippur',
-        'hebrew' => 'יום כיפור',
+        'hebrew'  => 'יום כיפור',
     ],
     'Sukkos' => [
         'english' => 'Sukkos',
-        'hebrew' => 'סוכות',
+        'hebrew'  => 'סוכות',
     ],
     'Shmini Atzeres' => [
         'english' => 'Shmini Atzeres',
-        'hebrew' => 'שמיני עצרת',
+        'hebrew'  => 'שמיני עצרת',
     ],
     'Simchas Torah' => [
         'english' => 'Simchas Torah',
-        'hebrew' => 'שמחת תורה',
+        'hebrew'  => 'שמחת תורה',
     ],
     'Chanuka' => [
         'english' => 'Chanuka',
-        'hebrew' => 'חנוכה',
+        'hebrew'  => 'חנוכה',
     ],
     'Tu Bishvat' => [
         'english' => 'Tu Bishvat',
-        'hebrew' => 'ט״ו בשבט',
+        'hebrew'  => 'ט״ו בשבט',
     ],
     'Purim Kattan' => [
         'english' => 'Purim Kattan',
-        'hebrew' => 'פורים קטן',
+        'hebrew'  => 'פורים קטן',
     ],
     'Purim' => [
         'english' => 'Purim',
-        'hebrew' => 'פורים',
+        'hebrew'  => 'פורים',
     ],
     'Shushan Purim' => [
         'english' => 'Shushan Purim',
-        'hebrew' => 'שושן פורים',
+        'hebrew'  => 'שושן פורים',
     ],
     'Pesach' => [
         'english' => 'Pesach',
-        'hebrew' => 'פסח',
+        'hebrew'  => 'פסח',
     ],
     'Pesach Sheni' => [
         'english' => 'Pesach Sheni',
-        'hebrew' => 'פסח שני',
+        'hebrew'  => 'פסח שני',
     ],
     'Shavuos' => [
         'english' => 'Shavuos',
-        'hebrew' => 'שבועות',
+        'hebrew'  => 'שבועות',
     ],
     'Tzom Gedaliah' => [
         'english' => 'Tzom Gedaliah',
-        'hebrew' => 'צום גדליה',
+        'hebrew'  => 'צום גדליה',
     ],
     'Asara Biteives' => [
         'english' => 'Asara Biteives',
-        'hebrew' => 'עשרה בטבת',
+        'hebrew'  => 'עשרה בטבת',
     ],
     'Taanis Esther' => [
         'english' => 'Taanis Esther',
-        'hebrew' => 'תענית אסתר',
+        'hebrew'  => 'תענית אסתר',
     ],
     'Shiva Asar Bitamuz' => [
         'english' => 'Shiva Asar Bitamuz',
-        'hebrew' => 'שבעה עשר בתמוז',
+        'hebrew'  => 'שבעה עשר בתמוז',
     ],
     'Tisha Bav' => [
         'english' => 'Tisha Bav',
-        'hebrew' => 'תשעה באב',
+        'hebrew'  => 'תשעה באב',
     ],
     'Aseres Yimei Teshuva' => [
         'english' => 'Aseres Yimei Teshuva',
-        'hebrew' => 'עשרת ימי תשובה',
-    ]
+        'hebrew'  => 'עשרת ימי תשובה',
+    ],
 ]);

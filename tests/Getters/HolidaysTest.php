@@ -32,7 +32,6 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($zman->isRoshChodesh());
         $this->assertTrue($zman->isChanuka());
 
-
         $this->assertEquals(['Rosh Chodesh', 'Chanuka'], $zman->holidays);
         $this->assertEquals(['ראש חודש', 'חנוכה'], $zman->holidaysHebrew);
     }
