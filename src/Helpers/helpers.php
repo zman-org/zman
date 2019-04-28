@@ -15,13 +15,15 @@ require_once 'parshios.php';
  * @param  string|int $year
  * @return Zman\Zman
  */
-function toSecular($month, $day, $year)
-{
-    if ($month === 6 && !isLeapYear($year)) {
-        throw new InvalidDateException("{$year} is not a leap year.");
-    }
+if (! function_exists('toSecular')) {
+    function toSecular($month, $day, $year)
+    {
+        if ($month === 6 && !isLeapYear($year)) {
+            throw new InvalidDateException("{$year} is not a leap year.");
+        }
 
-    return Zman::parse(jdtogregorian(jewishtojd($month, $day, $year)));
+        return Zman::parse(jdtogregorian(jewishtojd($month, $day, $year)));
+    }
 }
 
 /**
@@ -32,9 +34,11 @@ function toSecular($month, $day, $year)
  * @param  string|int $year
  * @return array
  */
-function toJewish($month, $day, $year)
-{
-    return jdtojewish(gregoriantojd($month, $day, $year));
+if (! function_exists('toJewish')) {
+    function toJewish($month, $day, $year)
+    {
+        return jdtojewish(gregoriantojd($month, $day, $year));
+    }
 }
 
 /**
@@ -43,9 +47,11 @@ function toJewish($month, $day, $year)
  * @param  string|int $year
  * @return bool
  */
-function isLeapYear($year)
-{
-    return (1 + ($year * 7)) % 19 < 7 ? true : false;
+if (! function_exists('isLeapYear')) {
+    function isLeapYear($year)
+    {
+        return (1 + ($year * 7)) % 19 < 7 ? true : false;
+    }
 }
 
 /**
@@ -54,7 +60,9 @@ function isLeapYear($year)
  * @param  string|int $number
  * @return string
  */
-function toHebrewNumber($number)
-{
-    return Hebcal::numberToHebrew($number);
+if (! function_exists('toHebrewNumber')) {
+    function toHebrewNumber($number)
+    {
+        return Hebcal::numberToHebrew($number);
+    }
 }
