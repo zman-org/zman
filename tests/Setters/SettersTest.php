@@ -88,4 +88,15 @@ class SettersTest extends \PHPUnit\Framework\TestCase
 
         $this->assertEquals(5000, $zman->year);
     }
+
+    /** @test */
+    public function it_still_inherits_setters_errors_from_Carbon()
+    {
+        $zman = new Zman('November 7, 2016');
+        $this->assertEquals(2016, $zman->year);
+
+        $this->expectException(\InvalidArgumentException::class);
+
+        $zman->moshiach = 'soon!';
+    }
 }

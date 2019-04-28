@@ -14,12 +14,12 @@ trait Setters
      */
     public function __set($name, $value)
     {
-        switch (true) {
-            case $name === 'jewishDay':
+        switch ($name) {
+            case 'jewishDay':
                 return $this->setJewishDate($this->jewishMonth, $value, $this->jewishYear);
-            case $name === 'jewishMonth':
+            case 'jewishMonth':
                 return $this->setJewishDate($value, $this->jewishDay, $this->jewishYear);
-            case $name === 'jewishYear':
+            case 'jewishYear':
                 return $this->setJewishDate($this->jewishMonth, $this->jewishDay, $value);
             default:
                 return parent::__set($name, $value);
