@@ -4,7 +4,7 @@
  * Here we define the list of holidays, with all the supported formats.
  * The list should be kept in the order of תדיר ושאינו תדיר תדיר קודם.
  */
-if (! defined('HOLIDAYS')) {
+if (!defined('HOLIDAYS')) {
     define('HOLIDAYS', [
         'Rosh Chodesh' => [
             'english' => 'Rosh Chodesh',
