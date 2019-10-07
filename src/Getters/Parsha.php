@@ -70,7 +70,7 @@ trait Parsha
         $p = static::firstDayOfPesach($this->jewishYear);
         if ($this->gt($p)) {
             // if last day of pesach is shabbos we lose a second parsha in galus
-            $offset -= $galus && $p->addDays(7)->isShabbos() ? 2 : 1;
+            $offset -= $galus && $p->addDays(7)->isShabbos() && !$this->isPesach() ? 2 : 1;
         }
 
         if (!$this->isJewishLeapYear()) {
@@ -107,7 +107,7 @@ trait Parsha
         }
 
         // netzavim and vayelech are together unless there are two shabbosim between R"H and sukkos
-        $isBetweenRHAndSukkos = $this->between(static::firstDayOfRoshHashana($this->jewishYear), static::firstDayOfSukkos($this->jewishYear));
+        $isBetweenRHAndSukkos = $this->between(static::firstDayOfRoshHashana($this->jewishYear), static::dayOfShminiAtzeres($this->jewishYear));
 
         $j = $isBetweenRHAndSukkos ? 0 : 1;
 
@@ -115,22 +115,31 @@ trait Parsha
         $su = static::firstDayOfSukkos($this->jewishYear + $j);
         $count = 0;
 
-        $day = $rh;
+        $day = $rh->copy()->addDay();
         while ($day->lt($su)) {
-            $day->addDay();
             $count += $day->isShabbos() && !$day->isYomKippur() ? 1 : 0;
+            $day->addDay();
         }
 
-        if ($count < 2 && $this->parshios($shabbos + $offset, 'english') === 'Nitzavim') {
-            return $this->parshios($shabbos + $offset).' - '.$this->parshios($shabbos + $offset + 1);
+        if ($count < 2) {
+            if ($this->parshios($shabbos + $offset, 'english') === 'Nitzavim') {
+                return $this->parshios($shabbos + $offset).' - '.$this->parshios($shabbos + $offset + 1);
+            } else {
+                $offset += $shabbos > 46 ? 1 : 0;
+            }
         }
 
         if ($isBetweenRHAndSukkos) {
-            if ($count < 2) {
-                return $this->parshios(52);
+            $shuva = $rh->copy()->addDays(6 - ($rh->dayOfWeek != 6 ? $rh->dayOfWeek : -1));
+            if ($this->lte($shuva)) {
+                return $this->parshios(53 - $count);
             }
 
-            return $this->lt(static::dayOfYomKippur($this->jewishYear + 1)) ? $this->parshios(51) : $this->parshios(52);
+            if ($count < 2) {
+                return $this->parshios(53);
+            }
+
+            return $this->lte($shuva->addWeek()) ? $this->parshios(52) : $this->parshios(53);
         }
 
         return $this->parshios($shabbos + $offset);
