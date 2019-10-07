@@ -120,6 +120,8 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Shmini', Zman::parse('3/28/19')->parsha);
         $this->assertEquals('Tazria', Zman::parse('4/4/19')->parsha);
         $this->assertEquals('Metzora', Zman::parse('4/11/19')->parsha);
+        $this->assertEquals('Acharei Mos', Zman::parse('4/21/19')->parsha);
+        $this->assertEquals('Acharei Mos', Zman::parse('4/29/19')->parsha);
         $this->assertEquals('Acharei Mos', Zman::parse('5/2/19')->parsha);
         $this->assertEquals('Kedoshim', Zman::parse('5/9/19')->parsha);
         $this->assertEquals('Emor', Zman::parse('5/16/19')->parsha);
