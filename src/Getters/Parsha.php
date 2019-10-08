@@ -130,7 +130,7 @@ trait Parsha
         }
 
         if ($isBetweenRHAndSukkos) {
-            $shuva = $rh->copy()->addDays(6 - ($rh->dayOfWeek != 6 ? $rh->dayOfWeek : -1));
+            $shuva = $rh->copy()->addDays(6 - ($rh->dayOfWeek !== 6 ? $rh->dayOfWeek : -1));
             if ($this->lte($shuva)) {
                 return $this->parshios(53 - $count);
             }
