@@ -9,7 +9,7 @@ trait Hallel
      *
      * @return bool
      */
-    public function hasHallel($galus = true)
+    public function hasHallel($galus = null)
     {
         return $this->isPesach($galus)
             || $this->isShavuos($galus)

@@ -11,6 +11,6 @@ trait LeapYears
      */
     public function isJewishLeapYear()
     {
-        return isLeapYear($this->jewishYear);
+        return isJewishLeapYear($this->jewishYear);
     }
 }

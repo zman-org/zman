@@ -76,8 +76,10 @@ trait Holidays
      * @param  string|int $year
      * @return Zman\Zman
      */
-    public static function dayOfSimchasTorah($year, $galus = true)
+    public static function dayOfSimchasTorah($year, $galus = null)
     {
+        $galus = $galus ?? $this->galus;
+
         return toSecular(1, $galus ? 23 : 22, $year);
     }
 
@@ -143,8 +145,10 @@ trait Holidays
      * @param  bool $galus
      * @return bool
      */
-    public function isPesach($galus = true)
+    public function isPesach($galus = null)
     {
+        $galus = $galus ?? $this->galus;
+
         return $this->gte(static::firstDayOfPesach($this->jewishYear))
             && $this->lte(static::firstDayOfPesach($this->jewishYear)->addDays($galus ? 7 : 6)->endOfDay());
     }
@@ -166,8 +170,10 @@ trait Holidays
      * @param  bool $galus
      * @return bool
      */
-    public function isShavuos($galus = true)
+    public function isShavuos($galus = null)
     {
+        $galus = $galus ?? $this->galus;
+
         return $this->jewishMonth === 10 && ($this->jewishDay === 6 || ($galus && $this->jewishDay === 7));
     }
 
@@ -208,8 +214,10 @@ trait Holidays
      *
      * @return bool
      */
-    public function isSimchasTorah($galus = true)
+    public function isSimchasTorah($galus = null)
     {
+        $galus = $galus ?? $this->galus;
+
         return $this->jewishMonth === 1 && ($galus ? $this->jewishDay === 23 : $this->jewishDay === 22);
     }
 

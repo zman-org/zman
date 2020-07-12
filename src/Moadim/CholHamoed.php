@@ -9,7 +9,7 @@ trait CholHamoed
      *
      * @return bool
      */
-    public function isCholHamoed($galus = true)
+    public function isCholHamoed($galus = null)
     {
         return $this->isCholHamoedPesach($galus) || $this->isCholHamoedSukkos($galus);
     }
@@ -21,8 +21,10 @@ trait CholHamoed
      *
      * @return bool
      */
-    public function isCholHamoedPesach($galus = true)
+    public function isCholHamoedPesach($galus = null)
     {
+        $galus = $galus ?? $this->galus;
+
         return $this->jewishMonth === 8
             && $this->jewishDay <= 20
             && ($galus ? $this->jewishDay >= 17 : $this->jewishDay >= 16);
@@ -35,8 +37,10 @@ trait CholHamoed
      *
      * @return bool
      */
-    public function isCholHamoedSukkos($galus = true)
+    public function isCholHamoedSukkos($galus = null)
     {
+        $galus = $galus ?? $this->galus;
+
         return $this->jewishMonth === 1
             && $this->jewishDay <= 21
             && ($galus ? $this->jewishDay >= 17 : $this->jewishDay >= 16);

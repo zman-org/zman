@@ -36,8 +36,8 @@ class helpersTest extends \PHPUnit\Framework\TestCase
     /** @test */
     public function it_checks_if_a_year_is_meubar()
     {
-        $this->assertTrue(isLeapYear(5779));
-        $this->assertFalse(isLeapYear(5777));
+        $this->assertTrue(isJewishLeapYear(5779));
+        $this->assertFalse(isJewishLeapYear(5777));
     }
 
     /** @test */
