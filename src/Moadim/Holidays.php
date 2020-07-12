@@ -71,15 +71,13 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Shmini Atzeres for a given Jewish year.
+     * Gets the day of Simchas Torah for a given Jewish year.
      *
      * @param  string|int $year
      * @return Zman\Zman
      */
-    public static function dayOfSimchasTorah($year, $galus = null)
+    public static function dayOfSimchasTorah($year, $galus = true)
     {
-        $galus = $galus ?? $this->galus;
-
         return toSecular(1, $galus ? 23 : 22, $year);
     }
 

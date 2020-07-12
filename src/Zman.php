@@ -40,7 +40,7 @@ class Zman extends Carbon
         list($this->jdate['month'], $this->jdate['day'], $this->jdate['year'])
             = explode('/', toJewish($carbon->month, $carbon->day, $carbon->year));
 
-        $galus = true;
+        $this->setGalus(true);
     }
 
     /**
