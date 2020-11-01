@@ -7,6 +7,7 @@ trait CholHamoed
     /**
      * Checks if the date is Chol HaMoed.
      *
+     * @param  bool $galus
      * @return bool
      */
     public function isCholHamoed($galus = null)
@@ -19,11 +20,12 @@ trait CholHamoed
      * Nissan to the 20th of Nissan in Galus,
      * and also includes the 16th in E"Y.
      *
+     * @param  bool $galus
      * @return bool
      */
     public function isCholHamoedPesach($galus = null)
     {
-        $galus = $galus ?? $this->galus;
+        $galus = $this->getGalusMode($galus);
 
         return $this->jewishMonth === 8
             && $this->jewishDay <= 20
@@ -35,11 +37,12 @@ trait CholHamoed
      * Tishrei to the 21st of Tishrei in Galus,
      * and also includes the 16th in E"Y.
      *
+     * @param  bool $galus
      * @return bool
      */
     public function isCholHamoedSukkos($galus = null)
     {
-        $galus = $galus ?? $this->galus;
+        $galus = $this->getGalusMode($galus);
 
         return $this->jewishMonth === 1
             && $this->jewishDay <= 21

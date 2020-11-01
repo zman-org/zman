@@ -145,7 +145,7 @@ trait Holidays
      */
     public function isPesach($galus = null)
     {
-        $galus = $galus ?? $this->galus;
+        $galus = $this->getGalusMode($galus);
 
         return $this->gte(static::firstDayOfPesach($this->jewishYear))
             && $this->lte(static::firstDayOfPesach($this->jewishYear)->addDays($galus ? 7 : 6)->endOfDay());
@@ -170,7 +170,7 @@ trait Holidays
      */
     public function isShavuos($galus = null)
     {
-        $galus = $galus ?? $this->galus;
+        $galus = $this->getGalusMode($galus);
 
         return $this->jewishMonth === 10 && ($this->jewishDay === 6 || ($galus && $this->jewishDay === 7));
     }
@@ -214,7 +214,7 @@ trait Holidays
      */
     public function isSimchasTorah($galus = null)
     {
-        $galus = $galus ?? $this->galus;
+        $galus = $this->getGalusMode($galus);
 
         return $this->jewishMonth === 1 && ($galus ? $this->jewishDay === 23 : $this->jewishDay === 22);
     }

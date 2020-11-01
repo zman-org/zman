@@ -35,31 +35,15 @@ trait Getters
             case 'jewishYearHebrew':
                 return $this->jewishYearHebrew($this->jewishYear);
 
-            case 'currentParsha':
-                return $this->parshasHashavuaEnglish();
-            case 'currentParshaHebrew':
-                return $this->parshasHashavuaHebrew();
             case 'parsha':
-                return $this->parshasHashavuaEnglish(true);
+                return $this->parshasHashavuaEnglish();
             case 'parshaHebrew':
-                return $this->parshasHashavuaHebrew(true);
-            case 'parshaInIsrael':
-                return $this->parshasHashavuaEnglish(false);
-            case 'parshaInIsraelHebrew':
-                return $this->parshasHashavuaHebrew(false);
+                return $this->parshasHashavuaHebrew();
 
-            case 'currentHolidays':
-                return $thsi->holidaysEnglish();
-            case 'currentHolidaysHebrew':
-                return $thsi->holidaysHebrew();
             case 'holidays':
-                return $this->holidaysEnglish(true);
+                return $this->holidaysEnglish();
             case 'holidaysHebrew':
-                return $this->holidaysHebrew(true);
-            case 'holidaysInIsrael':
-                return $this->holidaysEnglish(false);
-            case 'holidaysHebrewInIsrael':
-                return $this->holidaysHebrew(false);
+                return $this->holidaysHebrew();
 
             default:
                 return parent::__get($name);

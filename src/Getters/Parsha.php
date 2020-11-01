@@ -55,7 +55,7 @@ trait Parsha
      */
     private function parshasHashavua($galus = null)
     {
-        $galus = $galus ?? $this->galus;
+        $galus = $this->getGalusMode($galus);
 
         // Breishis is the first Shabbos after Simchas Torah
         $simchasTorah = static::dayOfSimchasTorah($this->jewishYear, $galus);

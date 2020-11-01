@@ -14,19 +14,22 @@ trait Moadim
     /**
      * Get if we're set to Galus or Israel.
      *
-     * @return array
+     * @param  bool $galus We can manually choose to override the setting for
+     * this function call
+     * @return bool
      */
-    public function getGalus()
+    public function getGalusMode($galus = null)
     {
-        return $this->galus;
+        return $galus ?? $this->galus;
     }
 
     /**
      * Set to either Galus or Israel.
      *
-     * @return array
+     * @param  bool $galus
+     * @return Zman
      */
-    public function setGalus($galus)
+    public function setGalusMode($galus)
     {
         $this->galus = $galus;
 

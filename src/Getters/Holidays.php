@@ -11,7 +11,7 @@ trait Holidays
      */
     public function holidaysEnglish($galus = null)
     {
-        return $this->holidays('english');
+        return $this->holidays('english', $galus);
     }
 
     /**
@@ -21,7 +21,7 @@ trait Holidays
      */
     public function holidaysHebrew($galus = null)
     {
-        return $this->holidays('hebrew');
+        return $this->holidays('hebrew', $galus);
     }
 
     /**
