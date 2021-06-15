@@ -1,0 +1,15 @@
+name: Lint pull request title
+
+on:
+  pull_request:
+    types: ['opened', 'edited', 'reopened', 'synchronize']
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Install dependencies
+      run: npm install @commitlint/config-conventional
+    - uses: JulienKode/pull-request-name-linter-action@v0.2.0

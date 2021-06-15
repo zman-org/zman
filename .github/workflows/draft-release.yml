@@ -1,0 +1,28 @@
+name: Draft new release
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Generate changelog
+        id: changelog
+        uses: metcalfc/changelog-generator@v1.0.0
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Draft release
+        id: draft_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          body: ${{ steps.changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
