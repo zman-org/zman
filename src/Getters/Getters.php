@@ -39,6 +39,10 @@ trait Getters
                 return $this->parshasHashavuaEnglish();
             case 'parshaHebrew':
                 return $this->parshasHashavuaHebrew();
+            case 'parshaInIsrael':
+                return $this->parshasHashavuaEnglish(false);
+            case 'parshaInIsraelHebrew':
+                return $this->parshasHashavuaHebrew(false);
 
             case 'holidays':
                 return $this->holidaysEnglish();

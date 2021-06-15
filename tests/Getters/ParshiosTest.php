@@ -166,15 +166,27 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
     /** @test */
     public function even_when_shavuos_starts_on_a_friday_chukas_and_balak_are_separate_in_israel()
     {
-        $this->assertEquals('Korach', Zman::parse('6/17/23')->setGalusMode(false)->parsha);
-        $this->assertEquals('Chukas', Zman::parse('6/24/23')->setGalusMode(false)->parsha);
-        $this->assertEquals('Balak', Zman::parse('7/1/23')->setGalusMode(false)->parsha);
-        $this->assertEquals('Pinchas', Zman::parse('7/8/23')->setGalusMode(false)->parsha);
+        $this->assertEquals('Korach', Zman::parse('6/17/23')->parshaInIsrael);
+        $this->assertEquals('Chukas', Zman::parse('6/24/23')->parshaInIsrael);
+        $this->assertEquals('Balak', Zman::parse('7/1/23')->parshaInIsrael);
+        $this->assertEquals('Pinchas', Zman::parse('7/8/23')->parshaInIsrael);
 
-        $this->assertEquals('קרח', Zman::parse('6/17/23')->setGalusMode(false)->parshaHebrew);
-        $this->assertEquals('חקת', Zman::parse('6/24/23')->setGalusMode(false)->parshaHebrew);
-        $this->assertEquals('בלק', Zman::parse('7/1/23')->setGalusMode(false)->parshaHebrew);
-        $this->assertEquals('פנחס', Zman::parse('7/8/23')->setGalusMode(false)->parshaHebrew);
+        $this->assertEquals('קרח', Zman::parse('6/17/23')->parshaInIsraelHebrew);
+        $this->assertEquals('חקת', Zman::parse('6/24/23')->parshaInIsraelHebrew);
+        $this->assertEquals('בלק', Zman::parse('7/1/23')->parshaInIsraelHebrew);
+        $this->assertEquals('פנחס', Zman::parse('7/8/23')->parshaInIsraelHebrew);
+    }
+
+    /** @test */
+    public function galus_mode_can_be_set_globally()
+    {
+        $date = Zman::parse('6/17/23')->setGalusMode(false);
+        $this->assertEquals('Korach', $date->parsha);
+        $this->assertEquals('Korach', $date->parshaInIsrael);
+
+        $date = Zman::parse('6/17/23')->setGalusMode(true);
+        $this->assertEquals('Shlach', $date->parsha);
+        $this->assertEquals('Korach', $date->parshaInIsrael);
     }
 
     /** @test */
@@ -218,11 +230,11 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
     /** @test */
     public function matos_and_masei_are_separate_in_a_leap_year_in_israel_if_the_last_day_of_pesach_was_sabbos()
     {
-        $this->assertEquals('Matos', Zman::parse('7/28/16')->setGalusMode(false)->parsha);
-        $this->assertEquals('Masei', Zman::parse('8/4/16')->setGalusMode(false)->parsha);
+        $this->assertEquals('Matos', Zman::parse('7/28/16')->parshaInIsrael);
+        $this->assertEquals('Masei', Zman::parse('8/4/16')->parshaInIsrael);
 
-        $this->assertEquals('מטות', Zman::parse('7/28/16')->setGalusMode(false)->parshaHebrew);
-        $this->assertEquals('מסעי', Zman::parse('8/4/16')->setGalusMode(false)->parshaHebrew);
+        $this->assertEquals('מטות', Zman::parse('7/28/16')->parshaInIsraelHebrew);
+        $this->assertEquals('מסעי', Zman::parse('8/4/16')->parshaInIsraelHebrew);
     }
 
     /** @test */
