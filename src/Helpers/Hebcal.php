@@ -4,7 +4,7 @@ namespace Zman\Helpers;
 
 class Hebcal
 {
-    const ALEPH_BEIS = [
+    public const ALEPH_BEIS = [
         1   => "\327\220",
         2   => "\327\221",
         3   => "\327\222",

@@ -58,8 +58,8 @@ trait Parsha
         $galus = $this->getGalusMode($galus);
 
         // Breishis is the first Shabbos after Simchas Torah
-        $simchasTorah = static::dayOfSimchasTorah($this->jewishYear, $galus);
-        $shabbosBereishis = static::dayOfSimchasTorah($this->jewishYear, $galus)->addDays(6 - $simchasTorah->dayOfWeek);
+        $simchasTorah = self::dayOfSimchasTorah($this->jewishYear, $galus);
+        $shabbosBereishis = self::dayOfSimchasTorah($this->jewishYear, $galus)->addDays(6 - $simchasTorah->dayOfWeek);
         if ($this->between($simchasTorah, $shabbosBereishis)) {
             return $this->parshios(0);
         }

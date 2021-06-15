@@ -14,7 +14,7 @@ if (!function_exists('toSecular')) {
      * @param  string|int $month
      * @param  string|int $day
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     function toSecular($month, $day, $year)
     {

@@ -27,7 +27,7 @@ trait Moadim
      * Set to either Galus or Israel.
      *
      * @param  bool $galus
-     * @return Zman
+     * @return \Zman\Zman
      */
     public function setGalusMode($galus)
     {
