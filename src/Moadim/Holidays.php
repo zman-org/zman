@@ -8,7 +8,7 @@ trait Holidays
      * Gets the first day of Pesach for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function firstDayOfPesach($year)
     {
@@ -19,7 +19,7 @@ trait Holidays
      * Gets the day of Pesach Sheni for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function dayOfPesachSheni($year)
     {
@@ -30,7 +30,7 @@ trait Holidays
      * Gets the first day of Shavuos for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function firstDayOfShavuos($year)
     {
@@ -41,7 +41,7 @@ trait Holidays
      * Gets the first day of Rosh Hashana for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function firstDayOfRoshHashana($year)
     {
@@ -52,7 +52,7 @@ trait Holidays
      * Gets the first day of Sukkos for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function firstDayOfSukkos($year)
     {
@@ -63,7 +63,7 @@ trait Holidays
      * Gets the day of Shmini Atzeres for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function dayOfShminiAtzeres($year)
     {
@@ -71,10 +71,10 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Shmini Atzeres for a given Jewish year.
+     * Gets the day of Simchas Torah for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function dayOfSimchasTorah($year, $galus = true)
     {
@@ -85,7 +85,7 @@ trait Holidays
      * Gets the first day of Chanuka for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function firstDayOfChanuka($year)
     {
@@ -96,7 +96,7 @@ trait Holidays
      * Gets the day of Tu Bishvat for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function dayOfTuBishvat($year)
     {
@@ -107,7 +107,7 @@ trait Holidays
      * Gets the day of Purim for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function dayOfPurim($year)
     {
@@ -118,7 +118,7 @@ trait Holidays
      * Gets the day of Shushan Purim for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function dayOfShushanPurim($year)
     {
@@ -129,7 +129,7 @@ trait Holidays
      * Gets the day of Purim Kattan for a given Jewish year.
      *
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     public static function dayOfPurimKattan($year)
     {
@@ -143,8 +143,10 @@ trait Holidays
      * @param  bool $galus
      * @return bool
      */
-    public function isPesach($galus = true)
+    public function isPesach($galus = null)
     {
+        $galus = $this->getGalusMode($galus);
+
         return $this->gte(static::firstDayOfPesach($this->jewishYear))
             && $this->lte(static::firstDayOfPesach($this->jewishYear)->addDays($galus ? 7 : 6)->endOfDay());
     }
@@ -166,8 +168,10 @@ trait Holidays
      * @param  bool $galus
      * @return bool
      */
-    public function isShavuos($galus = true)
+    public function isShavuos($galus = null)
     {
+        $galus = $this->getGalusMode($galus);
+
         return $this->jewishMonth === 10 && ($this->jewishDay === 6 || ($galus && $this->jewishDay === 7));
     }
 
@@ -208,8 +212,10 @@ trait Holidays
      *
      * @return bool
      */
-    public function isSimchasTorah($galus = true)
+    public function isSimchasTorah($galus = null)
     {
+        $galus = $this->getGalusMode($galus);
+
         return $this->jewishMonth === 1 && ($galus ? $this->jewishDay === 23 : $this->jewishDay === 22);
     }
 

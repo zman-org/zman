@@ -10,7 +10,7 @@ trait Yuntif
      * @param  bool $galus
      * @return bool
      */
-    public function isYuntif($galus = true)
+    public function isYuntif($galus = null)
     {
         return $this->isPesachYuntif($galus)
             || $this->isShavuos($galus)
@@ -28,7 +28,7 @@ trait Yuntif
      * @param  bool $galus
      * @return bool
      */
-    public function isPesachYuntif($galus = true)
+    public function isPesachYuntif($galus = null)
     {
         return $this->isPesach($galus) && !$this->isCholHamoed($galus);
     }
@@ -40,7 +40,7 @@ trait Yuntif
      * @param  bool $galus
      * @return bool
      */
-    public function isSukkosYuntif($galus = true)
+    public function isSukkosYuntif($galus = null)
     {
         return $this->isSukkos($galus) && !$this->isCholHamoed($galus);
     }

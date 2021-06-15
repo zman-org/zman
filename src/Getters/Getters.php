@@ -25,6 +25,7 @@ trait Getters
                 return (int) $this->jdate['day'];
             case 'jewishYear':
                 return (int) $this->jdate['year'];
+
             case 'jewishMonthName':
                 return $this->jewishMonthNameEnglish($this->jewishMonth, $this->jewishYear);
             case 'jewishMonthNameHebrew':
@@ -33,6 +34,7 @@ trait Getters
                 return $this->jewishDayHebrew($this->jewishDay);
             case 'jewishYearHebrew':
                 return $this->jewishYearHebrew($this->jewishYear);
+
             case 'parsha':
                 return $this->parshasHashavuaEnglish();
             case 'parshaHebrew':
@@ -41,10 +43,12 @@ trait Getters
                 return $this->parshasHashavuaEnglish(false);
             case 'parshaInIsraelHebrew':
                 return $this->parshasHashavuaHebrew(false);
+
             case 'holidays':
                 return $this->holidaysEnglish();
             case 'holidaysHebrew':
                 return $this->holidaysHebrew();
+
             default:
                 return parent::__get($name);
         }

@@ -30,7 +30,7 @@ trait Setters
      * Explicitly set the Jewish day without any validation.
      *
      * @param  string|int $value
-     * @return this
+     * @return $this
      */
     public function jewishDay($value)
     {
@@ -41,7 +41,7 @@ trait Setters
      * Explicitly set the Jewish month without any validation.
      *
      * @param  string|int $value
-     * @return this
+     * @return $this
      */
     public function jewishMonth($value)
     {
@@ -52,7 +52,7 @@ trait Setters
      * Explicitly set the Jewish year without any validation.
      *
      * @param  string|int $value
-     * @return this
+     * @return $this
      */
     public function jewishYear($value)
     {
@@ -65,7 +65,7 @@ trait Setters
      * @param  string|int $month
      * @param  string|int $day
      * @param  string|int $year
-     * @return this
+     * @return $this
      */
     public function setJewishDate($month, $day, $year)
     {
@@ -80,7 +80,7 @@ trait Setters
      * Update the Jewish date when performing modifications.
      *
      * @param  string $modify
-     * @return this
+     * @return $this
      */
     public function modify($modify)
     {

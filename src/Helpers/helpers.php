@@ -14,11 +14,11 @@ if (!function_exists('toSecular')) {
      * @param  string|int $month
      * @param  string|int $day
      * @param  string|int $year
-     * @return Zman\Zman
+     * @return \Zman\Zman
      */
     function toSecular($month, $day, $year)
     {
-        if ($month === 6 && !isLeapYear($year)) {
+        if ($month === 6 && !isJewishLeapYear($year)) {
             throw new InvalidDateException("{$year} is not a leap year.");
         }
 
@@ -41,14 +41,14 @@ if (!function_exists('toJewish')) {
     }
 }
 
-if (!function_exists('isLeapYear')) {
+if (!function_exists('isJewishLeapYear')) {
     /**
      * Checks if a Jewish year is meubar.
      *
      * @param  string|int $year
      * @return bool
      */
-    function isLeapYear($year)
+    function isJewishLeapYear($year)
     {
         return (1 + ($year * 7)) % 19 < 7 ? true : false;
     }

@@ -15,7 +15,7 @@ trait MDY
     {
         return [
             'Tishrei', 'Cheshvan', 'Kislev', 'Teives', 'Shvat',
-            'Adar 1', isLeapYear($year) ? 'Adar 2' : 'Adar',
+            'Adar 1', isJewishLeapYear($year) ? 'Adar 2' : 'Adar',
             'Nissan', 'Iyar', 'Sivan', 'Tamuz', 'Av', 'Elul',
         ][$month - 1];
     }
@@ -31,7 +31,7 @@ trait MDY
     {
         return [
             'תשרי', 'חשון', 'כסלו', 'טבת', 'שבט',
-            'אדר א', isLeapYear($year) ? 'אדר ב' : 'אדר',
+            'אדר א', isJewishLeapYear($year) ? 'אדר ב' : 'אדר',
             'ניסן', 'אייר', 'סיון', 'תמוז', 'אב', 'אלול',
         ][$month - 1];
     }

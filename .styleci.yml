@@ -1,7 +1,0 @@
-preset: recommended
-
-disabled:
-  - ordered_imports
-  - phpdoc_separation
-  - phpdoc_align
-

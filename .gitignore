@@ -3,3 +3,4 @@
 /vendor
 Icon?
 test-results/
+.php-cs-fixer.cache

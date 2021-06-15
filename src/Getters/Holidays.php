@@ -34,7 +34,7 @@ trait Holidays
     {
         $holidays = [];
 
-        foreach (HOLIDAYS as $holiday => $formats) {
+        foreach (array_keys(HOLIDAYS) as $holiday) {
             $getter = 'is'.str_replace(' ', '', $holiday);
 
             if (!$this->isJewishLeapYear() && $getter === 'isPurimKattan') {

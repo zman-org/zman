@@ -17,7 +17,7 @@ trait Parsha
      * @param  bool   $galus
      * @return string
      */
-    public function parshasHashavuaEnglish($galus = true)
+    public function parshasHashavuaEnglish($galus = null)
     {
         $this->format = 'english';
 
@@ -30,7 +30,7 @@ trait Parsha
      * @param  bool   $galus
      * @return string
      */
-    public function parshasHashavuaHebrew($galus = true)
+    public function parshasHashavuaHebrew($galus = null)
     {
         $this->format = 'hebrew';
 
@@ -53,11 +53,13 @@ trait Parsha
      *
      * @return string
      */
-    private function parshasHashavua($galus = true)
+    private function parshasHashavua($galus = null)
     {
+        $galus = $this->getGalusMode($galus);
+
         // Breishis is the first Shabbos after Simchas Torah
-        $simchasTorah = static::dayOfSimchasTorah($this->jewishYear, $galus);
-        $shabbosBereishis = static::dayOfSimchasTorah($this->jewishYear, $galus)->addDays(6 - $simchasTorah->dayOfWeek);
+        $simchasTorah = self::dayOfSimchasTorah($this->jewishYear, $galus);
+        $shabbosBereishis = self::dayOfSimchasTorah($this->jewishYear, $galus)->addDays(6 - $simchasTorah->dayOfWeek);
         if ($this->between($simchasTorah, $shabbosBereishis)) {
             return $this->parshios(0);
         }

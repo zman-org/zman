@@ -178,6 +178,18 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
     }
 
     /** @test */
+    public function galus_mode_can_be_set_globally()
+    {
+        $date = Zman::parse('6/17/23')->setGalusMode(false);
+        $this->assertEquals('Korach', $date->parsha);
+        $this->assertEquals('Korach', $date->parshaInIsrael);
+
+        $date = Zman::parse('6/17/23')->setGalusMode(true);
+        $this->assertEquals('Shlach', $date->parsha);
+        $this->assertEquals('Korach', $date->parshaInIsrael);
+    }
+
+    /** @test */
     public function matos_and_masei_are_read_together_usually()
     {
         $this->assertEquals('Pinchas', Zman::parse('7/13/17')->parsha);
