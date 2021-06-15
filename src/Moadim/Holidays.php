@@ -71,7 +71,7 @@ trait Holidays
     }
 
     /**
-     * Gets the day of Shmini Atzeres for a given Jewish year.
+     * Gets the day of Simchas Torah for a given Jewish year.
      *
      * @param  string|int $year
      * @return Zman\Zman
@@ -143,8 +143,10 @@ trait Holidays
      * @param  bool $galus
      * @return bool
      */
-    public function isPesach($galus = true)
+    public function isPesach($galus = null)
     {
+        $galus = $this->getGalusMode($galus);
+
         return $this->gte(static::firstDayOfPesach($this->jewishYear))
             && $this->lte(static::firstDayOfPesach($this->jewishYear)->addDays($galus ? 7 : 6)->endOfDay());
     }
@@ -166,8 +168,10 @@ trait Holidays
      * @param  bool $galus
      * @return bool
      */
-    public function isShavuos($galus = true)
+    public function isShavuos($galus = null)
     {
+        $galus = $this->getGalusMode($galus);
+
         return $this->jewishMonth === 10 && ($this->jewishDay === 6 || ($galus && $this->jewishDay === 7));
     }
 
@@ -208,8 +212,10 @@ trait Holidays
      *
      * @return bool
      */
-    public function isSimchasTorah($galus = true)
+    public function isSimchasTorah($galus = null)
     {
+        $galus = $this->getGalusMode($galus);
+
         return $this->jewishMonth === 1 && ($galus ? $this->jewishDay === 23 : $this->jewishDay === 22);
     }
 

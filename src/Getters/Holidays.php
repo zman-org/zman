@@ -9,9 +9,9 @@ trait Holidays
      *
      * @return array
      */
-    public function holidaysEnglish()
+    public function holidaysEnglish($galus = null)
     {
-        return $this->holidays('english');
+        return $this->holidays('english', $galus);
     }
 
     /**
@@ -19,9 +19,9 @@ trait Holidays
      *
      * @return array
      */
-    public function holidaysHebrew()
+    public function holidaysHebrew($galus = null)
     {
-        return $this->holidays('hebrew');
+        return $this->holidays('hebrew', $galus);
     }
 
     /**
@@ -30,8 +30,13 @@ trait Holidays
      * @param  string  $format
      * @return array
      */
-    private function holidays($format)
+    private function holidays($format, $galus = null)
     {
+        if (!is_null($galus)) {
+            $current_galus = $this->galus;
+            $this->galus = $galus;
+        }
+
         $holidays = [];
 
         foreach (HOLIDAYS as $holiday => $formats) {
@@ -44,6 +49,10 @@ trait Holidays
             if ($this->$getter()) {
                 $holidays[] = HOLIDAYS[$holiday][$format];
             }
+        }
+
+        if (!is_null($galus)) {
+            $this->galus = $current_galus;
         }
 
         return $holidays;

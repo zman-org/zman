@@ -22,6 +22,7 @@ class Zman extends Carbon
     use DaysOfTheWeek;
 
     protected $jdate;
+    protected $galus = true;
 
     /**
      * Zman inherits from Carbon which in turn

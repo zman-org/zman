@@ -80,7 +80,7 @@ trait Leining
             if ($this->isShabbos()) {
                 return $this->addWeek()->parsha;
             }
-            if ($this->isFastDay() && !$this->isYomKippur()) {
+            if ($this->isFastDay()) {
                 return 'Taanis Tzibbur';
             }
         }
