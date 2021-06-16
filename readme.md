@@ -3,9 +3,10 @@
   Zman
 </h1>
 
-[![Build Status](https://travis-ci.org/zmanim/zman.svg?branch=master)](https://travis-ci.com/zmanim/zman)
-[![codecov](https://codecov.io/gh/zmanim/zman/branch/master/graph/badge.svg)](https://codecov.io/gh/zmanim/zman)
-[![StyleCI](https://styleci.io/repos/72968770/shield?branch=master&style=flat)](https://styleci.io/repos/72968770)
+[![License](https://poser.pugx.org/zmanim/zman/license)](//packagist.org/packages/zmanim/zman)
+[![Test](https://github.com/zmanim/zman/actions/workflows/test.yml/badge.svg)](https://github.com/zmanim/zman/actions/workflows/test.yml)
+[![Latest Stable Version](https://poser.pugx.org/zmanim/zman/v/stable.svg)](https://packagist.org/packages/zmanim/zman)
+[![Total Downloads](https://img.shields.io/packagist/dt/zmanim/zman.svg?style=flat-square)](https://packagist.org/packages/zmanim/zman)
 
 > A Jewish date converter and helper
 
