@@ -18,8 +18,8 @@ trait Getters
     public function comingShabbos()
     {
         return $this->dayOfWeek !== Carbon::SATURDAY
-            ? (clone $this)->next('Saturday')
-            : $this;
+            ? $this->copy()->next('Saturday')
+            : $this->copy();
     }
 
     /**
