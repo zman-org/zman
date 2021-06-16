@@ -3,10 +3,10 @@
   Zman
 </h1>
 
-[![License](https://poser.pugx.org/zmanim/zman/license)](//packagist.org/packages/zmanim/zman)
+[![License](https://poser.pugx.org/zman/zman/license)](//packagist.org/packages/zman/zman)
 [![Test](https://github.com/zmanim/zman/actions/workflows/test.yml/badge.svg)](https://github.com/zmanim/zman/actions/workflows/test.yml)
-[![Latest Stable Version](https://poser.pugx.org/zmanim/zman/v/stable.svg)](https://packagist.org/packages/zmanim/zman)
-[![Total Downloads](https://img.shields.io/packagist/dt/zmanim/zman.svg?style=flat-square)](https://packagist.org/packages/zmanim/zman)
+[![Latest Stable Version](https://poser.pugx.org/zman/zman/v/stable.svg)](https://packagist.org/packages/zman/zman)
+[![Total Downloads](https://img.shields.io/packagist/dt/zman/zman.svg?style=flat-square)](https://packagist.org/packages/zman/zman)
 
 > A Jewish date converter and helper
 
