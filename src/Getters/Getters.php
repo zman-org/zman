@@ -2,11 +2,25 @@
 
 namespace Zman\Getters;
 
+use Carbon\Carbon;
+
 trait Getters
 {
     use MDY;
     use Parsha;
     use Holidays;
+
+    /**
+     * Get the date of the next Shabbos.
+     *
+     * @return $this
+     */
+    public function comingShabbos()
+    {
+        return $this->dayOfWeek !== Carbon::SATURDAY
+            ? (clone $this)->next('Saturday')
+            : $this;
+    }
 
     /**
      * Attach properties to the Zman object so

@@ -51,11 +51,16 @@ trait Parsha
     /**
      * Get the current week's Parsha.
      *
-     * @return string
+     * @return string|null
      */
     private function parshasHashavua($galus = null)
     {
         $galus = $this->getGalusMode($galus);
+
+        // Yuntif does not have a parsha
+        if ($this->comingShabbos()->isYuntif()) {
+            return null;
+        }
 
         // Breishis is the first Shabbos after Simchas Torah
         $simchasTorah = self::dayOfSimchasTorah($this->jewishYear, $galus);

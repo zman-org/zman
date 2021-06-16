@@ -13,6 +13,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Breishis', Zman::parse('10/27/16')->parsha);
         $this->assertEquals('Breishis', Zman::parse('10/28/16')->parsha);
         $this->assertEquals('Breishis', Zman::parse('10/29/16')->parsha);
+
         $this->assertEquals('בראשית', Zman::parse('10/26/16')->parshaHebrew);
 
         $this->assertNotEquals('Breishis', Zman::parse('10/30/16')->parsha);
@@ -120,7 +121,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Shmini', Zman::parse('3/28/19')->parsha);
         $this->assertEquals('Tazria', Zman::parse('4/4/19')->parsha);
         $this->assertEquals('Metzora', Zman::parse('4/11/19')->parsha);
-        $this->assertEquals('Acharei Mos', Zman::parse('4/21/19')->parsha);
+        $this->assertEquals(null, Zman::parse('4/21/19')->parsha);
         $this->assertEquals('Acharei Mos', Zman::parse('4/29/19')->parsha);
         $this->assertEquals('Acharei Mos', Zman::parse('5/2/19')->parsha);
         $this->assertEquals('Kedoshim', Zman::parse('5/9/19')->parsha);
@@ -252,7 +253,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Nitzavim', Zman::parse('9/29/16')->parsha);
         $this->assertEquals('Vayelech', Zman::parse('10/6/16')->parsha);
         $this->assertEquals('Haazinu', Zman::parse('9/21/17')->parsha);
-        $this->assertEquals('Vezos Haberacha', Zman::parse('9/26/17')->parsha);
+        $this->assertEquals(null, Zman::parse('9/26/17')->parsha);
         $this->assertEquals('נצבים', Zman::parse('9/29/16')->parshaHebrew);
         $this->assertEquals('וילך', Zman::parse('10/6/16')->parshaHebrew);
         $this->assertEquals('האזינו', Zman::parse('9/21/17')->parshaHebrew);
@@ -272,5 +273,13 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Haazinu', Zman::parse('9/21/17')->parsha);
 
         $this->assertEquals('האזינו', Zman::parse('9/21/17')->parshaHebrew);
+    }
+
+    /** @test */
+    public function yuntif_does_not_have_a_parsha()
+    {
+        $this->assertEquals('Tzav', Zman::parse('03/25/21')->parsha);
+        $this->assertEquals(null, Zman::parse('04/02/21')->parsha);
+        $this->assertEquals('Shmini', Zman::parse('04/04/21')->parsha);
     }
 }
