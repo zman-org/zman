@@ -21,7 +21,18 @@ class Zman extends Carbon
     use LeapYears;
     use DaysOfTheWeek;
 
+    /**
+     * The instance's jewish date.
+     *
+     * @var array
+     */
     protected $jdate;
+
+    /**
+     * Global flag for Galus Mode.
+     *
+     * @var bool
+     */
     protected $galus = true;
 
     /**
@@ -36,10 +47,33 @@ class Zman extends Carbon
     {
         parent::__construct($time, $tz);
 
-        $carbon = Carbon::parse($time);
-        list($this->jdate['month'], $this->jdate['day'], $this->jdate['year'])
-            = explode('/', toJewish($carbon->month, $carbon->day, $carbon->year));
+        if ($time) {
+            $carbon = Carbon::parse($time);
+
+            list(
+                $this->jdate['month'], $this->jdate['day'], $this->jdate['year']
+            ) = explode('/', toJewish($carbon->month, $carbon->day, $carbon->year));
+        }
     }
+
+    /**
+     * Create a Carbon instance from a DateTime one.
+     *
+     * @param \DateTimeInterface $date
+     *
+     * @return static
+     */
+    public static function instance($date)
+    {
+        $instance = parent::instance($date);
+
+        list(
+            $instance->jdate['month'], $instance->jdate['day'], $instance->jdate['year']
+        ) = explode('/', toJewish($instance->month, $instance->day, $instance->year));
+
+        return $instance;
+    }
+
 
     /**
      * Create a new instance from a Jewish date.

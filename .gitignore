@@ -4,3 +4,4 @@
 Icon?
 test-results/
 .php-cs-fixer.cache
+.phpunit.result.cache
