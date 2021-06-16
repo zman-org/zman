@@ -261,7 +261,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Nitzavim', Zman::parse('9/25/19')->parsha);
         $this->assertEquals('Vayelech', Zman::parse('10/2/19')->parsha);
         $this->assertEquals('Haazinu', Zman::parse('10/7/19')->parsha);
-        $this->assertEquals('Vezos Haberacha', Zman::parse('10/16/19')->parsha);
+        $this->assertEquals(null, Zman::parse('10/16/19')->parsha);
         $this->assertEquals('נצבים', Zman::parse('9/25/19')->parshaHebrew);
         $this->assertEquals('וילך', Zman::parse('10/2/19')->parshaHebrew);
         $this->assertEquals('האזינו', Zman::parse('10/7/19')->parshaHebrew);

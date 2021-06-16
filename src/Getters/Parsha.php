@@ -58,7 +58,7 @@ trait Parsha
         $galus = $this->getGalusMode($galus);
 
         // Yuntif does not have a parsha
-        if ($this->comingShabbos()->isYuntif()) {
+        if ($this->comingShabbos()->isYuntif() || $this->comingShabbos()->isCholHamoed()) {
             return null;
         }
 
