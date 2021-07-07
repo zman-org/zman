@@ -11,16 +11,10 @@ trait Omer
      */
     public function getOmerCount()
     {
-        if ($this->jewishMonth == 8 && $this->jewishDay >= 16) {
-            return $this->jewishDay - 15;
-        }
-        if ($this->jewishMonth == 9) {
-            return $this->jewishDay + 15;
-        }
-        if ($this->jewishMonth == 10 && $this->jewishDay <= 5) {
-            return $this->jewishDay + 44;
-        }
+        $count = $this->diffInDays(
+            static::firstDayOfPesach($this->jewishYear)
+        );
 
-        return 0;
+        return $count > 0 && $count < 50 ? $count : null;
     }
 }
