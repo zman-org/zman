@@ -10,6 +10,7 @@ trait Moadim
     use CholHamoed;
     use RoshChodesh;
     use AseresYimeiTeshuva;
+    use Omer;
 
     /**
      * Get if we're set to Galus or Israel.
