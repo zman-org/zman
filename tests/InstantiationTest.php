@@ -25,6 +25,8 @@ class InstantiationTest extends \PHPUnit\Framework\TestCase
     {
         $zman = Zman::now();
         $this->assertInstanceOf(Zman::class, $zman);
+        $this->assertIsString($zman->toFormattedDateString());
+        $this->assertIsString($zman->toFormattedJewishHebrewDateString());
     }
 
     /** @test */
