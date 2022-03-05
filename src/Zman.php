@@ -83,4 +83,16 @@ class Zman extends Carbon
     {
         return toSecular($month, $day, $year);
     }
+
+    /**
+     * Create a new instance from a string of Jewish date.
+     *
+     * @param  string $str
+     * @return \Zman\Zman
+     */
+    public static function createFromStringJewishDate($str)
+    {
+        $jewishDate = strToJewishDate($str);
+        return toSecular(...$jewishDate);
+    }
 }
