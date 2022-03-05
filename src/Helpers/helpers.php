@@ -6,6 +6,7 @@ use Zman\Exceptions\InvalidDateException;
 
 require_once 'holidays.php';
 require_once 'parshios.php';
+require_once 'strToJewishDate.php';
 
 if (!function_exists('toSecular')) {
     /**
