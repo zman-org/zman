@@ -24,14 +24,14 @@
     },
     "require": {
         "php": ">=7.1.8",
-        "nesbot/carbon": "^2.49",
-        "phpunit/phpunit": "^9.5"
+        "nesbot/carbon": "^2.49"
     },
     "require-dev": {
         "spatie/phpunit-watcher": "^1.23",
         "vimeo/psalm": "^4.7",
         "friendsofphp/php-cs-fixer": "^3.0",
-        "symfony/var-dumper": "^5.3"
+        "symfony/var-dumper": "^5.3",
+        "phpunit/phpunit": "^9.6"
     },
     "scripts": {
         "psalm": "vendor/bin/psalm",
