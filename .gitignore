@@ -1,7 +1,5 @@
 .idea/
-.DS_Store
-/vendor
-Icon?
-test-results/
+.phpunit.cache
 .php-cs-fixer.cache
-.phpunit.result.cache
+vendor/
+test-results/

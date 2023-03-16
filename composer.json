@@ -1,5 +1,5 @@
 {
-    "name": "zman/zman",
+    "name": "zman-org/zman",
     "description": "A Jewish date converter and helper.",
     "license": "MIT",
     "keywords": [
@@ -8,36 +8,26 @@
         "conversion",
         "converter"
     ],
-    "authors": [
-        {
-            "name": "Ari Miller",
-            "email": "arimiller92@gmail.com"
-        }
-    ],
     "autoload": {
         "files": [
             "src/Helpers/helpers.php"
         ],
         "psr-4": {
-            "Zman\\": "src/" 
+            "Zman\\": "src/"
         }
     },
     "require": {
-        "php": ">=7.1.8",
-        "nesbot/carbon": "^2.49"
+        "nesbot/carbon": "^2.66"
     },
     "require-dev": {
-        "spatie/phpunit-watcher": "^1.23",
-        "vimeo/psalm": "^4.7",
-        "friendsofphp/php-cs-fixer": "^3.0",
-        "symfony/var-dumper": "^5.3",
-        "phpunit/phpunit": "^9.6"
+        "symfony/var-dumper": "^6.2",
+        "phpunit/phpunit": "^10.0",
+        "phpstan/phpstan": "^1.10",
+        "friendsofphp/php-cs-fixer": "^3.15"
     },
     "scripts": {
-        "psalm": "vendor/bin/psalm",
-        "lint": "vendor/bin/php-cs-fixer fix",
-        "test": "vendor/bin/phpunit",
-        "test-watch": "vendor/bin/phpunit-watcher watch",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "lint:fix": "php-cs-fixer fix --config='.php-cs-fixer.php.dist' $(if [ ! -z $CI ]; then echo '--format=checkstyle'; fi)",
+        "lint:test": "@lint:fix --dry-run",
+        "test": "phpunit"
     }
 }

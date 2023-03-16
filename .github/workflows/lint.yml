@@ -1,21 +1,24 @@
-name: Lint
+name: lint
 
-on: pull_request
+on:
+  push:
+  pull_request:
 
 jobs:
-  php-cs-fixer:
-    name: php-cs check
+  lint:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
-    - name: Setup PHP
-      uses: shivammathur/setup-php@master
-      with:
-        php-version: 8.0
-        coverage: none
-        tools: cs2pr
-    - name: Install dependencies
-      run: composer i
-    - name: Run linter
-      run: ./vendor/bin/php-cs-fixer fix --dry-run --diff --format=checkstyle | cs2pr
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@master
+        with:
+          tools: cs2pr
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Execute linter
+        run: composer run-script lint:test | cs2pr
