@@ -14,6 +14,8 @@ jobs:
 
       - name: Setup PHP
         uses: shivammathur/setup-php@master
+        with:
+          tools: cs2pr
 
       - name: Install dependencies
         run: composer install
