@@ -2,8 +2,6 @@ name: test
 
 on:
   push:
-    paths:
-      - "**.php"
   pull_request:
 
 jobs:
