@@ -6,11 +6,8 @@ trait CholHamoed
 {
     /**
      * Checks if the date is Chol HaMoed.
-     *
-     * @param  bool $galus
-     * @return bool
      */
-    public function isCholHamoed($galus = null)
+    public function isCholHamoed(?bool $galus = null): bool
     {
         return $this->isCholHamoedPesach($galus) || $this->isCholHamoedSukkos($galus);
     }
@@ -19,11 +16,8 @@ trait CholHamoed
      * Chol Hamoed Pesach lasts from the 17th of
      * Nissan to the 20th of Nissan in Galus,
      * and also includes the 16th in E"Y.
-     *
-     * @param  bool $galus
-     * @return bool
      */
-    public function isCholHamoedPesach($galus = null)
+    public function isCholHamoedPesach(?bool $galus = null): bool
     {
         $galus = $this->getGalusMode($galus);
 
@@ -36,11 +30,8 @@ trait CholHamoed
      * Chol Hamoed Sukkos lasts from the 17th of
      * Tishrei to the 21st of Tishrei in Galus,
      * and also includes the 16th in E"Y.
-     *
-     * @param  bool $galus
-     * @return bool
      */
-    public function isCholHamoedSukkos($galus = null)
+    public function isCholHamoedSukkos(?bool $galus = null): bool
     {
         $galus = $this->getGalusMode($galus);
 

@@ -6,18 +6,15 @@ trait Parsha
 {
     /**
      * Get the parsha in this format.
-     *
-     * @var string
+     * 
+     * @var 'english'|'hebrew' $format
      */
-    protected $format;
+    protected string $format;
 
     /**
      * Get the parshas hashavua in English.
-     *
-     * @param  bool   $galus
-     * @return string
      */
-    public function parshasHashavuaEnglish($galus = null)
+    public function parshasHashavuaEnglish(?bool $galus = null): ?string
     {
         $this->format = 'english';
 
@@ -26,11 +23,8 @@ trait Parsha
 
     /**
      * Get the parshas hashavua in Hebrew.
-     *
-     * @param  bool   $galus
-     * @return string
      */
-    public function parshasHashavuaHebrew($galus = null)
+    public function parshasHashavuaHebrew(?bool $galus = null): ?string
     {
         $this->format = 'hebrew';
 
@@ -39,21 +33,16 @@ trait Parsha
 
     /**
      * Look up the parsha by its index.
-     *
-     * @param  int  $index
-     * @return string
      */
-    private function parshios($index, $format = null)
+    private function parshios(int $index, ?string $format = null): ?string
     {
-        return PARSHIOS[$index][$format ?? $this->format];
+        return PARSHIOS[$index][$format ?? $this->format] ?? null;
     }
 
     /**
      * Get the current week's Parsha.
-     *
-     * @return string|null
      */
-    private function parshasHashavua($galus = null)
+    private function parshasHashavua(?bool $galus = null): ?string
     {
         $galus = $this->getGalusMode($galus);
 
@@ -72,7 +61,7 @@ trait Parsha
         // Until Adar everything goes in order
         // If it is a regular year the 4 are doubled
         $offset = 0;
-        $shabbos = $this->diffInWeeks($shabbosBereishis->addDay()) + 1;
+        $shabbos = (int) $this->diffInWeeks($shabbosBereishis->addDay(), absolute: true) + 1;
 
         $p = static::firstDayOfPesach($this->jewishYear);
         if ($this->gt($p)) {
@@ -81,10 +70,18 @@ trait Parsha
         }
 
         if (!$this->isJewishLeapYear()) {
-            $offset += $shabbos > 21 ? 1 : 0;
+            $firstDayOfPesach = self::firstDayOfPesach($this->jewishYear, $galus);
+            $shabbosHagadol = $firstDayOfPesach->copy()->subWeek()->addDays(6 - $firstDayOfPesach->dayOfWeek);
+            $weeksBetweenShabbosBereishisAndShabbosHagadol = (int) $shabbosHagadol->diffInWeeks($shabbosBereishis, absolute: true);
+
+            $offset += $shabbos > 21 && $weeksBetweenShabbosBereishisAndShabbosHagadol < 23 ? 1 : 0;
             $offset += $shabbos >= 27 ? 1 : 0;
             $offset += $shabbos >= 28 ? 1 : 0;
             $offset += $shabbos > 29 ? 1 : 0;
+
+            if($shabbos === 21 && $weeksBetweenShabbosBereishisAndShabbosHagadol >= 23) {
+                return $this->parshios($shabbos + $offset);
+            }
 
             if ($shabbos === 21 || $shabbos === 26 || $shabbos === 27 || $shabbos === 29) {
                 return $this->parshios($shabbos + $offset).' - '.$this->parshios($shabbos + $offset + 1);

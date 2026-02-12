@@ -32,11 +32,8 @@ class Hebcal
     /**
      * Split a number into an array of parts which
      * corresponds with Hebrew gematria values.
-     *
-     * @param  string|int $number
-     * @return array
      */
-    private static function numberToArray($number)
+    private static function numberToArray(int $number): array
     {
         $result = [];
         while ($number > 0) {
@@ -60,11 +57,8 @@ class Hebcal
 
     /**
      * Convert a number to Hebrew.
-     *
-     * @param  string|int $number
-     * @return string
      */
-    public static function numberToHebrew($number)
+    public static function numberToHebrew(int $number): string
     {
         $arr = static::numberToArray($number);
         $digits = count($arr);

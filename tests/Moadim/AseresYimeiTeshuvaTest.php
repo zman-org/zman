@@ -2,11 +2,12 @@
 
 namespace Test\Moadim;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 
 class AseresYimeiTeshuvaTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function checks_if_it_is_the_aseres_yimei_teshuva()
     {
         $this->assertTrue(Zman::parse('September 21, 2017')->isAseresYimeiTeshuva());

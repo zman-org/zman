@@ -3,13 +3,17 @@
 namespace Zman;
 
 use Carbon\Carbon;
-use Zman\Moadim\Moadim;
+use Carbon\Month;
+use Carbon\WeekDay;
+use DateTimeInterface;
+use DateTimeZone;
 use Zman\Formats\Formats;
 use Zman\Getters\Getters;
+use Zman\Helpers\DaysOfTheWeek;
+use Zman\Helpers\LeapYears;
+use Zman\Moadim\Moadim;
 use Zman\Setters\Setters;
 use Zman\Tefilos\Tefilos;
-use Zman\Helpers\LeapYears;
-use Zman\Helpers\DaysOfTheWeek;
 
 class Zman extends Carbon
 {
@@ -23,29 +27,31 @@ class Zman extends Carbon
 
     /**
      * The instance's jewish date.
-     *
-     * @var array
      */
-    protected $jdate;
+    protected array $jdate = [];
 
     /**
      * Global flag for Galus Mode.
-     *
-     * @var bool
      */
-    protected $galus = true;
+    protected bool $galus = true;
 
     /**
      * Zman inherits from Carbon which in turn
      * inherits from \DateTime. This allows
      * us access to tons of nifty stuff.
-     *
-     * @param string $time
-     * @param string $tz
      */
-    public function __construct($time = null, $tz = null)
-    {
-        parent::__construct($time, $tz);
+    public function __construct(
+        DateTimeInterface|WeekDay|Month|string|int|float|null $time = null,
+        DateTimeZone|string|int|null $timezone = null,
+        /** @deprecated */
+        DateTimeZone|string|int|null $tz = null,
+    ){
+        // Backward compatibility for tz parameter, Carbon names it "timezone"
+        if (!$timezone && $tz) {
+            $timezone = $tz;
+        }
+
+        parent::__construct($time, $timezone);
 
         list(
             $this->jdate['month'], $this->jdate['day'], $this->jdate['year']
@@ -54,12 +60,8 @@ class Zman extends Carbon
 
     /**
      * Create a Carbon instance from a DateTime one.
-     *
-     * @param \DateTimeInterface $date
-     *
-     * @return static
      */
-    public static function instance($date)
+    public static function instance(DateTimeInterface $date): static
     {
         $instance = parent::instance($date);
 
@@ -73,13 +75,8 @@ class Zman extends Carbon
 
     /**
      * Create a new instance from a Jewish date.
-     *
-     * @param  string|int $year
-     * @param  string|int $month
-     * @param  string|int $day
-     * @return \Zman\Zman
      */
-    public static function createFromJewishDate($year, $month, $day)
+    public static function createFromJewishDate(int $year, int $month, int $day): static
     {
         return toSecular($month, $day, $year);
     }

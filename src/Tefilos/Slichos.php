@@ -2,14 +2,14 @@
 
 namespace Zman\Tefilos;
 
+use Zman\Zman;
+
 trait Slichos
 {
     /**
      * Checks if the day has Slichos.
-     *
-     * @return bool
      */
-    public function hasSlichos($sfardi = false)
+    public function hasSlichos(bool $sfardi = false): bool
     {
         return !($this->isShabbos() && !$this->isYomKippur())
             && ($this->isAseresYimeiTeshuva()
@@ -19,44 +19,32 @@ trait Slichos
 
     /**
      * Checks if there are Slichos because of Elul.
-     *
-     * @param  bool $sfardi
-     * @return bool
      */
-    public function isElulSlichos($sfardi = false)
+    public function isElulSlichos(bool $sfardi = false): bool
     {
         return $this->jewishMonth === 13 && $this->gte(static::firstDayOfSlichos($this->jewishYear, $sfardi));
     }
 
     /**
      * Gets the first day of Slichos before the Yomim Noraim.
-     *
-     * @param  bool   $sfardi
-     * @return \Zman\Zman
      */
-    public static function firstDayOfSlichos($year, $sfardi = false)
+    public static function firstDayOfSlichos(int $year, bool $sfardi = false): Zman
     {
         return !$sfardi ? static::firstDayOfAshkenaziSlichos($year) : static::firstDayOfSfardiSlichos($year);
     }
 
     /**
      * Gets the first day of Slichos for Sfaradim.
-     *
-     * @param  bool   $sfardi
-     * @return \Zman\Zman
      */
-    public static function firstDayOfSfardiSlichos($year)
+    public static function firstDayOfSfardiSlichos(int $year): Zman
     {
         return toSecular(13, 1, $year);
     }
 
     /**
      * Gets the first day of Slichos for Ashkenazim.
-     *
-     * @param  bool   $sfardi
-     * @return \Zman\Zman
      */
-    public static function firstDayOfAshkenaziSlichos($year)
+    public static function firstDayOfAshkenaziSlichos(int $year): Zman
     {
         $dayOfRoshHashana = static::firstDayOfRoshHashana($year + 1);
 

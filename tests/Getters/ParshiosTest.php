@@ -2,11 +2,12 @@
 
 namespace Test\Getters;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 
 class ParshiosTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function the_first_week_after_simchas_torah_is_breishis()
     {
         $this->assertEquals('Breishis', Zman::parse('10/26/16')->parsha);
@@ -19,7 +20,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertNotEquals('Breishis', Zman::parse('10/30/16')->parsha);
     }
 
-    /** @test */
+    #[Test]
     public function sunday_through_shabbos_all_are_part_of_the_parsha_normally()
     {
         $this->assertEquals('Noach', Zman::parse('10/30/16')->parsha);
@@ -33,7 +34,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('נח', Zman::parse('10/30/16')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function until_vayakhel_the_parshios_go_in_order_after_breishis()
     {
         $this->assertEquals('Noach', Zman::parse('10/30/16')->parsha);
@@ -46,7 +47,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Mishpatim', Zman::parse('2/22/17')->parsha);
     }
 
-    /** @test */
+    #[Test]
     public function during_a_regular_year_the_4_are_doubled()
     {
         $this->assertEquals('Ki Sisa', Zman::parse('3/16/17')->parsha);
@@ -74,7 +75,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('נשא', Zman::parse('6/1/17')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function during_a_leap_year_the_4_are_separated()
     {
         $this->assertEquals('Ki Sisa', Zman::parse('2/29/24')->parsha);
@@ -110,7 +111,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('נשא', Zman::parse('6/13/24')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function during_a_year_the_last_day_of_pesach_is_shabbos_we_skip_another_week_in_galus()
     {
         $this->assertEquals('Ki Sisa', Zman::parse('2/21/19')->parsha);
@@ -132,7 +133,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Naso', Zman::parse('6/13/19')->parsha);
     }
 
-    /** @test */
+    #[Test]
     public function during_a_normal_year_chukas_and_balak_are_separate()
     {
         $this->assertEquals('Korach', Zman::parse('6/24/17')->parsha);
@@ -146,7 +147,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('פנחס', Zman::parse('7/15/17')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function when_shavuos_starts_on_a_friday_chukas_and_balak_are_together_in_galus()
     {
         $this->assertEquals('Bamidbar', Zman::parse('5/20/23')->parsha);
@@ -164,7 +165,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('פנחס', Zman::parse('7/8/23')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function even_when_shavuos_starts_on_a_friday_chukas_and_balak_are_separate_in_israel()
     {
         $this->assertEquals('Korach', Zman::parse('6/17/23')->parshaInIsrael);
@@ -178,7 +179,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('פנחס', Zman::parse('7/8/23')->parshaInIsraelHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function galus_mode_can_be_set_globally()
     {
         $date = Zman::parse('6/17/23')->setGalusMode(false);
@@ -190,7 +191,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('Korach', $date->parshaInIsrael);
     }
 
-    /** @test */
+    #[Test]
     public function matos_and_masei_are_read_together_usually()
     {
         $this->assertEquals('Pinchas', Zman::parse('7/13/17')->parsha);
@@ -202,7 +203,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('דברים', Zman::parse('7/27/17')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function matos_and_masei_are_read_together_during_a_regular_leap_year()
     {
         $this->assertEquals('Pinchas', Zman::parse('7/25/24')->parsha);
@@ -214,7 +215,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('דברים', Zman::parse('8/8/24')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function matos_and_masei_are_separate_if_a_leap_year_started_on_thursday()
     {
         $this->assertEquals('Pinchas', Zman::parse('7/14/11')->parsha);
@@ -228,7 +229,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('דברים', Zman::parse('8/4/11')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function matos_and_masei_are_separate_in_a_leap_year_in_israel_if_the_last_day_of_pesach_was_sabbos()
     {
         $this->assertEquals('Matos', Zman::parse('7/28/16')->parshaInIsrael);
@@ -238,7 +239,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('מסעי', Zman::parse('8/4/16')->parshaInIsraelHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function netzavim_and_vayelech_are_usually_together()
     {
         $this->assertEquals('Nitzavim - Vayelech', Zman::parse('9/14/17')->parsha);
@@ -247,7 +248,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('נצבים - וילך', Zman::parse('9/14/17')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function netzavim_and_vayelech_are_separate_when_there_are_two_shabbosim_between_rosh_hashana_and_sukkos()
     {
         $this->assertEquals('Nitzavim', Zman::parse('9/29/16')->parsha);
@@ -267,7 +268,7 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('האזינו', Zman::parse('10/7/19')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function haazinu_is_after_rosh_hashana_of_the_next_year()
     {
         $this->assertEquals('Haazinu', Zman::parse('9/21/17')->parsha);
@@ -275,11 +276,25 @@ class ParshiosTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('האזינו', Zman::parse('9/21/17')->parshaHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function yuntif_does_not_have_a_parsha()
     {
         $this->assertEquals('Tzav', Zman::parse('03/25/21')->parsha);
         $this->assertEquals(null, Zman::parse('04/02/21')->parsha);
         $this->assertEquals('Shmini', Zman::parse('04/04/21')->parsha);
+    }
+
+    #[Test]
+    public function vayakheil_pekudei_in_longer_year_issues_33()
+    {
+        $this->assertEquals('Vayakheil', Zman::parse('03/22/2025')->parsha);
+        $this->assertEquals('Pekudei', Zman::parse('03/29/2025')->parsha);
+
+        // Wikipedia says this should be Vayakheil https://en.wikipedia.org/wiki/Pekudei but
+        // Acording to https://www.chabad.org/calendar/view/day.asp?tdate=3/14/2037 
+        // and https://www.hebcal.com/sedrot/5797?i=off it should be together
+        $this->assertEquals('Vayakheil - Pekudei', Zman::parse('03/14/2037')->parsha);
+
+        $this->assertEquals('Vayakheil', Zman::parse('03/11/2045')->parsha);
     }
 }

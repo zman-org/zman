@@ -6,21 +6,16 @@ trait Leining
 {
     /**
      * Checks if the day has Krias HaTorah.
-     *
-     * @return bool
      */
-    public function hasLeining($minyan = null)
+    public function hasLeining(?string $minyan = null): bool
     {
         return (bool) $this->leiningAt($minyan);
     }
 
     /**
      * Determine the leining for a minyan of the day.
-     *
-     * @param  string|null $minyan
-     * @return string|null
      */
-    public function leiningAt($minyan)
+    public function leiningAt(?string $minyan): ?string
     {
         if ($minyan === 'shacharis' || $minyan === null) {
             if ($this->isYomKippur()) {
@@ -84,5 +79,6 @@ trait Leining
                 return 'Taanis Tzibbur';
             }
         }
+        return null;
     }
 }

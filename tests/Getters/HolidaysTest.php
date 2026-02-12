@@ -2,11 +2,12 @@
 
 namespace Test\Getters;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 
 class HolidaysTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function it_gets_a_summary_of_the_days_holidays_in_english()
     {
         $zman = Zman::parse('April 11, 2017');
@@ -15,7 +16,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(['Pesach'], $zman->holidays);
     }
 
-    /** @test */
+    #[Test]
     public function it_gets_a_summary_of_the_days_holidays_in_hebrew()
     {
         $zman = Zman::parse('April 11, 2017');
@@ -24,7 +25,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(['פסח'], $zman->holidaysHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_multiple_entries_when_there_are_coinciding_holidays()
     {
         $zman = Zman::parse('December 30, 2016');
@@ -36,7 +37,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(['ראש חודש', 'חנוכה'], $zman->holidaysHebrew);
     }
 
-    /** @test */
+    #[Test]
     public function it_returns_empty_when_there_are_no_holidays()
     {
         $zman = Zman::parse('Jan 27, 2019');

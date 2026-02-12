@@ -2,53 +2,54 @@
 
 namespace Test\Helpers;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 
 class DaysOfTheWeekTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function sunday()
     {
         $this->assertTrue($zman = Zman::parse('January 1, 2017')->isSunday());
         $this->assertFalse($zman = Zman::parse('January 2, 2017')->isSunday());
     }
 
-    /** @test */
+    #[Test]
     public function monday()
     {
         $this->assertTrue($zman = Zman::parse('January 2, 2017')->isMonday());
         $this->assertFalse($zman = Zman::parse('January 3, 2017')->isMonday());
     }
 
-    /** @test */
+    #[Test]
     public function tuesday()
     {
         $this->assertTrue($zman = Zman::parse('January 3, 2017')->isTuesday());
         $this->assertFalse($zman = Zman::parse('January 4, 2017')->isTuesday());
     }
 
-    /** @test */
+    #[Test]
     public function wednesday()
     {
         $this->assertTrue($zman = Zman::parse('January 4, 2017')->isWednesday());
         $this->assertFalse($zman = Zman::parse('January 5, 2017')->isWednesday());
     }
 
-    /** @test */
+    #[Test]
     public function thursday()
     {
         $this->assertTrue($zman = Zman::parse('January 5, 2017')->isThursday());
         $this->assertFalse($zman = Zman::parse('January 6, 2017')->isThursday());
     }
 
-    /** @test */
+    #[Test]
     public function friday()
     {
         $this->assertTrue($zman = Zman::parse('January 6, 2017')->isFriday());
         $this->assertFalse($zman = Zman::parse('January 7, 2017')->isFriday());
     }
 
-    /** @test */
+    #[Test]
     public function shabbos()
     {
         $this->assertTrue($zman = Zman::parse('January 7, 2017')->isShabbos());

@@ -6,10 +6,8 @@ trait LeapYears
 {
     /**
      * Checks if the Jewish year is meubar.
-     *
-     * @return bool
      */
-    public function isJewishLeapYear()
+    public function isJewishLeapYear(): bool
     {
         return isJewishLeapYear($this->jewishYear);
     }

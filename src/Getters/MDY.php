@@ -6,12 +6,9 @@ trait MDY
 {
     /**
      * Get the Jewish month name in English.
-     *
-     * @param  string|int $month
-     * @param  string|int $year
-     * @return string
+
      */
-    public function jewishMonthNameEnglish($month, $year)
+    public function jewishMonthNameEnglish(int $month, int $year): string
     {
         return [
             'Tishrei', 'Cheshvan', 'Kislev', 'Teives', 'Shvat',
@@ -22,12 +19,8 @@ trait MDY
 
     /**
      * Get the Jewish month name in Hebrew.
-     *
-     * @param  string|int $month
-     * @param  string|int $year
-     * @return string
      */
-    public function jewishMonthNameHebrew($month, $year)
+    public function jewishMonthNameHebrew(int $month, int $year): string
     {
         return [
             'תשרי', 'חשון', 'כסלו', 'טבת', 'שבט',
@@ -38,22 +31,16 @@ trait MDY
 
     /**
      * Get the Jewish day in Hebrew.
-     *
-     * @param  string|int $day
-     * @return string
      */
-    public function jewishDayHebrew($day)
+    public function jewishDayHebrew(int $day): string
     {
         return toHebrewNumber($day);
     }
 
     /**
      * Get the Jewish year in Hebrew.
-     *
-     * @param  string|int $day
-     * @return string
      */
-    public function jewishYearHebrew($year)
+    public function jewishYearHebrew(int $year): string
     {
         return toHebrewNumber($year % 1000);
     }

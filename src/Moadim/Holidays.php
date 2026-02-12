@@ -2,136 +2,102 @@
 
 namespace Zman\Moadim;
 
+use Zman\Zman;
+
 trait Holidays
 {
     /**
      * Gets the first day of Pesach for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function firstDayOfPesach($year)
+    public static function firstDayOfPesach(int $year): Zman
     {
         return toSecular(8, 15, $year);
     }
 
     /**
      * Gets the day of Pesach Sheni for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfPesachSheni($year)
+    public static function dayOfPesachSheni(int $year): Zman
     {
         return toSecular(9, 14, $year);
     }
 
     /**
      * Gets the first day of Shavuos for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function firstDayOfShavuos($year)
+    public static function firstDayOfShavuos(int $year): Zman
     {
         return toSecular(10, 6, $year);
     }
 
     /**
      * Gets the first day of Rosh Hashana for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function firstDayOfRoshHashana($year)
+    public static function firstDayOfRoshHashana(int $year): Zman
     {
         return toSecular(1, 1, $year);
     }
 
     /**
      * Gets the first day of Sukkos for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function firstDayOfSukkos($year)
+    public static function firstDayOfSukkos(int $year): Zman
     {
         return toSecular(1, 15, $year);
     }
 
     /**
      * Gets the day of Shmini Atzeres for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfShminiAtzeres($year)
+    public static function dayOfShminiAtzeres(int $year): Zman
     {
         return toSecular(1, 22, $year);
     }
 
     /**
      * Gets the day of Simchas Torah for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfSimchasTorah($year, $galus = true)
+    public static function dayOfSimchasTorah(int $year, bool $galus = true): Zman
     {
         return toSecular(1, $galus ? 23 : 22, $year);
     }
 
     /**
      * Gets the first day of Chanuka for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function firstDayOfChanuka($year)
+    public static function firstDayOfChanuka(int $year): Zman
     {
         return toSecular(3, 25, $year);
     }
 
     /**
      * Gets the day of Tu Bishvat for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfTuBishvat($year)
+    public static function dayOfTuBishvat(int $year): Zman
     {
         return toSecular(5, 15, $year);
     }
 
     /**
      * Gets the day of Purim for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfPurim($year)
+    public static function dayOfPurim(int $year): Zman
     {
         return toSecular(7, 14, $year);
     }
 
     /**
      * Gets the day of Shushan Purim for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfShushanPurim($year)
+    public static function dayOfShushanPurim(int $year): Zman
     {
         return toSecular(7, 15, $year)->isSaturday() ? toSecular(7, 16, $year) : toSecular(7, 15, $year);
     }
 
     /**
      * Gets the day of Purim Kattan for a given Jewish year.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfPurimKattan($year)
+    public static function dayOfPurimKattan(int $year): Zman
     {
         return toSecular(6, 14, $year);
     }
@@ -139,11 +105,8 @@ trait Holidays
     /**
      * Pesach is from the 15th to the 22nd of Nisan in
      * Galus, and from the 15th to the 21st in E"Y.
-     *
-     * @param  bool $galus
-     * @return bool
      */
-    public function isPesach($galus = null)
+    public function isPesach(?bool $galus = null): bool
     {
         $galus = $this->getGalusMode($galus);
 
@@ -153,10 +116,8 @@ trait Holidays
 
     /**
      * Pesach Sheni is the 14th of Iyar.
-     *
-     * @return bool
      */
-    public function isPesachSheni()
+    public function isPesachSheni(): bool
     {
         return $this->isSameDay(static::dayOfPesachSheni($this->jewishYear));
     }
@@ -164,11 +125,8 @@ trait Holidays
     /**
      * Shavuos is on the 6th and 7th of Sivan in
      * Galus, while it's just the 6th in E"Y.
-     *
-     * @param  bool $galus
-     * @return bool
      */
-    public function isShavuos($galus = null)
+    public function isShavuos(?bool $galus = null): bool
     {
         $galus = $this->getGalusMode($galus);
 
@@ -177,30 +135,24 @@ trait Holidays
 
     /**
      * Sukkos is from the 15th to the 21st of Tishrei.
-     *
-     * @return bool
      */
-    public function isSukkos()
+    public function isSukkos(): bool
     {
         return $this->jewishMonth === 1 && $this->jewishDay >= 15 && $this->jewishDay <= 21;
     }
 
     /**
      * Rosh Hashana is the first two days of Tishrei.
-     *
-     * @return bool
      */
-    public function isRoshHashana()
+    public function isRoshHashana(): bool
     {
         return $this->jewishMonth === 1 && ($this->jewishDay === 1 || $this->jewishDay === 2);
     }
 
     /**
      * Shmini Atzeres is the 22nd day of Tishrei.
-     *
-     * @return bool
      */
-    public function isShminiAtzeres()
+    public function isShminiAtzeres(): bool
     {
         return $this->jewishMonth === 1 && $this->jewishDay === 22;
     }
@@ -209,10 +161,8 @@ trait Holidays
      * Simchas Torah is the 23rd day of Tishrei in
      * Galus, and the 22nd in E"Y. Ashrei Ha'am
      * SheHaShem Eloikov!!!!!!!!!!!!!!!!!!!!
-     *
-     * @return bool
      */
-    public function isSimchasTorah($galus = null)
+    public function isSimchasTorah(?bool $galus = null): bool
     {
         $galus = $this->getGalusMode($galus);
 
@@ -221,10 +171,8 @@ trait Holidays
 
     /**
      * Chanuka is 8 days from the 25th of Kislev.
-     *
-     * @return bool
      */
-    public function isChanuka()
+    public function isChanuka(): bool
     {
         return $this->gte(static::firstDayOfChanuka($this->jewishYear))
             && $this->lte(static::firstDayOfChanuka($this->jewishYear)->addDays(7)->endOfDay());
@@ -232,10 +180,8 @@ trait Holidays
 
     /**
      * Tu Bishvat is the 15th of Shvat.
-     *
-     * @return bool
      */
-    public function isTuBishvat()
+    public function isTuBishvat(): bool
     {
         return $this->isSameDay(static::dayOfTuBishvat($this->jewishYear));
     }
@@ -243,10 +189,8 @@ trait Holidays
     /**
      * Purim is the 14th of Adar, or the 14th of
      * Adar Sheini when the year is meuberes.
-     *
-     * @return bool
      */
-    public function isPurim()
+    public function isPurim(): bool
     {
         return $this->isSameDay(static::dayOfPurim($this->jewishYear));
     }
@@ -254,20 +198,16 @@ trait Holidays
     /**
      * Shushan Purim is usually 15th of Adar, but it
      * gets pushed to the 16th if it was Shabbos.
-     *
-     * @return bool
      */
-    public function isShushanPurim()
+    public function isShushanPurim(): bool
     {
         return $this->isSameDay(static::dayOfShushanPurim($this->jewishYear));
     }
 
     /**
      * Purim Kattan is the 14th of Adar Rishon.
-     *
-     * @return bool
      */
-    public function isPurimKattan()
+    public function isPurimKattan(): bool
     {
         return $this->isSameDay(static::dayOfPurimKattan($this->jewishYear));
     }

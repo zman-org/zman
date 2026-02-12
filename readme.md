@@ -10,6 +10,6 @@
 
 > A Jewish date converter and helper
 
-For installation, setup, and usage, please refer to the official [documentation](https://zmanim.github.io/).
+For installation, setup, and usage, please refer to the official [documentation](https://zman-docs.pintend.com/).
 
 For contributions, questions, comments, or bug reports please use the [issue tracker](https://github.com/zmanim/zman/issues) for this repository.

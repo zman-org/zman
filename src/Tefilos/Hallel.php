@@ -6,10 +6,8 @@ trait Hallel
 {
     /**
      * Checks if the day has Hallel.
-     *
-     * @return bool
      */
-    public function hasHallel($galus = null)
+    public function hasHallel(?bool $galus = null): bool
     {
         return $this->isPesach($galus)
             || $this->isShavuos($galus)

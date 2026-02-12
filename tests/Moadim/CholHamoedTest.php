@@ -2,11 +2,12 @@
 
 namespace Test\Moadim;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 
 class CholHamoedTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function checks_if_it_is_chol_hamoed()
     {
         $this->assertTrue(Zman::parse('April 13, 2017')->isCholHamoed());
@@ -15,7 +16,7 @@ class CholHamoedTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('October 24, 2016')->isCholHamoed());
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_chol_hamoed_pesach()
     {
         $this->assertTrue(Zman::parse('April 12, 2017')->isCholHamoedPesach(false)); // For E"Y
@@ -28,7 +29,7 @@ class CholHamoedTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('April 17, 2017')->isCholHamoedPesach());
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_chol_hamoed_sukkos()
     {
         $this->assertTrue(Zman::parse('October 18, 2016')->isCholHamoedSukkos(false)); // For E"Y

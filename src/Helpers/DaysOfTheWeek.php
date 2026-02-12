@@ -6,10 +6,8 @@ trait DaysOfTheWeek
 {
     /**
      * Checks if the day is Shabbos.
-     *
-     * @return bool
      */
-    public function isShabbos()
+    public function isShabbos(): bool
     {
         return $this->isSaturday();
     }

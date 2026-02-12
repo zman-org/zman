@@ -2,11 +2,12 @@
 
 namespace Test\Moadim;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 
 class OmerTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function checks_omer_count()
     {
         $this->assertEquals(1, Zman::parse('March 29, 2021')->getOmerCount());

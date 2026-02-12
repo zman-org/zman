@@ -2,72 +2,62 @@
 
 namespace Zman\Setters;
 
+use Carbon\Carbon;
+
 trait Setters
 {
     /**
      * Allow for setting the Zman's properties
      * via the Magic SET methods for a nice
      * and familiar syntax. That's cool!
-     *
-     * @param  string $name
-     * @return mixed
+     * 
+     * @param string $name
+     * @param string|int|DateTimeZone $value
      */
-    public function __set($name, $value)
+    public function __set($name, $value): void
     {
-        switch ($name) {
-            case 'jewishDay':
-                return $this->setJewishDate($this->jewishMonth, $value, $this->jewishYear);
-            case 'jewishMonth':
-                return $this->setJewishDate($value, $this->jewishDay, $this->jewishYear);
-            case 'jewishYear':
-                return $this->setJewishDate($this->jewishMonth, $this->jewishDay, $value);
-            default:
-                return parent::__set($name, $value);
-        }
+        match ($name) {
+            'jewishDay' => $this->setJewishDate($this->jewishMonth, $value, $this->jewishYear),
+            'jewishMonth' => $this->setJewishDate($value, $this->jewishDay, $this->jewishYear),
+            'jewishYear' => $this->setJewishDate($this->jewishMonth, $this->jewishDay, $value),
+            default => parent::__set($name, $value),
+        };
     }
 
     /**
      * Explicitly set the Jewish day without any validation.
-     *
-     * @param  string|int $value
-     * @return $this
      */
-    public function jewishDay($value)
+    public function jewishDay(int $value): static
     {
-        return $this->__set('jewishDay', $value);
+        $this->__set('jewishDay', $value);
+
+        return $this;
     }
 
     /**
      * Explicitly set the Jewish month without any validation.
-     *
-     * @param  string|int $value
-     * @return $this
      */
-    public function jewishMonth($value)
+    public function jewishMonth(int $value): static
     {
-        return $this->__set('jewishMonth', $value);
+        $this->__set('jewishMonth', $value);
+
+        return $this;
     }
 
     /**
      * Explicitly set the Jewish year without any validation.
-     *
-     * @param  string|int $value
-     * @return $this
      */
-    public function jewishYear($value)
+    public function jewishYear(int $value): static
     {
-        return $this->__set('jewishYear', $value);
+        $this->__set('jewishYear', $value);
+
+        return $this;
     }
 
     /**
      * Explicitly set the date without any validation.
-     *
-     * @param  string|int $month
-     * @param  string|int $day
-     * @param  string|int $year
-     * @return $this
      */
-    public function setJewishDate($month, $day, $year)
+    public function setJewishDate(int $month, int $day, int $year): static
     {
         $this->jdate['month'] = (int) $month;
         $this->jdate['day'] = (int) $day;
@@ -78,9 +68,9 @@ trait Setters
 
     /**
      * Update the Jewish date when performing modifications.
-     *
-     * @param  string $modify
-     * @return $this
+     * 
+     * @param string $modify
+     * @return static
      */
     public function modify($modify)
     {

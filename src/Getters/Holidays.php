@@ -6,31 +6,24 @@ trait Holidays
 {
     /**
      * Get the day's holidays in English.
-     *
-     * @return array
      */
-    public function holidaysEnglish()
+    public function holidaysEnglish(): array
     {
         return $this->holidays('english');
     }
 
     /**
      * Get the day's holidays in Hebrew.
-     *
-     * @return array
      */
-    public function holidaysHebrew()
+    public function holidaysHebrew(): array
     {
         return $this->holidays('hebrew');
     }
 
     /**
      * Get the day's holidays.
-     *
-     * @param  string  $format
-     * @return array
      */
-    private function holidays($format)
+    private function holidays(string $format): array
     {
         $holidays = [];
 

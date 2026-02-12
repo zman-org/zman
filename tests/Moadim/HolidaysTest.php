@@ -2,12 +2,13 @@
 
 namespace Test\Moadim;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 use Zman\Exceptions\InvalidDateException;
 
 class HolidaysTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function gets_the_first_day_of_pesach()
     {
         $this->assertEquals(11, Zman::firstDayOfPesach('5777')->day);
@@ -15,7 +16,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2017, Zman::firstDayOfPesach('5777')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_pesach()
     {
         $this->assertTrue(Zman::parse('April 11, 2017')->isPesach());
@@ -31,7 +32,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('April 19, 2017')->isPesach());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_day_of_pesach_sheni()
     {
         $this->assertEquals(10, Zman::dayOfPesachSheni('5777')->day);
@@ -39,14 +40,14 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2017, Zman::dayOfPesachSheni('5777')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_pesach_sheni()
     {
         $this->assertTrue(Zman::parse('May 10, 2017')->isPesachSheni());
         $this->assertFalse(Zman::parse('May 11, 2017')->isPesachSheni());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_first_day_of_shavuos()
     {
         $this->assertEquals(31, Zman::firstDayOfShavuos('5777')->day);
@@ -54,7 +55,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2017, Zman::firstDayOfShavuos('5777')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_shavuos()
     {
         $this->assertTrue(Zman::parse('May 31, 2017')->isShavuos());
@@ -64,7 +65,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('June 2, 2017')->isShavuos());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_first_day_of_rosh_hashana()
     {
         $this->assertEquals(3, Zman::firstDayOfRoshHashana('5777')->day);
@@ -72,7 +73,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2016, Zman::firstDayOfRoshHashana('5777')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_rosh_hashana()
     {
         $this->assertTrue(Zman::parse('October 3, 2016')->isRoshHashana());
@@ -81,7 +82,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('December 20, 2017')->isRoshHashana());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_first_day_of_sukkos()
     {
         $this->assertEquals(17, Zman::firstDayOfSukkos('5777')->day);
@@ -89,7 +90,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2016, Zman::firstDayOfSukkos('5777')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_sukkos()
     {
         $this->assertTrue(Zman::parse('October 17, 2016')->isSukkos());
@@ -103,7 +104,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('October 24, 2016')->isSukkos());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_day_of_shmini_atzeres()
     {
         $this->assertEquals(24, Zman::dayOfShminiAtzeres('5777')->day);
@@ -111,14 +112,14 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2016, Zman::dayOfShminiAtzeres('5777')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_shmini_atzeres()
     {
         $this->assertTrue(Zman::parse('October 24, 2016')->isShminiAtzeres());
         $this->assertFalse(Zman::parse('October 25, 2016')->isShminiAtzeres());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_day_of_simchas_torah()
     {
         // For Galus
@@ -132,7 +133,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2016, Zman::dayOfSimchasTorah('5777', false)->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_simchas_torah()
     {
         $this->assertTrue(Zman::parse('October 25, 2016')->isSimchasTorah());
@@ -141,7 +142,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('October 24, 2016')->isSimchasTorah());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_first_day_of_chanuka()
     {
         $chanuka = Zman::firstDayOfChanuka('5777');
@@ -151,7 +152,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2016, $chanuka->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_chanuka()
     {
         // When Kislev has 29 days
@@ -181,7 +182,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('December 21, 2017')->isChanuka());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_day_of_tu_bishvat()
     {
         $this->assertEquals(11, Zman::dayOfTuBishvat('5777')->day);
@@ -189,14 +190,14 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2017, Zman::dayOfTuBishvat('5777')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_tu_bshvat()
     {
         $this->assertTrue(Zman::parse('February 11, 2017')->isTuBishvat());
         $this->assertFalse(Zman::parse('February 12, 2017')->isTuBishvat());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_day_of_purim()
     {
         $this->assertEquals(12, Zman::dayOfPurim('5777')->day);
@@ -204,7 +205,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2017, Zman::dayOfPurim('5777')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_purim()
     {
         // Regular Year
@@ -216,7 +217,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('February 19, 2019')->isPurim());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_day_of_shushan_purim()
     {
         // Regular Year
@@ -230,7 +231,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2021, Zman::dayOfShushanPurim('5781')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_shushan_purim()
     {
         // Regular Year
@@ -242,7 +243,7 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('February 19, 2019')->isShushanPurim());
     }
 
-    /** @test */
+    #[Test]
     public function gets_the_day_of_purim_kattan()
     {
         $this->assertEquals(19, Zman::dayOfPurimKattan('5779')->day);
@@ -250,14 +251,14 @@ class HolidaysTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2019, Zman::dayOfPurimKattan('5779')->year);
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_purim_kattan()
     {
         $this->assertTrue(Zman::parse('February 19, 2019')->isPurimKattan());
         $this->assertFalse(Zman::parse('March 21, 2019')->isPurimKattan());
     }
 
-    /** @test */
+    #[Test]
     public function throws_an_exception_if_purim_kattan_doesnt_exist()
     {
         $this->expectException(InvalidDateException::class);

@@ -12,10 +12,8 @@ trait Getters
 
     /**
      * Get the date of the next Shabbos.
-     *
-     * @return $this
      */
-    public function comingShabbos()
+    public function comingShabbos(): static
     {
         return $this->dayOfWeek !== Carbon::SATURDAY
             ? $this->copy()->next('Saturday')
@@ -26,11 +24,8 @@ trait Getters
      * Attach properties to the Zman object so
      * they may be accessed conveniently by
      * the familiar GET property syntax.
-     *
-     * @param  string $name
-     * @return mixed
      */
-    public function __get($name)
+    public function __get(string $name): mixed
     {
         switch ($name) {
             case 'jewishMonth':

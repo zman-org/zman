@@ -2,11 +2,12 @@
 
 namespace Test\Moadim;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 
 class YuntifTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function checks_if_it_is_the_yuntif_of_pesach()
     {
         $this->assertTrue(Zman::parse('April 11, 2017')->isPesachYuntif());
@@ -25,7 +26,7 @@ class YuntifTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('April 19, 2017')->isPesachYuntif());
     }
 
-    /** @test */
+    #[Test]
     public function all_of_shavuos_is_a_yuntif()
     {
         $this->assertTrue(Zman::parse('May 31, 2017')->isYuntif());
@@ -35,7 +36,7 @@ class YuntifTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('June 2, 2017')->isYuntif());
     }
 
-    /** @test */
+    #[Test]
     public function checks_if_it_is_the_yuntif_of_sukkos()
     {
         $this->assertTrue(Zman::parse('October 17, 2016')->isSukkosYuntif());
@@ -50,33 +51,33 @@ class YuntifTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('October 24, 2016')->isSukkosYuntif());
     }
 
-    /** @test */
+    #[Test]
     public function all_of_rosh_hashana_is_a_yuntif()
     {
         $this->assertTrue(Zman::parse('October 3, 2016')->isYuntif());
         $this->assertTrue(Zman::parse('October 4, 2016')->isYuntif());
     }
 
-    /** @test */
+    #[Test]
     public function yom_kippur_is_a_yuntif()
     {
         $this->assertTrue(Zman::parse('October 12, 2016')->isYuntif());
     }
 
-    /** @test */
+    #[Test]
     public function shmini_atzeres_is_a_yuntif()
     {
         $this->assertTrue(Zman::parse('October 24, 2016')->isYuntif());
     }
 
-    /** @test */
+    #[Test]
     public function simchas_torah_is_a_yuntif()
     {
         $this->assertTrue(Zman::parse('October 25, 2016')->isYuntif());
         $this->assertFalse(Zman::parse('October 25, 2016')->isYuntif(false));
     }
 
-    /** @test */
+    #[Test]
     public function chanuka_is_not_a_yuntif()
     {
         $this->assertFalse(Zman::parse('December 17, 2017')->isYuntif());

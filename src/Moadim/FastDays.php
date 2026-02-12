@@ -2,15 +2,15 @@
 
 namespace Zman\Moadim;
 
+use Zman\Zman;
+
 trait FastDays
 {
     /**
      * Checks if the date is any one
      * of the fast days.
-     *
-     * @return bool
      */
-    public function isFastDay()
+    public function isFastDay(): bool
     {
         return $this->isYomKippur()
             || $this->isTzomGedaliah()
@@ -22,21 +22,16 @@ trait FastDays
 
     /**
      * Yom Kippur is always the 10th of Tishrei.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfYomKippur($year)
+    public static function dayOfYomKippur(int $year): Zman
     {
         return toSecular(1, 10, $year);
     }
 
     /**
      * Checks if the day is Yom Kippur.
-     *
-     * @return bool
      */
-    public function isYomKippur()
+    public function isYomKippur(): bool
     {
         return $this->isSameDay(static::dayOfYomKippur($this->jewishYear));
     }
@@ -45,11 +40,8 @@ trait FastDays
      * Tzom Gedaliah falls on the 3rd of Tishrei, unless
      * it occurs on Shabbos in which case it is moved
      * to the following day, the 4th of the month.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfTzomGedaliah($year)
+    public static function dayOfTzomGedaliah(int $year): Zman
     {
         $tzom = toSecular(1, 3, $year);
 
@@ -58,31 +50,24 @@ trait FastDays
 
     /**
      * Checks if the day is Tzom Gedaliah.
-     *
-     * @return bool
      */
-    public function isTzomGedaliah()
+    public function isTzomGedaliah(): bool
     {
         return $this->isSameDay(static::dayOfTzomGedaliah($this->jewishYear));
     }
 
     /**
      * Asara Biteives always falls on the 10th of Teives.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfAsaraBiteives($year)
+    public static function dayOfAsaraBiteives(int $year): Zman
     {
         return toSecular(4, 10, $year);
     }
 
     /**
      * Checks if the day is Asara Biteives.
-     *
-     * @return bool
      */
-    public function isAsaraBiteives()
+    public function isAsaraBiteives(): bool
     {
         return $this->isSameDay(static::dayOfAsaraBiteives($this->jewishYear));
     }
@@ -91,11 +76,8 @@ trait FastDays
      * Taanis Esther falls on the 13th of Adar, unless Purim falls
      * on a Sunday, in which case the taanis is moved up to the
      * preceding Thursday because it is not dochech Shabbos.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfTaanisEsther($year)
+    public static function dayOfTaanisEsther(int $year): Zman
     {
         $tzom = toSecular(7, 13, $year);
 
@@ -104,10 +86,8 @@ trait FastDays
 
     /**
      * Checks if the day is Taanis Esther.
-     *
-     * @return bool
      */
-    public function isTaanisEsther()
+    public function isTaanisEsther(): bool
     {
         return $this->isSameDay(static::dayOfTaanisEsther($this->jewishYear));
     }
@@ -115,11 +95,8 @@ trait FastDays
     /**
      * Shiva Asar Bitamuz is usually the 17th of Tamuz,
      * unless it's Shabbos, then it will be nidcheh.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfShivaAsarBitamuz($year)
+    public static function dayOfShivaAsarBitamuz(int $year): Zman
     {
         $tzom = toSecular(11, 17, $year);
 
@@ -128,10 +105,8 @@ trait FastDays
 
     /**
      * Checks if the day is Shiva Asar Bitamuz.
-     *
-     * @return bool
      */
-    public function isShivaAsarBitamuz()
+    public function isShivaAsarBitamuz(): bool
     {
         return $this->isSameDay(static::dayOfShivaAsarBitamuz($this->jewishYear));
     }
@@ -140,11 +115,8 @@ trait FastDays
      * Tisha Bav falls on the 9th of Av, unless that
      * day is Shabbos in which case it is nidcheh
      * to the 10th of the month, the next day.
-     *
-     * @param  string|int $year
-     * @return \Zman\Zman
      */
-    public static function dayOfTishaBav($year)
+    public static function dayOfTishaBav(int $year): Zman
     {
         $tzom = toSecular(12, 9, $year);
 
@@ -153,10 +125,8 @@ trait FastDays
 
     /**
      * Checks if the day is Tisha Bav.
-     *
-     * @return bool
      */
-    public function isTishaBav()
+    public function isTishaBav(): bool
     {
         return $this->isSameDay(static::dayOfTishaBav($this->jewishYear));
     }

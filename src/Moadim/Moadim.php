@@ -17,20 +17,16 @@ trait Moadim
      *
      * @param  bool $galus We can manually choose to override the setting for
      * this function call
-     * @return bool
      */
-    public function getGalusMode($galus = null)
+    public function getGalusMode(?bool $galus = null): bool
     {
         return $galus ?? $this->galus;
     }
 
     /**
      * Set to either Galus or Israel.
-     *
-     * @param  bool $galus
-     * @return \Zman\Zman
      */
-    public function setGalusMode($galus)
+    public function setGalusMode(bool $galus): static
     {
         $this->galus = $galus;
 

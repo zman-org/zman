@@ -2,11 +2,12 @@
 
 namespace Test;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 
 class InheritanceTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function it_inherits_some_getters_from_Carbon()
     {
         $zman = new Zman('first day of November 2016');
@@ -14,7 +15,7 @@ class InheritanceTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $zman->dayOfWeek);
     }
 
-    /** @test */
+    #[Test]
     public function it_inherits_modifiers_for_days_and_handles_them_properly()
     {
         $zman = new Zman('November 12, 2016');
@@ -27,7 +28,7 @@ class InheritanceTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($zman->subDays(2)->isFriday());
     }
 
-    /** @test */
+    #[Test]
     public function it_inherits_comparisons_from_Carbon()
     {
         $this->assertTrue(Zman::parse('November 12, 2016')->gt(Zman::parse('November 11, 2016')));
@@ -35,7 +36,7 @@ class InheritanceTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse(Zman::parse('November 12, 2016')->lt(Zman::parse('November 11, 2016')));
     }
 
-    /** @test */
+    #[Test]
     public function it_inherits_difference_methods_from_Carbon()
     {
         $this->assertEquals(2, Zman::parse('November 12, 2016')->diffInDays(Zman::parse('November 14, 2016')));

@@ -6,10 +6,8 @@ trait Mussaf
 {
     /**
      * Checks if the day has Mussaf.
-     *
-     * @return bool
      */
-    public function hasMussaf()
+    public function hasMussaf(): bool
     {
         return $this->isRoshChodesh()
             || $this->isYuntif()

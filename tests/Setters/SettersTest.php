@@ -2,11 +2,12 @@
 
 namespace Test\Setters;
 
+use PHPUnit\Framework\Attributes\Test;
 use Zman\Zman;
 
 class SettersTest extends \PHPUnit\Framework\TestCase
 {
-    /** @test */
+    #[Test]
     public function it_sets_jewish_days_via_magic_setters()
     {
         $zman = new Zman('November 7, 2016');
@@ -18,7 +19,7 @@ class SettersTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(10, $zman->jewishDay);
     }
 
-    /** @test */
+    #[Test]
     public function it_sets_jewish_days_via_setters_methods()
     {
         $zman = new Zman('November 7, 2016');
@@ -30,7 +31,7 @@ class SettersTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(10, $zman->jewishDay);
     }
 
-    /** @test */
+    #[Test]
     public function it_sets_jewish_months_via_magic_setters()
     {
         $zman = new Zman('November 7, 2016');
@@ -42,7 +43,7 @@ class SettersTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(10, $zman->jewishMonth);
     }
 
-    /** @test */
+    #[Test]
     public function it_sets_jewish_months_via_setters_methods()
     {
         $zman = new Zman('November 7, 2016');
@@ -54,7 +55,7 @@ class SettersTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(10, $zman->jewishMonth);
     }
 
-    /** @test */
+    #[Test]
     public function it_sets_jewish_years_via_magic_setters()
     {
         $zman = new Zman('November 7, 2016');
@@ -66,7 +67,7 @@ class SettersTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(5000, $zman->jewishYear);
     }
 
-    /** @test */
+    #[Test]
     public function it_sets_jewish_years_via_setters_methods()
     {
         $zman = new Zman('November 7, 2016');
@@ -78,7 +79,7 @@ class SettersTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(5000, $zman->jewishYear);
     }
 
-    /** @test */
+    #[Test]
     public function it_still_inherits_setters_from_Carbon()
     {
         $zman = new Zman('November 7, 2016');
@@ -89,7 +90,7 @@ class SettersTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(5000, $zman->year);
     }
 
-    /** @test */
+    #[Test]
     public function it_still_inherits_setters_errors_from_Carbon()
     {
         $zman = new Zman('November 7, 2016');
